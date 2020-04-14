@@ -14,10 +14,10 @@ To get started, simply clone the repository and run `npm install`
 
 ```
 # Clone the repo
-git clone https://github.com/codebushi/nextjs-starter-forty.git
+git clone https://github.com/lacymorrow/susanmorrow.com.git
 
 # Move into the new directory
-cd nextjs-starter-forty/
+cd susanmorrow.com
 
 # Install npm packages
 npm install
