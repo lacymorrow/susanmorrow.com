@@ -33,24 +33,10 @@ export default () => (
                     </article>
                     <article style={{backgroundImage: `url('/static/images/pic04.jpg')`}}>
                         <header className="major">
-                            <h3>Life Coaching</h3>
-                            <p>Help with love, business, and family relationshps.</p>
-                        </header>
-                        <Link href="/coaching"><a className="link primary"></a></Link>
-                    </article>
-                    <article style={{backgroundImage: `url('/static/images/pic05.jpg')`}}>
-                        <header className="major">
-                            <h3>Couples Weekend</h3>
-                            <p>Weekend intensive session are available for faster progress, scheduling convenience.</p>
-                        </header>
-                        <Link href="/weekend"><a className="link primary"></a></Link>
-                    </article>
-                    <article style={{backgroundImage: `url('/static/images/pic06.jpg')`}}>
-                        <header className="major">
                             <h3>Video Therapy</h3>
                             <p>Distance is no issue. Virtual meetings are available.</p>
                         </header>
-                        <Link href="/remote"><a className="link primary"></a></Link>
+                        <Link href="/coaching"><a className="link primary"></a></Link>
                     </article>
                 </section>
                 <section id="two">
