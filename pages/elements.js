@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 
 export default () => (
     <Layout>
@@ -361,24 +361,24 @@ export default () => (
                                 <h3>Image</h3>
 
                                 <h4>Fit</h4>
-                                <span className="image fit"><img src="/static/images/pic03.jpg" alt="" /></span>
+                                <span className="image fit"><img src="/images/pic03.jpg" alt="" /></span>
                                 <div className="box alt">
                                     <div className="row 50% uniform">
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic08.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic09.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic10.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic10.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic08.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic09.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic09.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic10.jpg" alt="" /></span></div>
-                                        <div className="4u"><span className="image fit"><img src="/static/images/pic08.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic08.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic09.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic10.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic10.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic08.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic09.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic09.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic10.jpg" alt="" /></span></div>
+                                        <div className="4u"><span className="image fit"><img src="/images/pic08.jpg" alt="" /></span></div>
                                     </div>
                                 </div>
 
                                 <h4>Left &amp; Right</h4>
-                                <p><span className="image left"><img src="/static/images/pic09.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget tempus vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
-                                <p><span className="image right"><img src="/static/images/pic10.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget tempus vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+                                <p><span className="image left"><img src="/images/pic09.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget tempus vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
+                                <p><span className="image right"><img src="/images/pic10.jpg" alt="" /></span>Lorem ipsum dolor sit accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget tempus vestibulum ante ipsum primis in faucibus magna blandit adipiscing eu felis iaculis.</p>
 
                                 <h3>Box</h3>
                                 <div className="box">

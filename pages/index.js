@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 import Banner from '../components/Banner'
 
 export default () => (
@@ -10,28 +10,28 @@ export default () => (
 
             <div id="main">
                 <section id="one" className="tiles">
-                    <article style={{backgroundImage: `url('/static/images/pic01.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/pic01.jpg')`}}>
                         <header className="major">
                             <h3>Individual</h3>
                             <p>Life strategies. Relationships. Coping tools for stress.</p>
                         </header>
                         <Link href="/individual"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/static/images/pic02.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/pic02.jpg')`}}>
                         <header className="major">
                             <h3>Couples</h3>
                             <p>Develop a relationship that lasts through difficult times.</p>
                         </header>
                         <Link href="/couples"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/static/images/pic03.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/pic03.jpg')`}}>
                         <header className="major">
                             <h3>Families</h3>
                             <p>Family Business Coaching, Relationship Coaching, Life Coaching.</p>
                         </header>
-                        <Link href="/families"><a className="link primary"></a></Link>
+                        <Link href="/family"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/static/images/pic04.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/pic04.jpg')`}}>
                         <header className="major">
                             <h3>Video Therapy</h3>
                             <p>Distance is no issue. Virtual meetings are available.</p>

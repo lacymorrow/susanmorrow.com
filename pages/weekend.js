@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 
 export default () => (
     <Layout>
@@ -16,7 +16,7 @@ export default () => (
                         <h1>Couples Intensive Therapy</h1>
                         <blockquote>Weekend intensive session are available for faster progress, scheduling convenience.</blockquote>
                     </header>
-                    <span className="image main"><img src="/static/images/pic11.jpg" alt="" /></span>
+                    <span className="image main"><img src="/images/pic11.jpg" alt="" /></span>
                     <p>Whether you wish to fast forward your progress towards healthy intimacy,  or revitalize a marriage in serious distress, couples intensives can be a wake up a marriage. Spending private time together over one or two days, couples intensives are designed to help you to refocus on your intimacy and build emotional connectivity. This relationship focused experience is designed to help you and your partner to develop the safe, secure, loving bond you have been longing for.</p>
                     <p>Do you seek  improvement in your communication? Are you longing for a deeper connection? Is renewed hope what you long for?</p>
                     <p>Couples Intensives are 4 hours of couples therapy over each day. To make the most of your experience, for a two day intensive, I recommend a hotel stay the evening of day one. When you take the time away from your routines, the focus on your relationship will be enhanced.</p>

@@ -1,6 +1,6 @@
 import Head from "next/head"
 
-import Layout from '../components/Layout'
+import Layout from '../components/layout'
 
 export default () => (
     <Layout>
@@ -16,7 +16,7 @@ export default () => (
                         <h1>Life Coaching</h1>
                         <blockquote>Help with love, business, and family relationshps.</blockquote>
                     </header>
-                    <span className="image main"><img src="/static/images/pic11.jpg" alt="" /></span>
+                    <span className="image main"><img src="/images/pic11.jpg" alt="" /></span>
                     <p></p>
                 </div>
             </section>
