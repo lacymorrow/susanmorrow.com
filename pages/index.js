@@ -3,6 +3,12 @@ import Link from 'next/link'
 import Layout from '../components/layout'
 import Banner from '../components/Banner'
 
+/*
+Life Strategies, Successful Transitions, Navigating Relationships, Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.
+Goal-focused Coping Tools. Individual Therapy. Life Coaching.
+
+*/
+
 export default () => (
     <Layout>
         <div>
@@ -10,28 +16,28 @@ export default () => (
 
             <div id="main">
                 <section id="one" className="tiles">
-                    <article style={{backgroundImage: `url('/images/pic01.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-individual.jpg')`}}>
                         <header className="major">
                             <h3>Individual</h3>
                             <p>Life strategies. Relationships. Coping tools for stress.</p>
                         </header>
                         <Link href="/individual"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/images/pic02.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-couples.jpg')`}}>
                         <header className="major">
                             <h3>Couples</h3>
                             <p>Develop a relationship that lasts through difficult times.</p>
                         </header>
                         <Link href="/couples"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/images/pic03.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-families-2.jpg')`}}>
                         <header className="major">
                             <h3>Families</h3>
-                            <p>Family Business Coaching, Relationship Coaching, Life Coaching.</p>
+                            <p>Online Family Group Therapy during the Covid crisis.</p>
                         </header>
                         <Link href="/family"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/images/pic04.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-remote.jpg')`}}>
                         <header className="major">
                             <h3>Video Therapy</h3>
                             <p>Distance is no issue. Virtual meetings are available.</p>
@@ -44,7 +50,7 @@ export default () => (
                         <header className="major">
                             <h2>Meet Susan</h2>
                         </header>
-                        <p>EFT-rooted therapy with over 30 years in private practice. I have the experience, tools, and processes to get results. I provide services to individuals, couples, families, and groups. Cope with today's challenges, build a better future, and show up in each moment in your relationships.</p>
+                        <p>Susan uses EFT-rooted therapy with over 30 years in private practice. She has the experience, tools, and processes to get results. Susan provides services to individuals, couples, families, and groups. Cope with today's challenges, build a better future, and show up in each moment in your relationships.</p>
                         <ul className="actions">
                             <li><Link href="/about"><a className="button next">About Susan</a></Link></li>
                         </ul>

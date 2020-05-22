@@ -14,7 +14,7 @@ export default () => (
                 <div className="inner">
                     <header className="major">
                         <h1>Family Therapy</h1>
-                        <blockquote></blockquote>
+                        <blockquote>Build Stronger family bonds. Provide support for individual family members while going through personal struggles. Become a family that suports the health and wellness of all members.</blockquote>
                     </header>
                     <span className="image main"><img src="/images/pic11.jpg" alt="" /></span>
                     <p>Even the most distressed couples can restore their love relationships to renewed intimacy and marital satisfaction. I use the most highly regarded, evidence–based couples therapy approach available in North America. Based on 25 years of research by esteemed marriage expert John Gottman, PhD (The Gottman Institute, University of Washington) and the couples therapy processes of Emotionally–Focused Therapy developed by eminent attachment science researcher, Sue Johnson, PhD.</p>
