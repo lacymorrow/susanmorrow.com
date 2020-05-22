@@ -18,7 +18,7 @@ export default () => (
                 <section id="one">
                     <div className="inner">
                         <header className="major">
-                            <h2>30 yrs in private practice</h2>
+                            <h2>30 Years in Private Practice</h2>
                         </header>
                         <p>I offer individual therapy, couples counseling, pre-marital counseling, family therapy, and individual/couples distance coaching. My work is informed by depth psychology, strategic and family systems therapy, emotionally focused and attachment science, positive psychology, and mindfulness-based cognitive therapy approaches.</p>
                         <p>My approach provides you the support to help you to establish goals and actions for positive outcomes for your life and your relationships. I use the most effective, research-based methods available.</p>

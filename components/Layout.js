@@ -1,6 +1,7 @@
 import Head from "next/head"
 
 import Header from './Header'
+import Callout from './Callout'
 import Menu from './Menu'
 import Contact from './Contact'
 import Footer from './Footer'

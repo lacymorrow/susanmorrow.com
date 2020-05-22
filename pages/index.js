@@ -2,6 +2,7 @@ import Link from 'next/link'
 
 import Layout from '../components/layout'
 import Banner from '../components/Banner'
+import Callout from '../components/Callout'
 
 /*
 Life Strategies, Successful Transitions, Navigating Relationships, Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.
@@ -11,6 +12,7 @@ Goal-focused Coping Tools. Individual Therapy. Life Coaching.
 
 export default () => (
     <Layout>
+	    <Callout />
         <div>
             <Banner />
 
@@ -42,7 +44,7 @@ export default () => (
                             <h3>Video Therapy</h3>
                             <p>Distance is no issue. Virtual meetings are available.</p>
                         </header>
-                        <Link href="/coaching"><a className="link primary"></a></Link>
+                        <Link href="/video"><a className="link primary"></a></Link>
                     </article>
                 </section>
                 <section id="two">
