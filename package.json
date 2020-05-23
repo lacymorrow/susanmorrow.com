@@ -1,5 +1,5 @@
 {
-  "name": "learn-starter",
+  "name": "susanmorrow.com",
   "version": "0.1.0",
   "engines": {
     "node": "12.16.3"
@@ -11,7 +11,7 @@
     "start": "next start"
   },
   "dependencies": {
-    "next": "9.3.5",
+    "next": "9.4.2",
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "sass": "^1.26.5"
