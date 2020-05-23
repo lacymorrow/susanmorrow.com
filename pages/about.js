@@ -18,11 +18,11 @@ export default () => (
                 <section id="one">
                     <div className="inner">
                         <header className="major">
-                            <h2>30 Years in Private Practice</h2>
+                            <h2>Over 25 Years in Private Practice</h2>
                         </header>
                         <p>I offer individual therapy, couples counseling, pre-marital counseling, family therapy, and individual/couples distance coaching. My work is informed by depth psychology, strategic and family systems therapy, emotionally focused and attachment science, positive psychology, and mindfulness-based cognitive therapy approaches.</p>
                         <p>My approach provides you the support to help you to establish goals and actions for positive outcomes for your life and your relationships. I use the most effective, research-based methods available.</p>
-                        <p>With over 30 years in private practice, I have a solid base of experience and advanced professional education to provide well regarded psychotherapy, consultation, coaching, and training services to individuals, couples, families. I also offer professional supervision.</p>
+                        <p>With over 25 years in private practice, I have a solid base of experience and advanced professional education to provide well regarded psychotherapy, consultation, coaching, and training services to individuals, couples, families. I also offer professional supervision.</p>
                         <p>If you travel extensively, live, or work outside of the Charlotte area, I am available for remote individual and couples coaching services worldwide.</p>
                     </div>
                 </section>

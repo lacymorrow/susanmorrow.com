@@ -18,7 +18,7 @@ export default () => (
 
             <div id="main">
                 <section id="one" className="tiles">
-                    <article style={{backgroundImage: `url('/images/block-individual.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-individual-2.jpg')`}}>
                         <header className="major">
                             <h3>Individual</h3>
                             <p>Life strategies. Relationships. Stress coping tools.</p>
@@ -52,7 +52,7 @@ export default () => (
                         <header className="major">
                             <h2>Meet Susan</h2>
                         </header>
-                        <p>Susan uses EFT-rooted therapy with over 30 years in private practice. She has the experience, tools, and processes to get results. Susan provides services to individuals, couples, families, and groups. Cope with today's challenges, build a better future, and show up in each moment in your relationships.</p>
+                        <p>Susan has a calm, comforting preference and over 25 years in private practice. She has the experience, tools, and processes to get results. Susan provides services to individuals, couples, families, and groups. Cope with today's challenges, build a better future, and <em>be present</em> for each moment in your relationships.</p>
                         <ul className="actions">
                             <li><Link href="/about"><a className="button next">About Susan</a></Link></li>
                         </ul>
