@@ -25,7 +25,7 @@ export default () => (
                         </header>
                         <Link href="/individual"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/images/block-couples.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-couples-2.jpg')`}}>
                         <header className="major">
                             <h3>Couples</h3>
                             <p>Develop a relationship that lasts through difficult times.</p>
@@ -39,7 +39,7 @@ export default () => (
                         </header>
                         <Link href="/family"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/images/block-remote.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-video.jpg')`}}>
                         <header className="major">
                             <h3>Online Therapy</h3>
                             <p>Distance is no issue. Virtual meetings are available.</p>
