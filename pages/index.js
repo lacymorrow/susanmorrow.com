@@ -21,7 +21,7 @@ export default () => (
                     <article style={{backgroundImage: `url('/images/block-individual.jpg')`}}>
                         <header className="major">
                             <h3>Individual</h3>
-                            <p>Life strategies. Relationships. Coping tools for stress.</p>
+                            <p>Life strategies. Relationships. Stress coping tools.</p>
                         </header>
                         <Link href="/individual"><a className="link primary"></a></Link>
                     </article>
@@ -34,14 +34,14 @@ export default () => (
                     </article>
                     <article style={{backgroundImage: `url('/images/block-families-2.jpg')`}}>
                         <header className="major">
-                            <h3>Families</h3>
+                            <h3>Family</h3>
                             <p>Online Family Group Therapy during the Covid crisis.</p>
                         </header>
                         <Link href="/family"><a className="link primary"></a></Link>
                     </article>
                     <article style={{backgroundImage: `url('/images/block-remote.jpg')`}}>
                         <header className="major">
-                            <h3>Video Therapy</h3>
+                            <h3>Online Therapy</h3>
                             <p>Distance is no issue. Virtual meetings are available.</p>
                         </header>
                         <Link href="/video"><a className="link primary"></a></Link>

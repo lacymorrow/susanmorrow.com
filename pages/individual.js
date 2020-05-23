@@ -14,7 +14,7 @@ export default () => (
                 <div className="inner">
                     <header className="major">
                         <h1>Individual Therapy</h1>
-                        <blockquote>One-on-one counseling for adolescents, adults, and people of any age or background.</blockquote>
+                        <blockquote>Life Strategies, Successful Transitions, Stronger Relationships, Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss. Goal-focused Coping Tools. Individual Therapy and Life Coaching. Goal-focused Coping Tools. Individual Therapy and Life Coaching.</blockquote>
                     </header>
                     <span className="image main"><img src="/images/header-individual.jpg" alt="" /></span>
 
@@ -42,6 +42,7 @@ export default () => (
 		                </div>
 	                </div>
                 </div>
+                <p>One-on-one counseling for adolescents, adults, and people of any age or background.</p>
             </section>
         </div>
     </Layout>
