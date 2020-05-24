@@ -10,7 +10,7 @@ const Menu = (props) => (
                 <li><Link href="/individual"><a><span onClick={props.onToggleMenu}>Individual Therapy</span></a></Link></li>
                 <li><Link href="/couples"><a><span onClick={props.onToggleMenu}>Couples Therapy</span></a></Link></li>
                 <li><Link href="/family"><a><span onClick={props.onToggleMenu}>Family Counseling</span></a></Link></li>
-                <li><Link href="/video"><a><span onClick={props.onToggleMenu}>Remote Video Sessions</span></a></Link></li>
+                <li><Link href="/video"><a><span onClick={props.onToggleMenu}>Remote Online Sessions</span></a></Link></li>
             </ul>
             <ul className="actions vertical">
                 <li><a href="#contact" className="button special fit">Contact</a></li>

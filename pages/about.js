@@ -28,9 +28,7 @@ export default () => (
                 </section>
                 <section id="two" className="spotlights">
                     <section>
-                        <Link href="/generic">
-                            <a className="image"><img src="/images/pic08.jpg" alt="" /></a>
-                        </Link>
+                        <div className="image"><img src="/images/headshot.jpg" alt="" /></div>
                         <div className="content">
                             <div className="inner">
                                 <header className="major">
