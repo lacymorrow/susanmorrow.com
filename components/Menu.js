@@ -14,8 +14,8 @@ const Menu = (props) => (
                 <li><Link href="/video"><a><span onClick={props.onToggleMenu}>Remote Online Sessions</span></a></Link></li>
             </ul>
             <ul className="actions vertical">
-                <li><a href="#contact" className="button special fit">Contact</a></li>
-                <li><a href="/covid" className="button fit">COVID-19 Care</a></li>
+                <li><a href="#contact" onClick={props.onToggleMenu} className="button special fit">Contact</a></li>
+                <li><a href="/covid" onClick={props.onToggleMenu} className="button fit">COVID-19 Care</a></li>
             </ul>
         </div>
         <a className="close" onClick={props.onToggleMenu} href="#">Close</a>

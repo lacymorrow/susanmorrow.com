@@ -41,8 +41,8 @@ export default () => (
 		                    </ul>
 		                </div>
 	                </div>
+                	<p>One-on-one counseling for adolescents, adults, and people of any age or background.</p>
                 </div>
-                <p>One-on-one counseling for adolescents, adults, and people of any age or background.</p>
             </section>
         </div>
     </Layout>
