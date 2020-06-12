@@ -54,9 +54,9 @@ export default () => (
                                     <h3>Professional Affiliations</h3>
                                 </header>
                                 <ul>
+                                	<li>Lifetime member, International Centre for Excellence in Emotion Focused Couples Therapy</li>
                                 	<li>Founding board member, Carolinas Center for Emotionally Focused Therapy</li>
                                 	<li>Past President, South Central Piedmont Chapter of Marriage and Family Therapists</li>
-                                	<li>Lifetime member, International Centre for Excellence in Emotion Focused Couples Therapy</li>
                                 	<li>National Association of Social Workers</li>
                                 	<li>Professional Member, Mental Health America</li>
                                 	<li>Member of the Academy of Certified Social Workers</li>

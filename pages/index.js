@@ -52,7 +52,7 @@ export default () => (
                         <header className="major">
                             <h2>Meet Susan</h2>
                         </header>
-                        <p>Susan has a calm, comforting presence and over 25 years in private practice. She has the experience, tools, and processes to get results. Susan provides services to individuals, couples, families, and groups. Cope with today's challenges, build a better future, and <em>be present</em> for each moment in your relationships.</p>
+                        <p>Susan has a calm, comforting presence and over 25 years in private practice. She has the experience, tools, and processes to get results. Susan provides services to individuals, couples, families, and groups. Cope with today's challenges, build a better future, and <em>be present</em> for each moment in your relationships. Lifetime member of ICEEFT.</p>
                         <ul className="actions">
                             <li><Link href="/about"><a className="button next">About Susan</a></Link></li>
                         </ul>
