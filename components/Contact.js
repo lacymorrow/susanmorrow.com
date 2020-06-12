@@ -23,7 +23,7 @@ class Contact extends React.Component {
 		// AJAX request
 		const params = new URLSearchParams([...new FormData(e.target).entries()])
 
-		axios.post('http://susanmorrow.us/new/io.php', params)
+		axios.post('/io.php', params)
 		  .then(function (response) {
 		    console.log('response: ', response);
 		    return response
