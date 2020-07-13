@@ -14,12 +14,14 @@ export default () => (
                 <div className="inner">
                     <header className="major">
                         <h1>Individual Therapy</h1>
-                        <blockquote>Life Strategies, Successful Transitions, Stronger Relationships, Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss. Goal-focused Coping Tools. Individual Therapy and Life Coaching. Goal-focused Coping Tools. Individual Therapy and Life Coaching.</blockquote>
+                        <blockquote>Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</blockquote>
                     </header>
-                    <span className="image main"><img src="/images/header-individual.jpg" alt="" /></span>
+                    <span className="image main"><img src="/images/header-individual-2.jpg" alt="" /></span>
 
-                    <p>A rapidly changing culture routinely throws us curves. Stress is the new normal.<br />Therapy gives you tools to sustain yourself, and offers a map to put your life back on course.</p>
-                    <h4>We can work out</h4>
+                    <p>A rapidly changing culture routinely throws us curves.</p>
+                    <p>Individual Therapy helps with processing life experiences to create a more coherent sense of self.<br />I offer life strategies to help you to move forward in transitions, and to move further along in life in stronger relationships. I use Emotionally-Focused Therapy, Cognitive Therapy, and Mindfulness-based approaches to help you to best address your unique needs.</p>
+                    <p>Individual therapy will bring focus to your interior life, give you tools to sustain yourself, and provide a map for meaningful change. Let's, together, dismantle unproductive thought processes, so you can refocus your actions to be congruent with your values and your needs.</p>
+                    <h4>Help and insight with:</h4>
                     <div className="row">
                         <div className="6u 12u(small)">
 		                    <ul>
@@ -41,7 +43,7 @@ export default () => (
 		                    </ul>
 		                </div>
 	                </div>
-                	<p>One-on-one counseling for adolescents, adults, and people of any age or background.</p>
+                	<p>Counseling for Adults, Older Teens, Young Adults.</p>
                 </div>
             </section>
         </div>

@@ -42,17 +42,19 @@ export default () => (
                     <article style={{backgroundImage: `url('/images/block-video.jpg')`}}>
                         <header className="major">
                             <h3>Online Therapy</h3>
-                            <p>Distance is no issue. Virtual meetings are available.</p>
+                            <p>Virtual meetings are available.</p>
                         </header>
-                        <Link href="/video"><a className="link primary"></a></Link>
+                        <Link href="/online"><a className="link primary"></a></Link>
                     </article>
                 </section>
                 <section id="two">
                     <div className="inner">
                         <header className="major">
-                            <h2>Meet Susan</h2>
+                            <h2>Meet Susan Morrow</h2>
                         </header>
-                        <p>Susan has a calm, comforting presence and over 25 years in private practice. She has the experience, tools, and processes to get results. Susan provides services to individuals, couples, families, and groups. Cope with today's challenges, build a better future, and <em>be present</em> for each moment in your relationships. Lifetime member of ICEEFT.</p>
+                        <p>Cope with today's challenges, build a better future, and be present for each moment in your relationships.</p>
+                        <p>Susan Morrow is a calming, comforting presence with over 25 years experience in private practice. She received post-graduate, advanced training from well-regarded training institutes, in the most relevant therapy approaches that will give you the results you need. She will collaborate with you to design a plan of actions that will serve your best life. Susan has worked in a variety of clinical settings, offering services to individuals, couples, families and groups.</p>
+                        <p>Susan is a lifetime member of the International Centre for Emotionally Focused Therapy, and is currently co-chairing a Stategic Planning/ Diversity Committee for the Carolinas region, helping the Carolinas Center to pro-actively address societal racism.</p>
                         <ul className="actions">
                             <li><Link href="/about"><a className="button next">About Susan</a></Link></li>
                         </ul>
