@@ -25,6 +25,12 @@
 
 	body {
 		background: _palette(bg);
+		::selection {
+			background: lighten(_palette(accent2), 20%); /* WebKit/Blink Browsers */
+		}
+		::-moz-selection {
+			background:  lighten(_palette(accent2), 20%); /* Gecko Browsers */
+		}
 
 		// Prevents animation/transition "flicker" on page load.
 		// Automatically added/removed by js/main.js.
