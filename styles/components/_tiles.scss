@@ -35,6 +35,7 @@
 			overflow: hidden;
 			position: relative;
 			width: 40%;
+			color: _palette(white);
 
 			.image {
 				display: none;
@@ -46,6 +47,11 @@
 			}
 
 			h3 {
+				color: _palette(white);
+				&:after {
+					background-color: _palette(white) !important;
+				}
+
 				font-size: 1.75em;
 
 				a {

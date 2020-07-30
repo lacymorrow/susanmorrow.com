@@ -29,7 +29,7 @@
 	);
 
 // Palette.
-	$palette: (
+	$dark-theme: (
 		bg:					#242943,
 		bg-alt:				#2a2f4a,
 		fg:					#ffffff,
@@ -45,3 +45,25 @@
 		accent5:			#8ea9e8,
 		accent6:			#87c5a4
 	);
+
+	$light-theme: (
+		bg:					#fff,
+		bg-alt:				#f1f1f1,
+		fg:					#333,
+		fg-bold:			darken(#8d82c4, 35%),
+		// fg-light:			rgba(244,244,255,0.2),
+		fg-light:			rgba(10,10,0,0.2),
+		white:			#fff,
+		border:			rgba(141, 130, 196, .1),
+		border-bg:			rgba(141, 130, 196, .1),
+		callout:			#e52325,
+		highlight:			#8d82c4,
+		accent1:			#6fc3df,
+		accent2:			#8d82c4,
+		accent3:			#ec8d81,
+		accent4:			#e7b788,
+		accent5:			#8ea9e8,
+		accent6:			#87c5a4
+	);
+
+	$palette: $light-theme;
