@@ -32,7 +32,7 @@ export default () => (
                         </header>
                         <Link href="/couples"><a className="link primary"></a></Link>
                     </article>
-                    <article style={{backgroundImage: `url('/images/block-families-2.jpg')`}}>
+                    <article style={{backgroundImage: `url('/images/block-families.jpg')`}}>
                         <header className="major">
                             <h3>Family Therapy</h3>
                             <p>Online Family Group Therapy during the Covid crisis.</p>
