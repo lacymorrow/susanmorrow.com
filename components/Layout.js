@@ -1,4 +1,6 @@
-import Head from "next/head"
+import Head from 'next/head'
+import { withRouter } from 'next/router'
+
 
 import ReactGA from 'react-ga';
 
@@ -13,7 +15,8 @@ class Layout extends React.Component {
         super(props)
         this.state = {
             isMenuVisible: false,
-            loading: 'is-loading'
+            loading: 'is-loading',
+            gaInit: false
         }
         this.handleToggleMenu = this.handleToggleMenu.bind(this)
     }
@@ -22,18 +25,29 @@ class Layout extends React.Component {
         this.timeoutId = setTimeout(() => {
             this.setState({ loading: '' });
         }, 100);
+
         const trackingId = "UA-247410-12";
-        ReactGA.initialize(trackingId, {
-                debug: true,
-                gaOptions: { cookieDomain: 'auto' }
-        	});
+
+        if(!this.state.gaInit) {
+	        ReactGA.initialize(trackingId, {
+	        		debug: true,
+	                gaOptions: { cookieDomain: 'auto' }
+	        	});
+	        this.setState({ gaInit: true })
+        }
+
+        // this.props.router.events.on( 'routeChangeComplete', (url) => {
+        // 	console.log('ROUTE CHANGE')
+        // })
         ReactGA.pageview(window.location.pathname + window.location.search);
+
     }
 
     componentWillUnmount() {
         if (this.timeoutId) {
             clearTimeout(this.timeoutId);
         }
+        this.props.router.events.off( 'routeChangeComplete' )
     }
 
     handleToggleMenu() {
@@ -43,6 +57,20 @@ class Layout extends React.Component {
     }
 
     render() {
+    	/*
+    	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-247410-12"></script>
+    	<script
+    	          dangerouslySetInnerHTML={{
+    	            __html: `
+    	                  window.dataLayer = window.dataLayer || [];
+    	                  function gtag(){dataLayer.push(arguments);}
+    	                  gtag('js', new Date());
+
+    	                  gtag('config', 'UA-247410-12');
+    	              `,
+    	          }}
+    	        />
+    	*/
         return (
             <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
                 <Head>
@@ -50,6 +78,7 @@ class Layout extends React.Component {
                     <meta name="description" content="Online sessions available! Over 30 years in private practice, Susan Morrow has a solid base of experience providing therapy, consultation, coaching, and training services to individuals, couples, and families." />
                     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
                     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i" rel="stylesheet" />
+
                 </Head>
 
                 <div id="wrapper">
@@ -65,4 +94,4 @@ class Layout extends React.Component {
     }
 }
 
-export default Layout
+export default withRouter(Layout)
