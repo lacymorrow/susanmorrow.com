@@ -1,5 +1,7 @@
 import Head from "next/head"
 
+import ReactGA from 'react-ga';
+
 import Header from './Header'
 import Callout from './Callout'
 import Menu from './Menu'
@@ -20,6 +22,12 @@ class Layout extends React.Component {
         this.timeoutId = setTimeout(() => {
             this.setState({ loading: '' });
         }, 100);
+        const trackingId = "UA-247410-12";
+        ReactGA.initialize(trackingId, {
+                debug: true,
+                gaOptions: { cookieDomain: 'auto' }
+        	});
+        ReactGA.pageview(window.location.pathname + window.location.search);
     }
 
     componentWillUnmount() {
