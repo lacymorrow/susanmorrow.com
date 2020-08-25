@@ -36,9 +36,6 @@ class Layout extends React.Component {
 	        this.setState({ gaInit: true })
         }
 
-        // this.props.router.events.on( 'routeChangeComplete', (url) => {
-        // 	console.log('ROUTE CHANGE')
-        // })
         ReactGA.pageview(window.location.pathname + window.location.search);
 
     }
@@ -47,7 +44,6 @@ class Layout extends React.Component {
         if (this.timeoutId) {
             clearTimeout(this.timeoutId);
         }
-        this.props.router.events.off( 'routeChangeComplete' )
     }
 
     handleToggleMenu() {
@@ -57,20 +53,6 @@ class Layout extends React.Component {
     }
 
     render() {
-    	/*
-    	<script async src="https://www.googletagmanager.com/gtag/js?id=UA-247410-12"></script>
-    	<script
-    	          dangerouslySetInnerHTML={{
-    	            __html: `
-    	                  window.dataLayer = window.dataLayer || [];
-    	                  function gtag(){dataLayer.push(arguments);}
-    	                  gtag('js', new Date());
-
-    	                  gtag('config', 'UA-247410-12');
-    	              `,
-    	          }}
-    	        />
-    	*/
         return (
             <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
                 <Head>
