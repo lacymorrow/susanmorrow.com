@@ -1,0 +1,13 @@
+# Make `/page.html` redirect to `/page`
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule (.*) $1.html [L]
+
+# Force SSL
+RewriteCond %{HTTPS} !=on
+RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1 [R,L]
+
+# Redirects
+# Redirect 301 /Welcome.html http://susanmorrow.us
+Redirect permanent /Welcome.html http://susanmorrow.us
+Redirect permanent /services.html http://susanmorrow.us/about
