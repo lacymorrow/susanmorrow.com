@@ -45,9 +45,9 @@ export default () => (
                         </div>
                     </section>
                     <section>
-                        <Link href="/generic">
-                            <a className="image"><img src="/images/photo-about-beach-2.jpg" alt="" /></a>
-                        </Link>
+
+                        <a className="image"><img src="/images/photo-about-beach-2.jpg" alt="" /></a>
+
                         <div className="content">
                             <div className="inner">
                                 <header className="major">
