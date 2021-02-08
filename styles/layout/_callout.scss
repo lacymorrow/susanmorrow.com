@@ -17,6 +17,10 @@
 		background: _palette(highlight);
 		background: _palette(covid);
 
+		display: flex;
+	    align-items: center;
+	    justify-content: center;
+
 		.copy {
 			font-size: 14px;
 			font-weight: 600;
@@ -27,7 +31,7 @@
 			color: _palette(bg);
 
 			&:hover {
-				color: _palette(fg) !important;
+				color: darken(_palette(bg), 20%) !important;
 			}
 		}
 
