@@ -105,6 +105,21 @@
 				}
 			}
 
+			&.flex {
+				display: flex;
+				align-items: center;
+				justify-content: flex-start;
+				flex-wrap: wrap;
+
+				li {
+					padding: 1em;
+				}
+
+				a {
+					border: none;
+				}
+			}
+
 			&.fit {
 				display: table;
 				margin-left: (_size(element-margin) * -0.5);

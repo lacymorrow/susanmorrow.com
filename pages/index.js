@@ -51,20 +51,21 @@ export default () => (
                     <div className="inner">
                     	<div className="row">
                     	    <div className="6u 12u$(small)">
-                    	        <span className="image fit"><img src="/images/headshot.jpg" alt="Image of Susan Morrow" /></span>
+                    	        <span className="image fit"><img src="/images/headshot-tall.png" alt="Image of Susan Morrow" /></span>
                     	    </div>
                     	    <div className="6u 12u$(small)">
                     	        <header className="major">
                     	            <h2>Meet Susan Morrow</h2>
                     	        </header>
                     	        <p>Cope with today's challenges, build a better future, and be present for each moment in your relationships.</p>
-                    	        <p>Susan Morrow is a calming, comforting presence with over 25 years experience in private practice. She received post-graduate, advanced training from well-regarded training institutes, in the most relevant therapy approaches that will give you the results you need. She will collaborate with you to design a plan of actions that will serve your best life. Susan has worked in a variety of clinical settings, offering services to individuals, couples, families and groups.</p>
+                    	        <p>Susan Morrow has over 25 years experience in private practice. She received post-graduate, advanced training from well-regarded training institutes, in the most relevant therapy approaches that will give you the results you need. She will collaborate with you to design a plan of action that will best serve your life. Susan has worked in a variety of clinical settings, offering services to individuals, couples, families and groups.</p>
                     	        <span className="image right"><img src="/images/iceeft.png" alt="International Centre for Emotionally Focused Therapy Logo" /></span>
-                    	        <p>Susan is a lifetime member of the International Centre for Emotionally Focused Therapy, and is currently co-chairing a Stategic Planning/ Diversity Committee for the Carolinas region, helping the Carolinas Center to pro-actively address societal racism.</p>
+                    	        <p>Susan serves on the board of the Carolinas Group Therapy Association. She is also a lifetime member of the International Centre for Emotionally Focused Therapy, and is currently co-chairing a Stategic Planning/Diversity Committee for the Carolinas region, helping the Carolinas Center to pro-actively address societal racism.</p>
 
 
-                    	        <ul className="actions">
+                    	        <ul className="actions flex">
                     	            <li><Link href="/about"><a className="button next">About Susan</a></Link></li>
+                    	            <li><a target="_blank" href="https://www.psychologytoday.com/profile/51938" class="sx-verified-seal"></a><script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="10" data-id="51938" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script></li>
                     	        </ul>
                     	    </div>
                     	</div>

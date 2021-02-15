@@ -8,6 +8,9 @@
 
 	#footer {
 		.copyright {
+			display: flex;
+			align-items: center;
+			justify-content: flex-end;
 			font-size: 0.8em;
 			list-style: none;
 			padding-left: 0;
@@ -17,13 +20,17 @@
 				color: _palette(fg-light);
 				display: inline-block;
 				line-height: 1;
-				margin-left: 1em;
-				padding-left: 1em;
+				margin-left: 3em;
+				padding-left: 3em;
 
 				&:first-child {
 					border-left: 0;
 					margin-left: 0;
 					padding-left: 0;
+				}
+
+				a {
+					border: none;
 				}
 			}
 		}
