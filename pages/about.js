@@ -18,12 +18,14 @@ export default () => (
                 <section id="one">
                     <div className="inner">
                         <header className="major">
-                            <h2>Over 25 Years in Private Practice</h2>
+                            <h2>30 Years in Private Practice</h2>
                         </header>
-                        <p>I offer individual therapy, couples counseling, pre-marital counseling, family therapy, and individual/couples distance coaching. My work is informed by depth psychology, strategic and family systems therapy, emotionally focused and attachment science, positive psychology, and mindfulness-based cognitive therapy approaches.</p>
-                        <p>My approach provides you the support to help you to establish goals and actions for positive outcomes for your life and your relationships. I use the most effective, research-based methods available.</p>
-                        <p>With over 25 years in private practice, I have a solid base of experience and advanced professional education to provide well regarded psychotherapy, consultation, coaching, and training services to individuals, couples, families. I also offer professional supervision.</p>
-                        <p>If you travel extensively, live, or work outside of the Charlotte area, I am available for remote individual and couples coaching services worldwide.</p>
+
+                        <p>Susan Morrow is a NC-licensed therapist with 30 years in a private practice. She has postgraduate advanced training with the Gottman Institute (Seattle, WA) and the International Centre for Excellence in Emotionally Focused Therapy (Ottawa, CA).  She is enthusiastic about helping people to develop more resilient lives and more effective relationships at home and in the world.</p>
+						<p>In addition to her work with individuals, couples, families and groups, Susan has spoken at National conferences, published papers, has provided trainings, and is active in professional organizations. She is certified as a clinical supervisor for social work licensure.</p>
+						<p>Susan is a lifetime member of the International Centre for Excellence in Emotionally Focused Therapy and was a founding member of the Carolina Center for EFT. She co-chairs the strategic planning committee, which is currently helping EFT therapists to proactively address societal racism. Susan also serves on the board of the Carolina Group Therapy Association. CGPA provides group therapy training for clinicians, and provides support and advocacy to make mental health services accessible and affordable to the public.</p>
+						<p>Susan is a former competitive runner, hiker, visual artist, and mindfulness meditation practitioner.</p>
+
                     </div>
                 </section>
                 <section id="two" className="spotlights">
@@ -35,11 +37,14 @@ export default () => (
                                     <h3>Education/Training</h3>
                                 </header>
                                 <ul>
-                                	<li>University of Georgia, MSW</li>
-                                	<li>Post graduate Extenship in Family Therapy, United Family Services</li>
-                                	<li>Gottman Institute</li>
-                                	<li>International Center for Excellence in Emotionally Focused Therapy</li>
-                                	<li>Robbins-Maddanes Coaching Training</li>
+                                	<li>East Carolina University BS School of Health and Human Performance</li>
+									<li>University of Georgia MSW School of Social Work</li>
+									<li>Post Graduate Externship in Family Therapy</li>
+									<li>The Gottman Institute – Advanced level training in Marital Therapy</li>
+									<li>The International Centre for Excellence in Emotionally Focused Therapy – Advanced level training in Couples Therapy. </li>
+									<li>Robbins-Madannes Coaching Institute – Coach Training</li>
+									<li>Supervision in Depth Psychology</li>
+									<li>ACT – Acceptance and Commitment Therapy Training</li>
                                 </ul>
                             </div>
                         </div>
@@ -65,6 +70,23 @@ export default () => (
                                 </ul>
                             </div>
                         </div>
+                    </section>
+                    <section>
+
+                        <a className="image"><img src="/images/photo-about-beach-2.jpg" alt="" /></a>
+
+                        <div className="content">
+                            <div className="inner">
+                                <header className="major">
+                                    <h3>Publications</h3>
+                                </header>
+                                <ul>
+                                	<li>“The Biology of Behavior” in <i>Behavioral Medicine: A Social Worker’s Guide</i> John Wodarski, Ed.</li>
+                                	<li><i>The Integrated Behavioral Health Service Delivery System Model</i> with Wodarski, J.S., Wodarski, L.A., Nixon, S.C., and Mackie, C. (1991)</li>
+                                </ul>
+                            </div>
+                        </div>
+
                     </section>
                 </section>
             </div>

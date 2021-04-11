@@ -21,51 +21,53 @@ export default () => (
                     <article style={{backgroundImage: `url('/images/block-individual-2.jpg')`}}>
                         <header className="major">
                             <h3>Individual Therapy</h3>
-                            <p>Life strategies. Relationships. Stress coping tools.</p>
+                            <p>Help for Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</p>
                         </header>
                         <Link href="/individual"><a className="link primary"></a></Link>
                     </article>
                     <article style={{backgroundImage: `url('/images/block-couples-2.jpg')`}}>
                         <header className="major">
                             <h3>Couples Therapy</h3>
-                            <p>Develop a relationship that lasts through difficult times.</p>
+                            <p>Improved Communication, Intimacy, Pre-marital Counseling</p>
                         </header>
                         <Link href="/couples"><a className="link primary"></a></Link>
                     </article>
                     <article style={{backgroundImage: `url('/images/block-families.jpg')`}}>
                         <header className="major">
                             <h3>Family Therapy</h3>
-                            <p>Online Family Group Therapy during the Covid crisis.</p>
+                            <p>Group support for family resilience through challenges</p>
                         </header>
                         <Link href="/family"><a className="link primary"></a></Link>
                     </article>
                     <article style={{backgroundImage: `url('/images/block-video.jpg')`}}>
                         <header className="major">
-                            <h3>Online Therapy</h3>
-                            <p>Virtual meetings are available.</p>
+                            <h3>Couples Intensives</h3>
+                            <p>For couples with challenges meeting regularly over a period of time.</p>
                         </header>
-                        <Link href="/online"><a className="link primary"></a></Link>
+                        <Link href="/intensives"><a className="link primary"></a></Link>
                     </article>
                 </section>
                 <section id="two">
                     <div className="inner">
                     	<div className="row">
-                    	    <div className="6u 12u$(small)">
+                    	    <div className="4u 12u$(small)">
                     	        <span className="image fit"><img src="/images/headshot-tall.png" alt="Image of Susan Morrow" /></span>
                     	    </div>
-                    	    <div className="6u 12u$(small)">
+                    	    <div className="8u 12u$(small)">
                     	        <header className="major">
                     	            <h2>Meet Susan Morrow</h2>
                     	        </header>
-                    	        <p>Cope with today's challenges, build a better future, and be present for each moment in your relationships.</p>
-                    	        <p>Susan Morrow has over 25 years experience in private practice. She received post-graduate, advanced training from well-regarded training institutes, in the most relevant therapy approaches that will give you the results you need. She will collaborate with you to design a plan of action that will best serve your life. Susan has worked in a variety of clinical settings, offering services to individuals, couples, families and groups.</p>
-                    	        <span className="image right"><img src="/images/iceeft.png" alt="International Centre for Emotionally Focused Therapy Logo" /></span>
-                    	        <p>Susan serves on the board of the Carolinas Group Therapy Association. She is also a lifetime member of the International Centre for Emotionally Focused Therapy, and is currently co-chairing a Stategic Planning/Diversity Committee for the Carolinas region, helping the Carolinas Center to pro-actively address societal racism.</p>
+                    	        <h4>Are you seeking counseling, and looking for a therapist with solid experience?</h4>
+                    	        <p>I have 30 years of experience working with individuals, couples and families. If therapy is new for you, the most important factor in successful outcomes is having a “good fit” with your therapist. Seek out a therapist with a full reservoir of compassion, who can help you feel safe, empowered, and respected. My focus is on these essentials to good therapy, combined with the processes and master level clinical skills. It is my greatest privilege to work with the clients I see. I hope to meet you soon!</p>
 
+                    	        <span className="image right">
+                    	        	<img src="/images/iceeft.png" alt="International Centre for Emotionally Focused Therapy Logo" title="" />
+                    	        	<sub><i>International Centre for Emotionally Focused Therapy</i></sub>
+                    	        </span>
 
                     	        <ul className="actions flex">
                     	            <li><Link href="/about"><a className="button next">About Susan</a></Link></li>
-                    	            <li><a target="_blank" href="https://www.psychologytoday.com/profile/51938" class="sx-verified-seal"></a><script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="10" data-id="51938" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script></li>
+                    	            <li><a target="_blank" href="https://www.psychologytoday.com/profile/51938" className="sx-verified-seal"></a><script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="10" data-id="51938" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script></li>
                     	        </ul>
                     	    </div>
                     	</div>

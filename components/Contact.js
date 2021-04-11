@@ -142,7 +142,7 @@ class Contact extends React.Component {
 							<div className="contact-method">
 								<span className="icon alt fa-phone" />
 								<h3>Phone</h3>
-								<span>(704) 332-5153</span>
+								<a href="tel:+17043325153"><span>(704) 332-5153</span></a>
 							</div>
 						</section>
 						<section>
