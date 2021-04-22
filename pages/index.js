@@ -41,10 +41,10 @@ export default () => (
                     </article>
                     <article style={{backgroundImage: `url('/images/block-video.jpg')`}}>
                         <header className="major">
-                            <h3>Couples Intensives</h3>
-                            <p>For couples with challenges meeting regularly over a period of time.</p>
+                            <h3>Online Therapy</h3>
+                            <p>Virtual meetings are available.</p>
                         </header>
-                        <Link href="/intensives"><a className="link primary"></a></Link>
+                        <Link href="/online"><a className="link primary"></a></Link>
                     </article>
                 </section>
                 <section id="two">
