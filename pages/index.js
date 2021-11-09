@@ -1,6 +1,6 @@
 import Link from 'next/link'
 
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import Banner from '../components/Banner'
 import Callout from '../components/Callout'
 
