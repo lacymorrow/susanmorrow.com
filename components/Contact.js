@@ -85,7 +85,7 @@ class Contact extends React.Component {
 					<section>
 						<form
 							method="post"
-							action="http://susanmorrow.us/new/io.php"
+							action="https://susanmorrow.us/new/io.php"
 							onSubmit={this.submitForm}
 						>
 							<div className="field half first">
