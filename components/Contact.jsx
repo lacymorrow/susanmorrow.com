@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-
+import sendmail from "../services/sendmail"
 class Contact extends React.Component {
 	constructor(props) {
 		super(props);
@@ -17,50 +17,18 @@ class Contact extends React.Component {
 
 	submitForm = async (e) => {
 		e.preventDefault();
-		console.log(this.state);
 		this.setState({ isSubmitting: true, status: 'Sending message...' });
 
 		// AJAX request
-		const params = new URLSearchParams([...new FormData(e.target).entries()])
-
-		axios.post('/io.php', params)
-		  .then(function (response) {
-		    console.log('response: ', response);
-		    return response
-		  })
-		  .catch( (error) => {
-		    console.log(error);
-		    this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susan@susanmorrow.us' });
-		  });
-
-		// const res = await ky("http://susanmorrow.us/new/io.php", {
-		// 	mode: 'no-cors',
-		// 	timeout: 20000,
-		// 	method: "POST",
-		// 	body: params,
-		// 	headers: {
-		// 		"Content-Type": "application/x-www-form-urlencoded"
-		// 	}
-		// })
-		// .catch(() => {
-		// 	this.setState({ isSubmitting: false, isError: true, status: "Something went wrong, please try again or email me at susan@susan@susanmorrow.us" });
-
-		// });
-
-		// this.setState({ isSubmitting: false });
-
-		// const data = res;
-
-		// if (data) {
-		// 	!data.hasOwnProperty("error")
-		// 		? this.setState({ status: data.success })
-		// 		: this.setState({ status: data.error, isError: true });
-		// }
+		const params = [...new FormData(e.target).entries()]
+		const success = await sendmail(params)
+		if (!success) {
+			this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+		}
 
 		setTimeout(
 			() => {
 				const values = {...this.state.values, message: ""}
-				console.log(values)
 				this.setState({
 					isError: false,
 					isSubmitting: false,

@@ -8,6 +8,8 @@ import '@uppy/core/dist/style.min.css'
 import '@uppy/drag-drop/dist/style.min.css'
 import '@uppy/status-bar/dist/style.min.css'
 
+import sendmail from "../services/sendmail"
+
 const uppy = new Uppy({
   // restrictions: { maxNumberOfFiles: 1 },
   autoProceed: true,
@@ -16,21 +18,18 @@ const uppy = new Uppy({
 
 // uppy.use(Tus, { endpoint: '/upload' })
 uppy.use(XHRUpload, {
-  endpoint: 'http://susanmorrow.us/upload.php',
+  endpoint: 'https://susanmorrow.us/upload.php',
 })
 
 uppy.on('complete', (result) => {
-  const url = result.successful[0].uploadURL
-  store.dispatch({
-    type: 'SET_USER_AVATAR_URL',
-    payload: { url },
-  })
+  const fileurl = result.successful[0].uploadURL || 'file'
+  console.log(fileurl)
+	sendmail([["fileurl", fileurl ]])
 })
 
 const Upload = ({ currentAvatar }) => {
   return (
     <div>
-      <img src={currentAvatar} alt="Current Avatar" />
       <DragDrop
         uppy={uppy}
         locale={{
