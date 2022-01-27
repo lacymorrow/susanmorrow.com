@@ -7,9 +7,9 @@ import '@uppy/core/dist/style.min.css'
 import '@uppy/drag-drop/dist/style.min.css'
 
 const uppy = new Uppy({
-  meta: { type: 'avatar' },
-  restrictions: { maxNumberOfFiles: 1 },
+  // restrictions: { maxNumberOfFiles: 1 },
   autoProceed: true,
+	allowMultipleUploadBatches: true,
 })
 
 uppy.use(Tus, { endpoint: '/upload' })
