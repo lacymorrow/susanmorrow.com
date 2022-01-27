@@ -1,6 +1,5 @@
 import React from "react";
 import axios from "axios";
-import ky from "ky-universal";
 
 class Contact extends React.Component {
 	constructor(props) {
