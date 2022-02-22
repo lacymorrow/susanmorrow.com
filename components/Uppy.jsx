@@ -42,11 +42,6 @@ const Upload = ({ currentAvatar }) => {
           },
         }}
       />
-			<ProgressBar
-				uppy={uppy}
-				fixed
-				hideAfterFinish
-			/>
 			<StatusBar
 				uppy={uppy}
 				// hideUploadButton

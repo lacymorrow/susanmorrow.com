@@ -22,7 +22,10 @@ class Contact extends React.Component {
 		// AJAX request
 		const params = [...new FormData(e.target).entries()]
 		const success = await sendmail(params)
-		if (!success) {
+
+		if (success) {
+			this.setState({ isSubmitting: false, isError: false, status: 'Your message was sent successfully' });
+		} else {
 			this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
 		}
 
