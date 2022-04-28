@@ -44,7 +44,9 @@ const Index = () => <Layout>
                 <div className="inner">
                     <div className="row">
                         <div className="4u 12u$(small)">
-                            <span className="image fit"><img src="/images/headshot-tall.png" alt="Image of Susan Morrow" /></span>
+                            <span className="image fit">
+								<img src="/images/headshot-glasses.jpg" alt="Image of Susan Morrow" />
+							</span>
                         </div>
                         <div className="8u 12u$(small)">
                             <header className="major">
@@ -60,7 +62,7 @@ const Index = () => <Layout>
 
                             <ul className="actions flex">
                                 <li><Link href="/about"><a className="button next">About Susan</a></Link></li>
-                                <li><a target="_blank" href="https://www.psychologytoday.com/profile/51938" className="sx-verified-seal"></a><script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="10" data-id="51938" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script></li>
+                                <li><a target="_blank" rel="noreferrer" href="https://www.psychologytoday.com/profile/51938" className="sx-verified-seal"></a><script type="text/javascript" src="https://member.psychologytoday.com/verified-seal.js" data-badge="10" data-id="51938" data-code="aHR0cHM6Ly93d3cucHN5Y2hvbG9neXRvZGF5LmNvbS9hcGkvdmVyaWZpZWQtc2VhbC9zZWFscy9bQkFER0VdL3Byb2ZpbGUvW1BST0ZJTEVfSURdP2NhbGxiYWNrPXN4Y2FsbGJhY2s="></script></li>
                             </ul>
                         </div>
                     </div>
