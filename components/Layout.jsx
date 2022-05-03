@@ -59,9 +59,6 @@ class Layout extends React.Component {
                 <Head>
                     <title>Susan Morrow MSW, LCSW - Therapy Charlotte, NC</title>
                     <meta name="description" content="Online sessions available! Over 30 years in private practice, Susan Morrow has a solid base of experience providing therapy, consultation, coaching, and training services to individuals, couples, and families." />
-                    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
-                    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,300i,600,600i" rel="stylesheet" />
-
                 </Head>
 
                 <div id="wrapper">
