@@ -387,7 +387,7 @@ const Elements = () => <Layout>
                             <h3>Preformatted</h3>
                             <pre><code>i = 0;
 
-                            print 'It took ' + i + ' iterations to sort the deck.';
+                            print &apos;It took &apos; + i + &apos; iterations to sort the deck.&apos;;
                             </code></pre>
 
                     </div>

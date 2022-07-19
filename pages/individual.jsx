@@ -19,7 +19,7 @@ const Individual = () => <Layout>
 
                 <p>A rapidly changing culture routinely throws us curves.</p>
                 <p>Individual Therapy helps for process life experiences to create a more coherent sense of self.<br />With a stable, secure sense of self, the necessary actions for a life that resembles your values becomes clear. I offer life strategies to help you to move forward in transitions, and to move further along in life in stronger relationships. I use Emotionally-Focused Therapy, Cognitive Therapy, and Mindfulness-based approaches to help you to best address your unique needs.</p>
-                <p>Individual therapy will bring focus to your interior life, give you tools to sustain yourself, and provide a map for meaningful change. Let's, together, dismantle unproductive thought processes, so you can refocus your actions to be congruent with your values and your needs.</p>
+                <p>Individual therapy will bring focus to your interior life, give you tools to sustain yourself, and provide a map for meaningful change. Let&apos;s, together, dismantle unproductive thought processes, so you can refocus your actions to be congruent with your values and your needs.</p>
                 <h4>Help and insight with:</h4>
                 <div className="row">
                     <div className="6u 12u(small)">

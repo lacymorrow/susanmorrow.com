@@ -12,7 +12,7 @@ const Covid = () => <Layout>
         <section id="one">
             <div className="inner">
                 <header className="major">
-                    <h1>We're here during Covid-19</h1>
+                    <h1>We&apos;re here during Covid-19</h1>
                     <blockquote>Online Individual, Couples, and Family Counseling from the comfort and safety of your home.</blockquote>
                 </header>
                 <span className="image main"><img src="/images/header-covid.jpg" alt="" /></span>
