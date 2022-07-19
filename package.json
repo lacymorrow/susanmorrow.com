@@ -2,7 +2,7 @@
     "name": "susanmorrow.com",
     "version": "0.1.0",
     "engines": {
-        "node": ">=12.x"
+        "node": ">=16.x"
     },
     "scripts": {
         "dev": "next dev",
