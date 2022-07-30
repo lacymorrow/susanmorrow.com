@@ -1,4 +1,6 @@
 <?php
+// Moved to /Users/tmorrow/repo/fly5/src/utils/sendEmail.ts
+
 if (isset($_REQUEST['email']))
 {
 
