@@ -31,10 +31,10 @@ const sendEmail = async ({
         email: 'susan@susanmorrow.us',
         name: `Susan Morrow`,
       },
-      replyTo: {
-        email,
-        name
-      },
+      // replyTo: {
+      //   email,
+      //   name
+      // },
       content: [
         {
           type: 'text/html',
