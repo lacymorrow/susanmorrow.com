@@ -20,6 +20,10 @@ class Contact extends React.Component {
 
 	submitForm = async (e) => {
 		e.preventDefault();
+		if (!this.state.values.name || !this.state.values.email || !this.state.values.message) {
+			this.setState({ isSubmitting: false, status: 'Please fill out all fields' });
+			return;
+		}
 		this.setState({ isSubmitting: true, status: 'Sending message...' });
 
 		// AJAX request
