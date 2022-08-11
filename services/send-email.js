@@ -7,7 +7,7 @@ const sendEmail = async ({
   email,
   message,
 }) => {
-  const toEmail = process.env.RECEIVING_EMAIL || 'morrowsus@gmail.com'
+  const toEmail = process.env.RECEIVING_EMAIL || 'susan@susanmorrow.us'
 
   console.log(`Sending to ${toEmail}`)
   
