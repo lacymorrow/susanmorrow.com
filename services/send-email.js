@@ -18,7 +18,7 @@ const sendEmail = async ({
         {
           to: [
             {
-              email: 'morrowsus@gmail.com',
+              email: process.env.RECEIVING_EMAIL || 'morrowsus@gmail.com',
             },
           ],
           subject: `👻 SusanMorrow.us Inquiry: ${name}`,
