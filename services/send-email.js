@@ -9,7 +9,7 @@ const sendEmail = async ({
 }) => {
   const toEmail = process.env.RECEIVING_EMAIL || 'morrowsus@gmail.com'
 
-  console.log('Sending to toEmail')
+  console.log(`Sending to ${toEmail}`)
   
   await fetch(SENDGRID_API, {
     method: 'POST',
