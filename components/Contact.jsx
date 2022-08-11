@@ -1,6 +1,9 @@
 import React from "react";
 import axios from "axios";
 import sendmail from "../services/sendmail"
+import sendSG from "../services/send-email"
+const SENDGRID_API = 'https://api.sendgrid.com/v3/mail/send';
+
 class Contact extends React.Component {
 	constructor(props) {
 		super(props);
@@ -49,6 +52,45 @@ class Contact extends React.Component {
 		});
 	}
 
+
+	postForm = async (e) => {
+		e.preventDefault();
+		this.setState({ isSubmitting: true, status: 'Sending message...' });
+
+		// AJAX request
+		const params = [...new FormData(e.target).entries()]
+		console.log()
+
+		const result = await fetch('/api/send-email', {
+		  body: JSON.stringify(this.state.values),
+		  headers: {
+			'Content-Type': 'application/json',
+		  },
+		  method: 'POST',
+		})
+		  .then((response) => {
+			// If success or validation error
+			if (response.status >= 200 && response.status < 300) {
+			  return response.json();
+			}
+			throw Error(response.statusText);
+		  })
+		  .catch((error) => {
+			// Server error
+			console.error('[sendmail] Error sending mail: ', error);
+			this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+		  });
+	
+		if (result.message) {
+			// Success
+			this.setState({ isSubmitting: false, isError: false, status: 'Your message was sent successfully' });
+
+		} else {
+		  // Likely a validation error
+		  this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+		}
+	};
+
 	render() {
 		return (
 			<section id="contact">
@@ -57,7 +99,7 @@ class Contact extends React.Component {
 						<form
 							method="post"
 							action="https://lacymorrow.com/clients/susanmorrow/io.php"
-							onSubmit={this.submitForm}
+							onSubmit={this.postForm}
 						>
 							<div className="field half first">
 								<label htmlFor="name">Name</label>

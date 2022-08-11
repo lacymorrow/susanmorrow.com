@@ -2,7 +2,6 @@ import axios from "axios";
 
 const handler = async(params) => {
     params = new URLSearchParams(params)
-    // params.headers = 
     return await axios.post('http://lacymorrow.com/clients/susanmorrow/io.php', params, function (req, res) {
             
         })

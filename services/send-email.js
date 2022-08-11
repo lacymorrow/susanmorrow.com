@@ -18,20 +18,24 @@ const sendEmail = async ({
         {
           to: [
             {
-              email: 'susan@susanmorrow.us',
+              email: 'morrowsus@gmail.com',
             },
           ],
-          subject: `👻 SusanMorrow.us Inquiry: ${name} ✔`,
+          subject: `👻 SusanMorrow.us Inquiry: ${name}`,
         },
       ],
       from: {
-        email: 'yo@fly5.live',
-        name: `★ FLY5`,
+        email: 'susan@susanmorrow.us',
+        name: `Susan Morrow`,
+      },
+      replyTo: {
+        email,
+        name
       },
       content: [
         {
           type: 'text/html',
-          value: `<p><b>${name}</b> just said:</p><p>${message}</p><p>${email}</p><p>${phone}</p>`,
+          value: `<p><b>${name}</b> just said:</p><p>${message}</p><p>${email}</p>`,
         },
       ],
     }),
