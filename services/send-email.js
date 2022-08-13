@@ -10,7 +10,7 @@ const sendEmail = async ({
 
   console.log(`Sending to ${toEmail}`)
   
-  await fetch(SENDGRID_API, {
+  const result = await fetch(SENDGRID_API, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -43,6 +43,8 @@ const sendEmail = async ({
       ],
     }),
   });
+  console.log(result)
+  return result
 };
 
 export { sendEmail };
