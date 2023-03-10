@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 const Couples = () => <Layout>
     <Head>
-        <title>Couples Therapy</title>
+        <title>Couples Therapy Charlotte NC</title>
         <meta name="description" content="Develop a relationship that lasts through difficult times." />
     </Head>
 

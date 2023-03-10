@@ -4,7 +4,7 @@ import Layout from '../components/Layout'
 
 const Individual = () => <Layout>
     <Head>
-        <title>Individual Therapy</title>
+        <title>Individual Therapy Charlotte NC</title>
         <meta name="description" content="Counseling for adults and young adults" />
     </Head>
 
