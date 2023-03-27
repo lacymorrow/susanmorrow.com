@@ -6,7 +6,6 @@ import { withRouter } from 'next/router'
 import ReactGA from 'react-ga';
 
 import Header from './Header'
-import Callout from './Callout'
 import Menu from './Menu'
 import Contact from './Contact'
 import Footer from './Footer'
@@ -29,12 +28,12 @@ class Layout extends React.Component {
 
         const trackingId = "UA-247410-12";
 
-        if(!this.state.gaInit) {
-	        ReactGA.initialize(trackingId, {
-	        		debug: true,
-	                gaOptions: { cookieDomain: 'auto' }
-	        	});
-	        this.setState({ gaInit: true })
+        if (!this.state.gaInit) {
+            ReactGA.initialize(trackingId, {
+                debug: true,
+                gaOptions: { cookieDomain: 'auto' }
+            });
+            this.setState({ gaInit: true })
         }
 
         ReactGA.pageview(window.location.pathname + window.location.search);

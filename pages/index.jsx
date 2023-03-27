@@ -2,37 +2,35 @@ import Link from 'next/link'
 
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
-import Callout from '../components/Callout'
 
 const Index = () => <Layout>
-    <Callout />
     <div>
         <Banner />
 
         <div id="main">
             <section id="one" className="tiles">
-                <article style={{backgroundImage: `url('/images/block-individual-2.jpg')`}}>
+                <article style={{ backgroundImage: `url('/images/block-individual-2.jpg')` }}>
                     <header className="major">
                         <h3>Individual Therapy</h3>
                         <p>Help for Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</p>
                     </header>
                     <Link href="/individual"><a className="link primary"></a></Link>
                 </article>
-                <article style={{backgroundImage: `url('/images/block-couples-2.jpg')`}}>
+                <article style={{ backgroundImage: `url('/images/block-couples-2.jpg')` }}>
                     <header className="major">
                         <h3>Couples Therapy</h3>
                         <p>Improved Communication, Intimacy, Pre-marital Counseling</p>
                     </header>
                     <Link href="/couples"><a className="link primary"></a></Link>
                 </article>
-                <article style={{backgroundImage: `url('/images/block-families.jpg')`}}>
+                <article style={{ backgroundImage: `url('/images/block-families.jpg')` }}>
                     <header className="major">
                         <h3>Family Therapy</h3>
                         <p>Group support for family resilience through challenges</p>
                     </header>
                     <Link href="/family"><a className="link primary"></a></Link>
                 </article>
-                <article style={{backgroundImage: `url('/images/block-video.jpg')`}}>
+                <article style={{ backgroundImage: `url('/images/block-video.jpg')` }}>
                     <header className="major">
                         <h3>Online Therapy</h3>
                         <p>Virtual meetings are available.</p>
@@ -45,8 +43,8 @@ const Index = () => <Layout>
                     <div className="row">
                         <div className="4u 12u$(small)">
                             <span className="image fit">
-								<img src="/images/headshot-glasses.jpg" alt="Image of Susan Morrow" />
-							</span>
+                                <img src="/images/headshot-glasses.jpg" alt="Image of Susan Morrow" />
+                            </span>
                         </div>
                         <div className="8u 12u$(small)">
                             <header className="major">
