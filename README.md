@@ -1,4 +1,12 @@
-# Susanmorrow.com
+# [Susanmorrow.us](https://www.susanmorrow.us/)
+
+This is the open-source website for Susan Morrow, a fantastic Charlotte, NC therapist.
+
+You can find her at 704-332-5153.
+
+The dev site is hosted on Vercel at [susanmorrow-com.vercel.app](https://susanmorrow-com.vercel.app). Built by [Lacy Morrow](https://lacymorrow.com).
+
+---
 
 > Based on [nextjs-starter-forty](https://github.com/codebushi/nextjs-starter-forty) and updated to conform to Next/Vercel in 2020.
 
