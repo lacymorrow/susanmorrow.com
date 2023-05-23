@@ -1,8 +1,6 @@
-import { NextApiRequest, NextApiResponse } from 'next';
 import { Client } from 'postmark';
 
 const handler = async (req, res) => {
-  console.log(req.method)
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
 
