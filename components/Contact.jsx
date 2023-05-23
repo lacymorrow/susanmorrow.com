@@ -83,9 +83,7 @@ class Contact extends React.Component {
 				this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
 			});
 
-		console.dir(result)
-
-		if (result.message) {
+		if (result?.message) {
 			// Success
 			return this.setState({ isSubmitting: false, isError: false, status: '✔ Your message was sent successfully' });
 
