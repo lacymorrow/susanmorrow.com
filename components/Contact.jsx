@@ -38,7 +38,7 @@ class Contact extends React.Component {
 
 		setTimeout(
 			() => {
-				const values = {...this.state.values, message: ""}
+				const values = { ...this.state.values, message: "" }
 				this.setState({
 					isError: false,
 					isSubmitting: false,
@@ -66,32 +66,32 @@ class Contact extends React.Component {
 		console.log()
 
 		const result = await fetch('/api/send-email', {
-		  body: JSON.stringify(this.state.values),
-		  headers: {
-			'Content-Type': 'application/json',
-		  },
-		  method: 'POST',
+			body: JSON.stringify(this.state.values),
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			method: 'POST',
 		})
-		  .then((response) => {
-			// If success or validation error
-			if (response.status >= 200 && response.status < 300) {
-			  return response.json();
-			}
-			throw Error(response.statusText);
-		  })
-		  .catch((error) => {
-			// Server error
-			console.error('[sendmail] Error sending mail: ', error);
-			this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
-		  });
-	
-		if (result.message) {
+			.then((response) => {
+				// If success or validation error
+				if (response.status >= 200 && response.status < 300) {
+					return response.json();
+				}
+				throw Error(response.statusText);
+			})
+			.catch((error) => {
+				// Server error
+				console.error('[sendmail] Error sending mail: ', error);
+				this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+			});
+
+		if (!result.message) {
 			// Success
-			this.setState({ isSubmitting: false, isError: false, status: 'Your message was sent successfully' });
+			return this.setState({ isSubmitting: false, isError: false, status: 'Your message was sent successfully' });
 
 		} else {
-		  // Likely a validation error
-		  this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+			// Likely a validation error
+			this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
 		}
 	};
 
@@ -102,20 +102,20 @@ class Contact extends React.Component {
 					<section>
 						<form
 							method="post"
-							action="https://lacymorrow.com/clients/susanmorrow/io.php"
+							action="/api/send-email"
 							onSubmit={this.postForm}
 						>
 							<div className="field half first">
 								<label htmlFor="name">Name</label>
 								<input type="text" name="name" id="name"
-								value={this.state.values.name}
-								onChange={this.handleInputChange} />
+									value={this.state.values.name}
+									onChange={this.handleInputChange} />
 							</div>
 							<div className="field half">
 								<label htmlFor="email">Email</label>
 								<input type="email" name="email" id="email"
-								value={this.state.values.email}
-								onChange={this.handleInputChange} />
+									value={this.state.values.email}
+									onChange={this.handleInputChange} />
 							</div>
 							<div className="field">
 								<label htmlFor="message">Message</label>
@@ -134,7 +134,7 @@ class Contact extends React.Component {
 										className={`special ld-ext-left ${this.state.isSubmitting && 'running'}`}
 										disabled={this.state.isSubmitting}
 									>
-									Send Message
+										Send Message
 										<div className="ld ld-ring ld-spin" />
 									</button>
 								</li>
