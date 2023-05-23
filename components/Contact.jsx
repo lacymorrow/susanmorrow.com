@@ -1,8 +1,6 @@
 import React from "react";
 import axios from "axios";
 import sendmail from "../services/sendmail"
-import sendSG from "../services/send-email"
-const SENDGRID_API = 'https://api.sendgrid.com/v3/mail/send';
 
 class Contact extends React.Component {
 	constructor(props) {
@@ -65,7 +63,7 @@ class Contact extends React.Component {
 		const params = [...new FormData(e.target).entries()]
 		console.log()
 
-		const result = await fetch('/api/send-email', {
+		const result = await fetch('/api/send-email-postmark', {
 			body: JSON.stringify(this.state.values),
 			headers: {
 				'Content-Type': 'application/json',
@@ -85,9 +83,11 @@ class Contact extends React.Component {
 				this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
 			});
 
-		if (!result.message) {
+		console.dir(result)
+
+		if (result.message) {
 			// Success
-			return this.setState({ isSubmitting: false, isError: false, status: 'Your message was sent successfully' });
+			return this.setState({ isSubmitting: false, isError: false, status: '✔ Your message was sent successfully' });
 
 		} else {
 			// Likely a validation error
@@ -102,7 +102,7 @@ class Contact extends React.Component {
 					<section>
 						<form
 							method="post"
-							action="/api/send-email"
+							action="/api/send-email-postmark"
 							onSubmit={this.postForm}
 						>
 							<div className="field half first">
@@ -142,7 +142,7 @@ class Contact extends React.Component {
 									<input type="reset" value="Clear" />
 								</li>
 							</ul>
-							<p>{this.state.isError && `Error: `}{this.state.status}</p>
+							<p className="form-message">{this.state.isError && `Error: `}{this.state.status}</p>
 						</form>
 					</section>
 					<section className="split">

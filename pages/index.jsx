@@ -62,7 +62,7 @@ const Index = () => <Layout>
 								<li><Link href="/about"><a className="button next">About Susan</a></Link></li>
 								<li>
 									<a target="_blank" rel="noreferrer" href="https://www.psychologytoday.com/profile/51938" className="sx-verified-seal button special flex align-center">
-										<img style={{ width: 'auto', maxWidth: '155px' }} src="/images/logos/logo-psychology-today.svg" alt="Psychology Today Logo" />
+										<img style={{ width: 'auto', maxWidth: '155px' }} src="/images/logo-psychology-today.svg" alt="Psychology Today Logo" />
 									</a>
 								</li>
 							</ul>
