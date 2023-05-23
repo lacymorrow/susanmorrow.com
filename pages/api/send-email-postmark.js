@@ -19,7 +19,7 @@ const handler = async (req, res) => {
     });
 
     console.dir(emailResponse);
-    if(emailResponse.ErrorCode !== 0) {
+    if(emailResponse.ErrorCode === 0) {
       return res
         .status(200)
         .json({ message: 'Your message was sent, thanks for reaching out  🚀' });
