@@ -2,10 +2,10 @@ const Banner = (props) => (
 	<section id="banner" className="major">
 		<div className="inner">
 			<header className="major">
-				<h1>Build Loving Relationships.<br />Love That Lasts.</h1>
+				<h1>Transforming Lives Through Lasting Love</h1>
 			</header>
 			<div className="content">
-				<p>THERAPY IN CHARLOTTE, NC | TELEHEALTH IN NC</p>
+				<p>Expert Therapy in Charlotte, NC and Telehealth across NC.</p>
 				<ul className="actions">
 					<li><a href="#contact" className="button next scrolly">Schedule an appointment</a></li>
 				</ul>
