@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 
 import Layout from '../components/Layout'
@@ -9,7 +10,7 @@ const Index = () => <Layout>
 
 		<div id="main">
 			<section id="one" className="tiles">
-				<article style={{ backgroundImage: `url('/images/block-individual-2.jpg')` }}>
+				<article style={{ backgroundImage: `url('/images/block-individual-3.jpg')` }}>
 					<header className="major">
 						<h3>Individual Therapy</h3>
 						<p>Help for Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</p>
@@ -32,8 +33,8 @@ const Index = () => <Layout>
 				</article>
 				<article style={{ backgroundImage: `url('/images/block-video.jpg')` }}>
 					<header className="major">
-						<h3>Online Therapy</h3>
-						<p>Virtual meetings are available.</p>
+						<h3>Telehealth Counseling</h3>
+						<p>Serving the greater NC area. ideo meetings on your schedule.</p>
 					</header>
 					<Link href="/online"><a className="link primary"></a></Link>
 				</article>

@@ -7,6 +7,10 @@
 /* Contact */
 
 	#contact {
+
+		// Basic spam fileter honeypot.
+		#phone_number { display: none; }
+
 		border-bottom: solid 1px _palette(border);
 		overflow-x: hidden;
 
@@ -69,9 +73,6 @@
 				> .split {
 					> * {
 						@include padding(3em, 0, (0, 0, 0, 0));
-
-						&:before {
-						}
 					}
 
 					> :first-child {

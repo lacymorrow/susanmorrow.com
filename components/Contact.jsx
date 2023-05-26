@@ -2,6 +2,9 @@ import React from "react";
 import axios from "axios";
 import sendmail from "../services/sendmail"
 
+const SUCCESS_MESSAGE = '✔ Your message was sent successfully. I will get back to you as soon as possible.'
+const TRY_AGAIN_MESSAGE = 'Please try again or email me at or email me at susan@susanmorrow.us'
+
 class Contact extends React.Component {
 	constructor(props) {
 		super(props);
@@ -18,6 +21,16 @@ class Contact extends React.Component {
 
 	submitForm = async (e) => {
 		e.preventDefault();
+		// Basic spam prevention
+
+		if (this.state.values.phone) {
+			this.setState({
+				isSubmitting: false, status: `Your message was marked as spam due to suspicious activity. ${TRY_AGAIN_MESSAGE}`
+			});
+			return;
+		}
+
+
 		if (!this.state.values.name || !this.state.values.email || !this.state.values.message) {
 			this.setState({ isSubmitting: false, status: 'Please fill out all fields' });
 			return;
@@ -29,9 +42,11 @@ class Contact extends React.Component {
 		const success = await sendmail(params)
 
 		if (success) {
-			this.setState({ isSubmitting: false, isError: false, status: 'Your message was sent successfully' });
+			this.setState({ isSubmitting: false, isError: false, status: SUCCESS_MESSAGE });
 		} else {
-			this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+			this.setState({
+				isSubmitting: false, isError: true, status: `Something went wrong sending your message. ${TRY_AGAIN_MESSAGE}`
+			});
 		}
 
 		setTimeout(
@@ -57,7 +72,7 @@ class Contact extends React.Component {
 
 	postForm = async (e) => {
 		e.preventDefault();
-		this.setState({ isSubmitting: true, status: 'Sending message...' });
+		this.setState({ isSubmitting: true, status: 'Sending your message...' });
 
 		// AJAX request
 		const params = [...new FormData(e.target).entries()]
@@ -115,6 +130,12 @@ class Contact extends React.Component {
 									value={this.state.values.email}
 									onChange={this.handleInputChange} />
 							</div>
+							<div className="hidden">
+								<label htmlFor="email">Email</label>
+								<input type="email" name="email" id="email"
+									value={this.state.values.email}
+									onChange={this.handleInputChange} />
+							</div>
 							<div className="field">
 								<label htmlFor="message">Message</label>
 								<textarea
@@ -129,7 +150,7 @@ class Contact extends React.Component {
 								<li>
 									<button
 										type="submit"
-										className={`special ld-ext-left ${this.state.isSubmitting && 'running'}`}
+										className={`special ld- ext - left ${this.state.isSubmitting && 'running'}`}
 										disabled={this.state.isSubmitting}
 									>
 										Send Message
