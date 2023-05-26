@@ -8,12 +8,11 @@ import '@uppy/core/dist/style.min.css'
 import '@uppy/drag-drop/dist/style.min.css'
 import '@uppy/status-bar/dist/style.min.css'
 
-import sendmail from "../services/sendmail"
-
+s
 const uppy = new Uppy({
   // restrictions: { maxNumberOfFiles: 1 },
   autoProceed: true,
-	// allowMultipleUploadBatches: true,
+  // allowMultipleUploadBatches: true,
 })
 
 // uppy.use(Tus, { endpoint: '/upload' })
@@ -24,7 +23,7 @@ uppy.use(XHRUpload, {
 uppy.on('complete', (result) => {
   const fileurl = result.successful[0].uploadURL || 'file'
   console.log(fileurl)
-	sendmail([["fileurl", fileurl ]])
+  // sendmail([["fileurl", fileurl ]])
 })
 
 const Upload = ({ currentAvatar }) => {
@@ -42,12 +41,12 @@ const Upload = ({ currentAvatar }) => {
           },
         }}
       />
-			<StatusBar
-				uppy={uppy}
-				// hideUploadButton
-				hideAfterFinish={false}
-				showProgressDetails
-				/>
+      <StatusBar
+        uppy={uppy}
+        // hideUploadButton
+        hideAfterFinish={false}
+        showProgressDetails
+      />
     </div>
   )
 }
