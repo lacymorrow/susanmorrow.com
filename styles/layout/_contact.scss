@@ -9,7 +9,7 @@
 	#contact {
 
 		// Basic spam fileter honeypot.
-		#phone_number { display: none; }
+		.hidden { display: none; }
 
 		border-bottom: solid 1px _palette(border);
 		overflow-x: hidden;
