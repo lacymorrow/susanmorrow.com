@@ -58,6 +58,10 @@
 			width: 100%;
 		}
 
+		&.flex {
+			display: flex;
+		}
+
 		&.small {
 			font-size: 0.6em;
 		}
