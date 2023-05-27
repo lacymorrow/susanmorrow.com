@@ -1,3 +1,9 @@
+
+/*
+Life Strategies, Successful Transitions, Navigating Relationships, Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.
+Goal-focused Coping Tools. Individual Therapy. Life Coaching.
+*/
+
 /* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
 
@@ -75,11 +81,5 @@ const Index = () => <Layout>
 
 	</div>
 </Layout>;
-
-/*
-Life Strategies, Successful Transitions, Navigating Relationships, Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.
-Goal-focused Coping Tools. Individual Therapy. Life Coaching.
-
-*/
 
 export default Index;

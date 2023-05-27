@@ -6,8 +6,9 @@ import BannerLanding from '../components/BannerLanding'
 
 const Landing = () => <Layout>
     <Head>
-        <title>Landing Page</title>
+        <meta name="robots" content="noindex" />
         <meta name="description" content="Landing Page" />
+        <title>Landing Page</title>
     </Head>
 
     <div>
