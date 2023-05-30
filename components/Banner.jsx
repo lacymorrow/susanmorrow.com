@@ -2,7 +2,7 @@ const Banner = (props) => (
 	<section id="banner" className="major">
 		<div className="inner">
 			<header className="major">
-				<h1>Embrace Change: Experience Therapy that Delivers</h1>
+				<h1>Embrace Change: Experience <wbr />Therapy that Delivers</h1>
 			</header>
 			<div className="content">
 				{/* <p>In-person Therapy and telehealth visits in Charlotte and across NC.</p> */}
