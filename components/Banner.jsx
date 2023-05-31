@@ -2,7 +2,7 @@ const Banner = (props) => (
 	<section id="banner" className="major">
 		<div className="inner">
 			<header className="major">
-				<h1><span className="avoidwrap">Unlock Softer Emotions, Build Loving Relationships. </span> <span className="avoidwrap"> Experience the Power of Emotionally Focused Therapy. </span></h1>
+				<h1><span className="avoidwrap">Unlock Emotions, Build Loving Relationships. </span> <span className="avoidwrap"> Experience the Power of Emotionally Focused Therapy. </span></h1>
 			</header>
 			<div className="content">
 				{/* <p>In-person Therapy and telehealth visits in Charlotte and across NC.</p> */}
