@@ -102,7 +102,7 @@ const handler = async (req, res) => {
     const emailResponse = await postmarkClient.sendEmail({
       From: 'susan@susanmorrow.us',
       To: process.env.RECEIVING_EMAIL || 'me@lacymorrow.com',
-      Subject: `${isSpam && spamPrefix} SusanMorrow.us Inquiry: ${name}`,
+      Subject: `SusanMorrow.us Inquiry: ${name}`,
       HtmlBody,
       TextBody,
       MessageStream: 'outbound',
