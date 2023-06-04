@@ -4,7 +4,7 @@ import { Configuration, OpenAIApi } from 'openai'
 const handler = async (req, res) => {
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
- 
+
     const HtmlBody = `<h1>Contact from = </h1><p><b>${name}</b> justsaid:</p><p>${message}</p><p>${email}</p>`;
     const TextBody = `Contact from ${name}: \r\n${email}\r\n${message}`;
 
@@ -21,15 +21,16 @@ const handler = async (req, res) => {
         'X-Postmark-Server-Token': process.env.POSTMARK_TOKEN,
       },
       body: JSON.stringify({
-        email: `Contact from ${name}: \r\n${email}\r\n${message}`
+        email: `Contact from ${name}: \r\n${email}\r\n${message}`,
+				message: `Contact from ${name}: \r\n${email}\r\n${message}`,
       }),
     })
       .then((response) => response.json())
       .then((data) => data)
-      
+
       console.log(`Postmark Spam Check: ${console.dir(isPostSpam)}`);
 
-      
+
       // if (isPostSpam && spamPrefix) {
     //   return res.status(400).json({
     //     error: {
@@ -38,7 +39,7 @@ const handler = async (req, res) => {
       //     },
       //   });
       // }
-      
+
       // break the app if the API key is missing
       if (!process.env.OPENAI_API_KEY) {
         return res.status(404).json({
@@ -49,22 +50,22 @@ const handler = async (req, res) => {
           },
         });
     }
-    
+
     console.log(`Prompt content: ${TextBody}`)
 
     const configuration = new Configuration({
       apiKey: process.env.OPENAI_API_KEY,
     });
-    
+
     const openai = new OpenAIApi(configuration);
-    
+
     const response = await openai.createCompletion({
       // model: 'gpt-3.5-turbo',
       // model: "text-moderation-latest",
       model: "text-davinci-003",
       // prompt: "Respond with `true` if you believe the message to be legitimate business correspondance or `false` if the message seems like a scam or promotion.",
       // prompt:  'USER: Answer the question based on the context below. Keep the answer short and concise. Respond "Unsure about answer" if not sure about the answer.'
-      // Context: `A website form is getting a lot of spam email from a small, local business. Would you be able to give me a floating point number between 0 and 1 that represents the probability that the following message is spam? The closer to 1, the more likely it is spam. The closer to 0, the less likely it is spam. \n\n failing business and need as much accuracy to avoid false positives. 
+      // Context: `A website form is getting a lot of spam email from a small, local business. Would you be able to give me a floating point number between 0 and 1 that represents the probability that the following message is spam? The closer to 1, the more likely it is spam. The closer to 0, the less likely it is spam. \n\n failing business and need as much accuracy to avoid false positives.
       // Here is the Message: ' + body.message + '\n\nAnswer:,
       // Question: `Does this message seem legitimate or like suspicuious spam. It was submitted via a homemade php contact form`?
       prompt: `The following messages are from a contact form for a counselor. Answer "spam" if the following message seems like spam or an unwanted business promotion. Answer "notspam" if the message seems like legitimate correspondace. \n\nMessage: ${TextBody}\n\nAnswer: `,
@@ -77,12 +78,13 @@ const handler = async (req, res) => {
       presence_penalty: 0,
       stop: ["\n"],
     });
-    
+
     const data = response.data.choices[0].text;
     console.log(data);
-    
-    const isSpam = `Is spam: ${isPostSpam && '❌ postspam'} | ${isAISpam && '❌ aiSpam'}`
-    console.log(isSpam);
+
+		let isSpam = data === 'spam' ? '[❌ AI: SPAM]' : ''
+		isSpam = (!isSpam && isPostSpam ) ? '[POTENTIAL ❌]' : ''
+
     // // if (data === 'true') {
     // //   return res.status(400).json({
     // //     error: {
@@ -91,18 +93,16 @@ const handler = async (req, res) => {
     // //     },
     // //   });
     // // }
-    
-    // Send an email:
 
-    
+    // Send an email via postmark:
+		const subject = `${isSpam || '👻'} SusanMorrow.us Inquiry: ${name}`
+
     const postmarkClient = new Client(process.env.POSTMARK_TOKEN || '');
-
-    // const client = new postmark.ServerClient(POSTMARK_TOKEN);
 
     const emailResponse = await postmarkClient.sendEmail({
       From: 'susan@susanmorrow.us',
       To: process.env.RECEIVING_EMAIL || 'me@lacymorrow.com',
-      Subject: `SusanMorrow.us Inquiry: ${name}`,
+      Subject: subject,
       HtmlBody,
       TextBody,
       MessageStream: 'outbound',
