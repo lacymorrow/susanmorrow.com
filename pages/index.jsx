@@ -50,7 +50,7 @@ const Index = () => <Layout>
 					<div className="row">
 						<div className="4u 12u$(small)">
 							<span className="image fit">
-								<img src="/images/headshot-glasses.jpg" alt="Image of Susan Morrow" />
+								<img src="/images/headshot-glasses-ai.jpg" alt="Image of Susan Morrow" />
 							</span>
 						</div>
 						<div className="8u 12u$(small)">
