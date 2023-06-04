@@ -3,7 +3,7 @@
   "description": "Susan Morrow's personal website",
   "version": "0.1.0",
   "engines": {
-    "node": ">=18.x"
+    "node": "12 || 14 || 16 || >=18.x"
   },
   "license": "UNLICENSED",
   "scripts": {
