@@ -83,7 +83,7 @@ const handler = async (req, res) => {
     console.log(data);
 
 		let isSpam = data === 'spam' ? '[❌ AI: SPAM]' : ''
-		isSpam = (!isSpam && isPostSpam ) ? '[POTENTIAL ❌]' : ''
+		isSpam = (!isSpam && isPostSpam ) ? '[❌ MAYBE: SPAM]' : ''
 
     // // if (data === 'true') {
     // //   return res.status(400).json({
