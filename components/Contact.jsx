@@ -11,6 +11,8 @@ class Contact extends React.Component {
 				name: "",
 				email: "",
 				message: "",
+				phone: false, // Honeypot
+				address: false, // Honeypot
 			},
 			isSubmitting: false,
 			isError: false,
@@ -19,9 +21,9 @@ class Contact extends React.Component {
 
 	submitForm = async (e) => {
 		e.preventDefault();
-		// Basic spam prevention
 
-		if (this.state.values.phone) {
+		// Basic spam prevention
+		if (this.state.values.phone || this.state.values.address) {
 			this.setState({
 				isSubmitting: false, status: `Your message was marked as spam due to suspicious activity. ${TRY_AGAIN_MESSAGE}`
 			});
@@ -61,6 +63,13 @@ class Contact extends React.Component {
 		);
 	};
 
+	// Basic spam prevention; honeypot field
+	handleCheck = (e) => {
+		this.setState({
+			values: { ...this.state.values, [e.target.name]: e.target.checked },
+		});
+	}
+
 	handleInputChange = (e) => {
 		this.setState({
 			values: { ...this.state.values, [e.target.name]: e.target.value },
@@ -72,10 +81,10 @@ class Contact extends React.Component {
 		e.preventDefault();
 		this.setState({ isSubmitting: true, status: 'Sending your message...' });
 
-		// AJAX request
-		const params = [...new FormData(e.target).entries()]
-		console.log()
+		// Returns an array
+		// const params = [...new FormData(e.target).entries()]
 
+		// AJAX request
 		const result = await fetch('/api/send-email-postmark', {
 			body: JSON.stringify(this.state.values),
 			headers: {
@@ -134,6 +143,12 @@ class Contact extends React.Component {
 								<input type="phone" name="phone" id="phone"
 									value={this.state.values.phone}
 									onChange={this.handleInputChange} />
+							</div>
+							<div className="hidden" aria-hidden>
+								<label htmlFor="address">Email</label>
+								<input type="checkbox" name="address" id="address"
+									value="address"
+									onChange={this.handleCheck} />
 							</div>
 							<div className="field">
 								<label htmlFor="message">Message</label>
