@@ -3,8 +3,8 @@ import Link from 'next/link'
 
 const Header = (props) => (
     <header id="header" className="alt">
-        <Link href="/">
-            <a className="logo">Susan Morrow <strong>MSW, LCSW</strong></a>
+        <Link href="/" className="logo">
+            Susan Morrow<strong>MSW, LCSW</strong>
         </Link>
         <nav>
             <a className="menu-link" onClick={props.onToggleMenu} href="#">Menu</a>

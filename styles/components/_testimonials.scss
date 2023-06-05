@@ -1,8 +1,46 @@
-.testimonial-carousel .carousel .slide {
-  background: linear-gradient(135deg, #242943 0%, #1f1f2e 100%);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
-  overflow: hidden;
+$primary-color: #242943;
+$secondary-color: #1f1f2e;
+$accent-color: #ffffff;
+$text-color: #8f8f8f;
+$shadow-color: rgba(0, 0, 0, 0.2);
+$transition-speed: 0.3s;
+
+.testimonial-carousel {
+  .carousel {
+    .slide {
+      background: linear-gradient(
+        135deg,
+        $primary-color 0%,
+        $secondary-color 100%
+      );
+      box-shadow: 0 10px 20px $shadow-color;
+      // border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .control-arrow {
+      top: 50% !important;
+      transform: translateY(-50%);
+      opacity: 0.8;
+      transition: all $transition-speed ease-in-out;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.control-prev {
+        left: 20px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 80" xml:space="preserve"><polyline fill="none" stroke="#{$accent-color}" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="45.63,75.8 0.375,38.087 45.63,0.375"/></svg>')
+          no-repeat center;
+      }
+
+      &.control-next {
+        right: 20px;
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 50 80" xml:space="preserve"><polyline fill="none" stroke="#{$accent-color}" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" points="0.375,0.375 45.63,38.087 0.375,75.8"/></svg>')
+          no-repeat center;
+      }
+    }
+  }
 }
 
 .testimonial {
@@ -12,24 +50,25 @@
   height: 100%;
   padding: 2em;
   text-align: center;
-  transition: all 0.3s ease-in-out;
-}
+  transition: all $transition-speed ease-in-out;
 
-.testimonial blockquote {
-  font-family: 'Source Sans Pro', sans-serif;
-  font-size: 1.5em;
-  line-height: 1.5;
-  color: #ffffff;
-  margin-bottom: 1em;
-}
+  blockquote {
+    font-family: "Source Sans Pro", sans-serif;
+    font-size: 1.5em;
+    line-height: 1.5;
+    color: $accent-color;
+    margin-bottom: 1em;
+    max-width: 800px;
+  }
 
-.testimonial cite.author {
-  display: block;
-  font-size: 1em;
-  color: #8f8f8f;
-  font-style: normal;
-}
+  cite.author {
+    display: block;
+    font-size: 1em;
+    color: $text-color;
+    font-style: normal;
+  }
 
-.testimonial:hover {
-  transform: scale(1.05);
+  &:hover {
+    transform: scale(1.05);
+  }
 }

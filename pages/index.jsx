@@ -22,28 +22,28 @@ const Index = () => <Layout>
 						<h3>Individual Therapy</h3>
 						<p>Help for Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</p>
 					</header>
-					<Link href="/individual"><a className="link primary"></a></Link>
+					<Link href="/individual" className="link primary"></Link>
 				</article>
 				<article style={{ backgroundImage: `url('/images/block-couples-2.jpg')` }}>
 					<header className="major">
 						<h3>Couples Therapy</h3>
 						<p>Improved Communication, Intimacy, Pre-marital Counseling</p>
 					</header>
-					<Link href="/couples"><a className="link primary"></a></Link>
+					<Link href="/couples" className="link primary"></Link>
 				</article>
 				<article style={{ backgroundImage: `url('/images/block-families.jpg')` }}>
 					<header className="major">
 						<h3>Family Therapy</h3>
 						<p>Group support for family resilience through challenges</p>
 					</header>
-					<Link href="/family"><a className="link primary"></a></Link>
+					<Link href="/family" className="link primary"></Link>
 				</article>
 				<article style={{ backgroundImage: `url('/images/block-video.jpg')` }}>
 					<header className="major">
 						<h3>Telehealth Counseling</h3>
 						<p>Serving the greater NC area. ideo meetings on your schedule.</p>
 					</header>
-					<Link href="/online"><a className="link primary"></a></Link>
+					<Link href="/online" className="link primary"></Link>
 				</article>
 			</section>
 
@@ -70,7 +70,7 @@ const Index = () => <Layout>
 							</span>
 
 							<ul className="actions flex">
-								<li><Link href="/about"><a className="button next">About Susan</a></Link></li>
+								<li><Link href="/about" className="button next">About Susan</Link></li>
 								<li>
 									<a target="_blank" rel="noreferrer" href="https://www.psychologytoday.com/profile/51938" className="sx-verified-seal button special flex align-center">
 										<img style={{ width: 'auto', maxWidth: '155px' }} src="/images/logo-psychology-today.svg" alt="Psychology Today Logo" />

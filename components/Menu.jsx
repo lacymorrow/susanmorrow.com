@@ -6,11 +6,11 @@ const Menu = (props) => (
 	<nav id="menu">
 		<div className="inner">
 			<ul className="links">
-				<li><Link href="/"><a><span onClick={props.onToggleMenu}>Home</span></a></Link></li>
-				<li><Link href="/about"><a><span onClick={props.onToggleMenu}>About</span></a></Link></li>
-				<li><Link href="/individual"><a><span onClick={props.onToggleMenu}>Individual Therapy</span></a></Link></li>
-				<li><Link href="/couples"><a><span onClick={props.onToggleMenu}>Couples Therapy</span></a></Link></li>
-				<li><Link href="/family"><a><span onClick={props.onToggleMenu}>Family Counseling</span></a></Link></li>
+				<li><Link href="/"><span onClick={props.onToggleMenu}>Home</span></Link></li>
+				<li><Link href="/about"><span onClick={props.onToggleMenu}>About</span></Link></li>
+				<li><Link href="/individual"><span onClick={props.onToggleMenu}>Individual Therapy</span></Link></li>
+				<li><Link href="/couples"><span onClick={props.onToggleMenu}>Couples Therapy</span></Link></li>
+				<li><Link href="/family"><span onClick={props.onToggleMenu}>Family Counseling</span></Link></li>
 				{/* <li><Link href="/intensives"><a><span onClick={props.onToggleMenu}>Couples Intensives</span></a></Link></li> */}
 			</ul>
 			<ul className="actions vertical">

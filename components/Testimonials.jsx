@@ -8,7 +8,7 @@ class Testimonials extends Component {
 		this.state = {
 			testimonials: [
 				{
-					quote: "Thank you for taking a journey with me, and helping me through it. I will always appreciate your rare combination of intelligence and deep compassion.Thank you!", author: "S.B. former client"
+					quote: "Thank you for taking a journey with me, and helping me through it. I will always appreciate your rare combination of intelligence and deep compassion. Thank you!", author: "S.B. former client"
 				},
 				{ quote: "So grateful for the impact sessions with Susan made for my life.", author: " Lori L." },
 				{
@@ -16,20 +16,20 @@ class Testimonials extends Component {
 					author: "L.R. Charlotte therapist"
 				},
 				{
-					quote: "This past year has been one of the most challenging ones for me. I am discovering a new level of self reliance, self awareness and mercy for myself and others. Thank you!!",
-					author: "former client"
+					quote: "This past year has been one of the most challenging ones for me. I am discovering a new level of self reliance, self awareness and mercy for myself and others. Thank you!",
+					author: "Former Client"
 				},
 				{
 					quote: "I am so grateful for all the times you listened, offered guidance and tools for navigating my way.",
-					author: "former client"
+					author: "Former Client"
 				},
 				{
 					quote: "Susan is a very compassionate and wonderful therapist, especially for couples.",
 					author: "H.S. Charlotte psychologist"
 				},
 				{
-					quote: "I am stronger today because of time spent with Susan..",
-					author: "former client"
+					quote: "I am stronger today because of time spent with Susan.",
+					author: "Former Client"
 				}
 
 
@@ -41,14 +41,16 @@ class Testimonials extends Component {
 		return (
 			<Carousel
 				autoPlay
-				interval={4500}
+				interval={5000}
 				infiniteLoop
 				useKeyboardArrows
 				dynamicHeight
 				showThumbs={false}
 				showStatus={false}
 				showIndicators={false}
+				showArrows={true}
 				className="testimonial-carousel"
+				ariaLabel="Rotating Testimonials Section"
 			>
 				{this.state.testimonials.map((testimonial, index) => (
 					<div key={index} className="testimonial">
