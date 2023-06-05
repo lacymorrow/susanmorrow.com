@@ -111,6 +111,7 @@ class Contact extends React.Component {
 			<section id="contact">
 				<div className="inner">
 					<section>
+						<h2>Schedule an Appointment Today</h2>
 						<form
 							method="post"
 							action="/api/send-email-postmark"
