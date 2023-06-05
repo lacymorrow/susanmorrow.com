@@ -156,7 +156,7 @@ class Contact extends React.Component {
 									</button>
 								</li>
 								<li>
-									<input type="reset" value="Clear" />
+									<input type="reset" defaultValue="Clear" />
 								</li>
 							</ul>
 							<h4 className="form-message">{this.state.isError && `Error: `}{this.state.status}</h4>

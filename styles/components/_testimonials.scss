@@ -1,0 +1,35 @@
+.testimonial-carousel .carousel .slide {
+  background: linear-gradient(135deg, #242943 0%, #1f1f2e 100%);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.testimonial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 2em;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+}
+
+.testimonial blockquote {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 1.5em;
+  line-height: 1.5;
+  color: #ffffff;
+  margin-bottom: 1em;
+}
+
+.testimonial cite.author {
+  display: block;
+  font-size: 1em;
+  color: #8f8f8f;
+  font-style: normal;
+}
+
+.testimonial:hover {
+  transform: scale(1.05);
+}

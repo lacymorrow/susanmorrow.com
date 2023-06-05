@@ -9,6 +9,7 @@ import Link from 'next/link'
 
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
+import Testimonials from '../components/Testimonials';
 
 const Index = () => <Layout>
 	<div>
@@ -45,6 +46,9 @@ const Index = () => <Layout>
 					<Link href="/online"><a className="link primary"></a></Link>
 				</article>
 			</section>
+
+			<Testimonials />
+
 			<section id="two">
 				<div className="inner">
 					<div className="row">
