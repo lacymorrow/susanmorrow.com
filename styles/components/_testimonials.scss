@@ -3,7 +3,7 @@ $secondary-color: #1f1f2e;
 $accent-color: #ffffff;
 $text-color: #8f8f8f;
 $shadow-color: rgba(0, 0, 0, 0.2);
-$transition-speed: 0.3s;
+$transition-speed: 0.4s;
 
 .testimonial-carousel {
   .carousel {
@@ -59,6 +59,9 @@ $transition-speed: 0.3s;
     color: $accent-color;
     margin-bottom: 1em;
     max-width: 800px;
+    @include breakpoint(small) {
+      border: none;
+    }
   }
 
   cite.author {
@@ -69,6 +72,6 @@ $transition-speed: 0.3s;
   }
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.04);
   }
 }
