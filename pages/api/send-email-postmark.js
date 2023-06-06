@@ -81,7 +81,7 @@ const handler = async (req, res) => {
     const data = response.data.choices[0].text;
     console.log(data);
     
-    const isSpam = `Is spam: ${isPostSpam && '❌ postspam'} | ${isAISpam && '❌ aiSpam'}`
+    const isSpam = `[POTENTTIAL SPAM] ${isPostSpam && '❌ postspam'} | ${isAISpam && '❌ aiSpam'}`
     console.log(isSpam);
     // // if (data === 'true') {
     // //   return res.status(400).json({
