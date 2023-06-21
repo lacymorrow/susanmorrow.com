@@ -50,7 +50,7 @@ class Testimonials extends Component {
 				showIndicators={false}
 				showArrows={true}
 				className="testimonial-carousel"
-				ariaLabel="Rotating Testimonials Section"
+				ariaLabel="What clients are saying about Susan Morrow"
 			>
 				{this.state.testimonials.map((testimonial, index) => (
 					<div key={index} className="testimonial">
