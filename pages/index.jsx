@@ -54,12 +54,12 @@ const Index = () => <Layout>
 					<div className="row">
 						<div className="4u 12u$(small)">
 							<span className="image fit">
-								<img src="/images/headshot-glasses-ai.png" alt="Image of Susan Morrow" />
+								<img src="/images/headshot-2023.png" alt="Image of Susan Morrow" />
 							</span>
 						</div>
 						<div className="8u 12u$(small)">
 							<header className="major">
-								<h2>Meet Susan Morrow</h2>
+								<h2>Susan Morrow, MSW, LCSW</h2>
 							</header>
 							<h4>Are you seeking counseling, and looking for a therapist with solid experience?</h4>
 							<p>I have 30 years of experience working with individuals, couples and families. If therapy is new for you, the most important factor in successful outcomes is having a “good fit” with your therapist. Seek out a therapist with a full reservoir of compassion, who can help you feel safe, empowered, and respected. My focus is on these essentials to good therapy, combined with the processes and master level clinical skills. It is my greatest privilege to work with the clients I see. I hope to meet you soon!</p>
