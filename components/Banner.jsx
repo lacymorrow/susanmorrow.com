@@ -2,14 +2,14 @@ const Banner = (props) => (
 	<section id="banner" className="major">
 		<div className="inner">
 			<header className="major">
-				<h1>Revitalize Relationships <br /> Communicate with Love <br /> Through Evidence-Based Therapies. </h1>
+				<h1>Revitalize Relationships <br /> Communicate and be heard <br /> Evidence-Based Therapies will work. </h1>
 			</header>
 			<div className="content">
 				{/* <p>In-person Therapy and telehealth visits in Charlotte and across NC.</p> */}
 				{/* <p>30 years experience delivering compassionate, personalized counseling strategies.</p> */}
-				<p>Compassionate, Personalized, Expert Therapy Services for Individuals, and Couples.</p>
+				<p>Personalized, Compassionate, Expert Therapy Services for Individuals, and Couples.</p>
 				<ul className="actions">
-					<li><a href="#contact" className="button next scrolly">Schedule an appointment</a></li>
+					<li><a href="#contact" className="button next scrolly">Start your better life now</a></li>
 				</ul>
 			</div>
 			<br />

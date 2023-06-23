@@ -30,7 +30,7 @@ const About = () => <Layout>
 			</section>
 			<section id="two" className="spotlights">
 				<section>
-					<div className="image"><Image src="/images/headshot-2022.jpg" alt="" /></div>
+					<div className="image"><Image src="/images/headshot-glasses-ai.jpg" alt="" /></div>
 					<div className="content">
 						<div className="inner">
 							<header className="major">
