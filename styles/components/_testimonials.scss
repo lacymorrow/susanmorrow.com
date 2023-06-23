@@ -6,6 +6,8 @@ $shadow-color: rgba(0, 0, 0, 0.2);
 $transition-speed: 0.4s;
 
 .testimonial-carousel {
+  max-height: 480px;
+  overflow: hidden;
   .carousel {
     .slide {
       background: linear-gradient(
@@ -48,7 +50,7 @@ $transition-speed: 0.4s;
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 2em;
+  padding: 1em;
   text-align: center;
   transition: all $transition-speed ease-in-out;
 

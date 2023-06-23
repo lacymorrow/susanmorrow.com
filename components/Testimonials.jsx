@@ -56,7 +56,7 @@ class Testimonials extends Component {
 					<div key={index} className="testimonial">
 						<blockquote>
 							<p className="quote">{testimonial.quote}</p>
-							<cite className="author">{testimonial.author}</cite>
+							<cite className="author"> &mdash; {testimonial.author}</cite>
 						</blockquote>
 					</div>
 				))}

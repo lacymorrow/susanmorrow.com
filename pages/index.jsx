@@ -12,7 +12,7 @@ import Banner from '../components/Banner'
 import Testimonials from '../components/Testimonials';
 
 const Index = () => <Layout>
-	<div>
+	<>
 		<Banner />
 
 		<div id="main">
@@ -40,7 +40,7 @@ const Index = () => <Layout>
 				</article>
 				<article style={{ backgroundImage: `url('/images/block-video.jpg')` }}>
 					<header className="major">
-						<h3>Telehealth Counseling</h3>
+						<h3>Connect remotely over video</h3>
 						<p>Serving the greater NC area. ideo meetings on your schedule.</p>
 					</header>
 					<Link href="/online" className="link primary"></Link>
@@ -83,7 +83,7 @@ const Index = () => <Layout>
 			</section>
 		</div>
 
-	</div>
+	</>
 </Layout>;
 
 export default Index;
