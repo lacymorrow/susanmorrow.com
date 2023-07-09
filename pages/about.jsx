@@ -31,7 +31,7 @@ const About = () => <Layout>
 			</section>
 			<section id="two" className="spotlights">
 				<section>
-					<div className="image"><Image src="/images/headshot-glasses-ai.png" alt="" /></div>
+					<div className="image"><img src="/images/headshot-glasses-ai.png" alt="" /></div>
 					<div className="content">
 						<div className="inner">
 							<header className="major">
@@ -52,7 +52,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<a className="image"><Image src="/images/photo-about-beach-2.jpg" alt="" /></a>
+					<a className="image"><img src="/images/block-about-2.jpg" alt="" /></a>
 
 					<div className="content">
 						<div className="inner">
@@ -74,7 +74,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<a className="image"><Image src="/images/photo-city-couple.jpg" alt="" /></a>
+					<a className="image"><img src="/images/block-about-1.jpg" alt="" /></a>
 
 					<div className="content">
 						<div className="inner">
