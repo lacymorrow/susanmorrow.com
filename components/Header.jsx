@@ -1,17 +1,22 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link'
+import { useRouter } from 'next/router';
 
-const Header = (props) => (
-	<header id="header" className="alt">
-		<Link href="/" className="logo">
-			{/* Susan Morrow<strong>MSW, LCSW</strong> */}
-			Charlotte <strong>Therapy</strong>
-		</Link>
-		<nav>
-			<a className="menu-link" onClick={props.onToggleMenu} href="#">Open to all </a>
-		</nav>
-	</header>
-)
+const Header = (props) => {
+	const router = useRouter();
+
+	return (
+		<header id="header" className="alt">
+			<Link href="/" className="logo">
+				{/* Susan Morrow<strong>MSW, LCSW</strong> */}
+				Charlotte {router.pathname === '/' ? <strong>Therapy</strong> : 'Therapy'}
+			</Link>
+			<nav>
+				<a className="menu-link" onClick={props.onToggleMenu} href="#" aria-label='Open/close Menu'>Menu</a>
+			</nav>
+		</header>
+	)
+}
 
 Header.propTypes = {
 	onToggleMenu: PropTypes.func

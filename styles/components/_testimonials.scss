@@ -55,7 +55,7 @@ $transition-speed: 0.4s;
   transition: all $transition-speed ease-in-out;
 
   blockquote {
-    font-family: "Source Sans Pro", sans-serif;
+    font-family: _family(family);
     font-size: 1.5em;
     line-height: 1.5;
     color: $accent-color;

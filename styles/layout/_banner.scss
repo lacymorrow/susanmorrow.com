@@ -26,6 +26,10 @@
   position: relative;
   top: -3.25em;
 
+  & h1 {
+    font-family: _font(family-serif);
+  }
+
   &:after {
     @include vendor("transition", "opacity #{_duration(banner)} ease");
     @include vendor("transition-delay", "0.75s");

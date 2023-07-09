@@ -1,92 +1,103 @@
 // Misc.
-	$misc: (
-		z-index-base:		10000
-	);
+$misc: (
+  z-index-base: 10000,
+);
 
 // Duration.
-	$duration: (
-		menu:				0.35s,
-		transition:			0.2s,
-		banner:				2.5s
-	);
+$duration: (
+  menu: 0.35s,
+  transition: 0.2s,
+  banner: 2.5s,
+);
 
 // Size.
-	$size: (
-		border-radius:		4px,
-		element-height:		2.75em,
-		element-margin:		2em,
-		inner:				65em
-	);
+$size: (
+  border-radius: 4px,
+  element-height: 2.75em,
+  element-margin: 2em,
+  inner: 65em,
+);
 
 // Font.
-	$font: (
-		family:				('Source Sans Pro', Helvetica, sans-serif),
-		family-fixed:		('Courier New', monospace),
-		weight:				300,
-		weight-bold:		600,
-		letter-spacing:		0.025em,
-		letter-spacing-alt:	0.25em
-	);
+$font: (
+  family: (
+    "Quattrocento Sans",
+    Helvetica,
+    sans-serif,
+  ),
+  family-fixed: (
+    "Courier New",
+    monospace,
+  ),
+  family-serif: (
+    "Quattrocento",
+    serif,
+  ),
+  weight: 400,
+  weight-bold: 700,
+  letter-spacing: 0.025em,
+  letter-spacing-alt: 0.25em,
+);
 
 // Palette.
-	$dark-theme: (
-		bg:					#242943,
-		bg-alt:				#2a2f4a,
-		fg:					#ffffff,
-		fg-bold:			#ffffff,
-		fg-light:			rgba(244,244,255,0.2),
-		border:				rgba(212,212,255,0.1),
-		border-bg:			rgba(212,212,255,0.035),
-		highlight:			#9bf1ff,
-		accent1:			#6fc3df,
-		accent2:			#8d82c4,
-		accent3:			#ec8d81,
-		accent4:			#e7b788,
-		accent5:			#8ea9e8,
-		accent6:			#87c5a4
-	);
+$dark-theme: (
+  bg: #242943,
+  bg-alt: #2a2f4a,
+  fg: #ffffff,
+  fg-bold: #ffffff,
+  fg-light: rgba(244, 244, 255, 0.2),
+  border: rgba(212, 212, 255, 0.1),
+  border-bg: rgba(212, 212, 255, 0.035),
+  highlight: #9bf1ff,
+  accent1: #6fc3df,
+  accent2: #8d82c4,
+  accent3: #ec8d81,
+  accent4: #e7b788,
+  accent5: #8ea9e8,
+  accent6: #87c5a4,
+);
 
-	$light-theme: (
-		covid: #8d82c4,
-		bg:					#fff,
-		bg-alt:				#f1f1f1,
-		fg:					#333,
-		fg-bold:			darken(#8d82c4, 35%),
-		// fg-light:			rgba(244,244,255,0.2),
-		fg-light:			rgba(10,10,0,0.2),
-		white:			#fff,
-		border:			rgba(141, 130, 196, .1),
-		border-bg:			rgba(141, 130, 196, .1),
-		callout:			#e52325,
-		highlight:			#8d82c4,
-		accent1:			#6fc3df,
-		accent2:			#8d82c4,
-		accent3:			#ec8d81,
-		accent4:			#e7b788,
-		accent5:			#8ea9e8,
-		accent6:			#87c5a4
-	);
+$light-theme: (
+  covid: #8d82c4,
+  bg: #fff,
+  bg-alt: #f1f1f1,
+  fg: #333,
+  fg-bold: darken(#8d82c4, 35%),
+  // fg-light:			rgba(244,244,255,0.2),
+  fg-light: rgba(10, 10, 0, 0.2),
+  white: #fff,
+  border: rgba(141, 130, 196, 0.1),
+  border-bg: rgba(141, 130, 196, 0.1),
+  callout: #e52325,
+  highlight: #8d82c4,
+  accent1: #6fc3df,
+  accent2: #8d82c4,
+  accent3: #ec8d81,
+  accent4: #e7b788,
+  accent5: #8ea9e8,
+  accent6: #87c5a4,
+);
 
-	$mom-theme: (
-		covid: #4202bb,
-		bg:					#fff,
-		lighter:			#ddd,
-		bg-alt:				#f1f1f1,
-		fg:					#333,
-		fg-bold:			darken(#8d82c4, 35%),
-		// fg-light:			rgba(244,244,255,0.2),
-		fg-light:			rgba(10,10,0,0.2),
-		white:				#fff,
-		border:				rgba(141, 130, 196, .1),
-		border-bg:			rgba(141, 130, 196, .1),
-		callout:			#e52325,
-		highlight:			#8d82c4,
-		accent1:			#b79e90,
-		accent2:			#8d82c4,
-		accent3:			#a1bfe2,
-		accent4:			#d2e4e1,
-		accent5:			#8ea9e8,
-		accent6:			#87c5a4
-	);
+$mom-theme: (
+  covid: #4202bb,
+  bg: #fff,
+  lighter: #ddd,
+  bg-alt: #f1f1f1,
+  fg: #333,
+  fg-bold: darken(#8d82c4, 35%),
+  // fg-light:			rgba(244,244,255,0.2),
+  fg-light: rgba(10, 10, 0, 0.2),
+  white: #fff,
+  border: rgba(141, 130, 196, 0.1),
+  border-bg: rgba(141, 130, 196, 0.1),
+  callout: #e52325,
+  highlight: #8d82c4,
+  accent1: #b79e90,
+  accent2: #8d82c4,
+  accent3: #a1bfe2,
+  accent4: #d2e4e1,
+  accent5: #8ea9e8,
+  accent6: #87c5a4,
+);
 
-	$palette: $mom-theme;
+$palette: $mom-theme;
