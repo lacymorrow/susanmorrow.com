@@ -41,7 +41,7 @@ const Index = () => <Layout>
 				<article style={{ backgroundImage: `url('/images/block-video.jpg')` }}>
 					<header className="major">
 						<h3>Connect remotely over video</h3>
-						<p>Serving the greater NC area. ideo meetings on your schedule.</p>
+						<p>Serving the greater NC area. Telehealth meetings on your schedule.</p>
 					</header>
 					<Link href="/online" className="link primary"></Link>
 				</article>
@@ -54,7 +54,7 @@ const Index = () => <Layout>
 					<div className="row">
 						<div className="4u 12u$(small)">
 							<span className="image fit">
-								<img src="/images/headshot-2023.png" alt="Image of Susan Morrow" />
+								<img src="/images/headshot-tall.png" alt="Image of Susan Morrow" />
 							</span>
 						</div>
 						<div className="8u 12u$(small)">

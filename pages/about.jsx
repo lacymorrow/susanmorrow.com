@@ -31,7 +31,7 @@ const About = () => <Layout>
 			</section>
 			<section id="two" className="spotlights">
 				<section>
-					<div className="image"><img src="/images/headshot-glasses-ai.png" alt="" /></div>
+					<div className="image"><img src="/images/headshot-2023.png" alt="Susan Morrow Smiling" /></div>
 					<div className="content">
 						<div className="inner">
 							<header className="major">
@@ -52,7 +52,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<a className="image"><img src="/images/block-about-2.jpg" alt="" /></a>
+					<a className="image"><img src="/images/block-about-4.png" alt="" /></a>
 
 					<div className="content">
 						<div className="inner">

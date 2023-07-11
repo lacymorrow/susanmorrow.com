@@ -9,7 +9,7 @@ const Header = (props) => {
 		<header id="header" className="alt">
 			<Link href="/" className="logo">
 				{/* Susan Morrow<strong>MSW, LCSW</strong> */}
-				Charlotte {router.pathname === '/' ? <strong>Therapy</strong> : 'Therapy'}
+				Charlotte Therapy
 			</Link>
 			<nav>
 				<a className="menu-link" onClick={props.onToggleMenu} href="#" aria-label='Open/close Menu'>Menu</a>
