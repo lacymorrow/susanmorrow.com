@@ -31,7 +31,7 @@ const About = () => <Layout>
 			</section>
 			<section id="two" className="spotlights">
 				<section>
-					<div className="image"><img src="/images/headshot-2023.png" alt="Susan Morrow Smiling" /></div>
+					<div className="image"><img src="/images/headshot-2023-2.jpg" alt="Susan Morrow Smiling" /></div>
 					<div className="content">
 						<div className="inner">
 							<header className="major">

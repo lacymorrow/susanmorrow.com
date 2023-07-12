@@ -5,7 +5,7 @@ const BannerLanding = (props) => (
 				<h1>About Susan Morrow</h1>
 			</header>
 			<div className="content">
-				<p>EFT-based therapy</p>
+				{/* <p>EFT-based therapy</p> */}
 			</div>
 		</div>
 	</section>
