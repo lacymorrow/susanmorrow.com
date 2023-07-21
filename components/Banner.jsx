@@ -2,7 +2,7 @@ const Banner = (props) => (
 	<section id="banner" className="major">
 		<div className="inner">
 			<header className="major">
-				<h1><span className="avoidwrap">Build stronger relationships.</span> <span className="avoidwrap">Have a more fulfilling life.</span></h1>
+				<h1><span className="avoidwrap">Build stronger relationships.</span> <span className="avoidwrap">Lead a more fulfilling life.</span></h1>
 				{/* <img src="/images/banner-block.png" alt="Happy couple cooking and dancing" /> */}
 			</header>
 			<div className="content">

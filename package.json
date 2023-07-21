@@ -28,7 +28,9 @@
     "react-dom": "^18.2.0",
     "react-ga": "^3.3.1",
     "react-responsive-carousel": "^3.2.23",
-    "sass": "^1.62.1"
+    "react-slick": "^0.29.0",
+    "sass": "^1.62.1",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",

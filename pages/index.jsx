@@ -62,8 +62,12 @@ const Index = () => <Layout>
 								<h2>Susan Morrow, MSW, LCSW</h2>
 							</header>
 							<h4>Professional therapy for you, and your most important relationships</h4>
-							<p>Embark on a transformative journey with Susan, a highly trained and experienced therapist. With 30 years of expertise and a commitment to successful outcomes, she guides individuals, couples, and families through life&apos;s challenges. Susan seamlessly combines mindfulness-based CBT, Emotionally Focused Therapy, Gottman Method Marriage Counseling, and other proven techniques. In a compassionate and collaborative environment, she helps clients break free from negative patterns, foster deep connections, overcome obstacles, and unlock full potential. Build a brighter future with Susan as your guide.</p>
-
+							<p>Susan is a seasoned therapist who draws from an extensive background in evidence-based therapies and 30 years of clinical experience working with individuals and couples like you. Her model provides a strength-based, personalized approach to help you to:</p>
+							<ul>
+								<li>Break free from negative patterns</li>
+								<li>Unlock your potential with effective coping skills</li>
+								<li>Build relationships that reduce - rather than create - stress</li>
+							</ul>
 							<span className="image right">
 								<img src="/images/iceeft.png" alt="International Centre for Emotionally Focused Therapy Logo" />
 								<sub><i>International Centre for Emotionally Focused Therapy</i></sub>

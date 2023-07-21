@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import Slider from 'react-slick';
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
 
 class Testimonials extends Component {
 	constructor(props) {
@@ -38,20 +39,22 @@ class Testimonials extends Component {
 	}
 
 	render() {
+		const settings = {
+			autoplay: true,
+			autoplaySpeed: 6000,
+			infinite: true,
+			fade: true,
+			arrows: false,
+			dots: false,
+			pauseOnHover: true,
+			speed: 1200,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			className: 'testimonial-carousel'
+		};
+
 		return (
-			<Carousel
-				autoPlay
-				interval={5000}
-				infiniteLoop
-				useKeyboardArrows
-				dynamicHeight
-				showThumbs={false}
-				showStatus={false}
-				showIndicators={false}
-				showArrows={true}
-				className="testimonial-carousel"
-				ariaLabel="What clients are saying about Susan Morrow"
-			>
+			<Slider {...settings}>
 				{this.state.testimonials.map((testimonial, index) => (
 					<div key={index} className="testimonial">
 						<blockquote>
@@ -60,8 +63,7 @@ class Testimonials extends Component {
 						</blockquote>
 					</div>
 				))}
-			</Carousel>
-
+			</Slider>
 		);
 	}
 }

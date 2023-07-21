@@ -1,13 +1,14 @@
 $primary-color: rgb(56, 47, 100);
 $secondary-color: #1f1f2e;
-$accent-color: #ffffff;
-$text-color: #8f8f8f;
+$accent-color: rgba(255, 255, 255, 0.8);
+$text-color: rgba(220, 220, 220, 0.6);
 $shadow-color: rgba(0, 0, 0, 0.2);
 $transition-speed: 0.4s;
 
 .testimonial-carousel {
   max-height: 480px;
   overflow: hidden;
+  background: linear-gradient(135deg, $primary-color 0%, $secondary-color 100%);
   .carousel {
     .slide {
       background: linear-gradient(
@@ -56,11 +57,12 @@ $transition-speed: 0.4s;
 
   blockquote {
     font-family: _family(family);
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 1.5;
     color: $accent-color;
-    margin-bottom: 1em;
-    max-width: 800px;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0 auto;
+    max-width: 1200px;
     @include breakpoint(small) {
       border: none;
     }
@@ -68,12 +70,12 @@ $transition-speed: 0.4s;
 
   cite.author {
     display: block;
-    font-size: 1em;
+    font-size: 0.7em;
     color: $text-color;
     font-style: normal;
   }
 
   &:hover {
-    transform: scale(1.04);
+    // transform: scale(1.04);
   }
 }
