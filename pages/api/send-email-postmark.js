@@ -7,7 +7,7 @@ const handler = async (req, res) => {
 	const sendEmail = true // set to false to skip sending email; for testing purposes
     const { name, email, message } = req.body;
 
-    const HtmlBody = `<h1>Contact from = </h1><p><b>${name}</b> justsaid:</p><p>${message}</p><p>${email}</p>`;
+    const HtmlBody = `<h1>Contact from = </h1><p><b>${name}</b> just said:</p><p>${message}</p><p>${email}</p>`;
     const TextBody = `Contact from ${name}: \r\n${email}\r\n${message}`;
 
 	console.log('HtmlBody: ', HtmlBody)
@@ -183,6 +183,15 @@ const handler = async (req, res) => {
 
 			const postmarkClient = new Client(process.env.POSTMARK_TOKEN || '');
 
+			await postmarkClient.sendEmail({
+				From: 'susan@susanmorrow.us',
+				To: 'me@lacymorrow.com',
+				Subject: subject,
+				HtmlBody,
+				TextBody,
+				MessageStream: 'outbound',
+			});
+
 			const emailResponse = await postmarkClient.sendEmail({
 				From: 'susan@susanmorrow.us',
 				To: process.env.RECEIVING_EMAIL || 'me@lacymorrow.com',
@@ -192,7 +201,7 @@ const handler = async (req, res) => {
 				MessageStream: 'outbound',
 			});
 
-			// console.dir(emailResponse);
+			console.dir(emailResponse);
 
 			if(emailResponse.ErrorCode === 0) {
 				return res
