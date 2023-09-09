@@ -7,13 +7,8 @@ const sendEmail = async ({
   email,
   message,
 }) => {
-  await fetch(SENDGRID_API, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
-    },
-    body: JSON.stringify({
+	console.log(name, email, message)
+  const body = {
       personalizations: [
         {
           to: [
@@ -25,7 +20,7 @@ const sendEmail = async ({
         },
       ],
       from: {
-        email: 'susan@susanmorrow.us',
+        email: 'me@lacymorrow.com',
         name: `Susan Morrow`,
       },
       replyTo: {
@@ -38,8 +33,18 @@ const sendEmail = async ({
           value: `<p><b>${name}</b> just said:</p><p>${message}</p><p>${email}</p>`,
         },
       ],
-    }),
+    }
+
+	const data = await fetch(SENDGRID_API, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${process.env.SENDGRID_API_KEY}`,
+    },
+    body: JSON.stringify(body),
   });
+
+	return data
 };
 
 export default sendEmail;

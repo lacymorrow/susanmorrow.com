@@ -3,6 +3,8 @@ import React from "react";
 const SUCCESS_MESSAGE = '✔ Your message was sent successfully. I will get back to you as soon as possible.'
 const TRY_AGAIN_MESSAGE = 'Please try again or email me at or email me at susan@susanmorrow.us'
 
+const ERROR_STATUS = 'Something went wrong, please try again or email me at susan@susanmorrow.us'
+
 class Contact extends React.Component {
 	constructor(props) {
 		super(props);
@@ -41,7 +43,7 @@ class Contact extends React.Component {
 		const params = [...new FormData(e.target).entries()]
 
 		// AJAX request
-		const result = await fetch('/api/send-email-php', {
+		const result = await fetch('/api/send-email-sendgrid', {
 			body: JSON.stringify(this.state.values),
 			headers: {
 				'Content-Type': 'application/json',
@@ -58,7 +60,7 @@ class Contact extends React.Component {
 			.catch((error) => {
 				// Server error
 				console.error('[sendmail] Error sending mail: ', error);
-				this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+				this.setState({ isSubmitting: false, isError: true, status: ERROR_STATUS });
 			});
 
 		if (result?.message) {
@@ -67,7 +69,7 @@ class Contact extends React.Component {
 
 		} else {
 			// Likely a validation error
-			this.setState({ isSubmitting: false, isError: true, status: 'Something went wrong, please try again or email me at susan@susanmorrow.us' });
+			this.setState({ isSubmitting: false, isError: true, status: ERROR_STATUS });
 		}
 	};
 
