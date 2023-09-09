@@ -51,7 +51,7 @@ $transition-speed: 0.4s;
   align-items: center;
   justify-content: center;
   height: 100%;
-  padding: 1em;
+  padding: 2em;
   text-align: center;
   transition: all $transition-speed ease-in-out;
 
@@ -73,9 +73,5 @@ $transition-speed: 0.4s;
     font-size: 0.7em;
     color: $text-color;
     font-style: normal;
-  }
-
-  &:hover {
-    // transform: scale(1.04);
   }
 }

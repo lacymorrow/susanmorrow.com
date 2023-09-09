@@ -19,50 +19,6 @@ class Contact extends React.Component {
 		};
 	}
 
-	submitForm = async (e) => {
-		e.preventDefault();
-
-		// Basic spam prevention
-		if (this.state.values.phone || this.state.values.address) {
-			this.setState({
-				isSubmitting: false, status: `Your message was marked as spam due to suspicious activity. ${TRY_AGAIN_MESSAGE}`
-			});
-			return;
-		}
-
-
-		if (!this.state.values.name || !this.state.values.email || !this.state.values.message) {
-			this.setState({ isSubmitting: false, status: 'Please fill out all fields' });
-			return;
-		}
-		this.setState({ isSubmitting: true, status: 'Sending message...' });
-
-		// AJAX request
-		const params = [...new FormData(e.target).entries()]
-		const success = await sendmail(params)
-
-		if (success) {
-			this.setState({ isSubmitting: false, isError: false, status: SUCCESS_MESSAGE });
-		} else {
-			this.setState({
-				isSubmitting: false, isError: true, status: `Something went wrong sending your message. ${TRY_AGAIN_MESSAGE}`
-			});
-		}
-
-		setTimeout(
-			() => {
-				const values = { ...this.state.values, message: "" }
-				this.setState({
-					isError: false,
-					isSubmitting: false,
-					status: "",
-					values: values,
-				})
-			},
-			3000
-		);
-	};
-
 	// Basic spam prevention; honeypot field
 	handleCheck = (e) => {
 		this.setState({
@@ -82,10 +38,10 @@ class Contact extends React.Component {
 		this.setState({ isSubmitting: true, status: 'Sending your message...' });
 
 		// Returns an array
-		// const params = [...new FormData(e.target).entries()]
+		const params = [...new FormData(e.target).entries()]
 
 		// AJAX request
-		const result = await fetch('/api/send-email-postmark', {
+		const result = await fetch('/api/send-email-php', {
 			body: JSON.stringify(this.state.values),
 			headers: {
 				'Content-Type': 'application/json',
@@ -123,7 +79,7 @@ class Contact extends React.Component {
 						<h2>Schedule an Appointment Today</h2>
 						<form
 							method="post"
-							action="/api/send-email-postmark"
+							action="https://phpstack-1011481-3573429.cloudwaysapps.com/io.php"
 							onSubmit={this.postForm}
 						>
 							<div className="field half first">

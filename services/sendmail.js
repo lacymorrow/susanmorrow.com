@@ -2,8 +2,9 @@ import axios from "axios";
 
 const handler = async(params) => {
     params = new URLSearchParams(params)
-    return await axios.post('http://lacymorrow.com/clients/susanmorrow/io.php', params, function (req, res) {
-            
+	console.log(`Sending email from ${params?.email}`)
+    return await axios.post('https://phpstack-1011481-3573429.cloudwaysapps.com/io.php', params, function (req, res) {
+
         })
         .then(function(response) {
             console.log('response: ', response);

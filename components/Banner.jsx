@@ -10,7 +10,7 @@ const Banner = (props) => (
 				{/* <p>30 years experience delivering compassionate, personalized counseling strategies.</p> */}
 				<h2><span className="avoidwrap">Personalized, Compassionate, Therapy Services</span> <span className="avoidwrap">for Individuals, Couples, and Families.</span></h2>
 				<ul className="actions">
-					<li><a href="#contact" className="button next scrolly">Schedule your free consultation</a></li>
+					<li><a href="#contact" className="button next scrolly">Make an appointment</a></li>
 				</ul>
 			</div>
 			<br />
