@@ -13,7 +13,7 @@ const sendEmail = async ({
         {
           to: [
             {
-              email: 'morrowsus@gmail.com',
+              email: 'gojukebox@gmail.com'
             },
           ],
           subject: `👻 SusanMorrow.us Inquiry: ${name}`,
