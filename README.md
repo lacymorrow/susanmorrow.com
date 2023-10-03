@@ -12,10 +12,6 @@ The dev site is hosted on Vercel at [susanmorrow-com.vercel.app](https://susanmo
 
 A Next.js starter based on the Forty site template, designed by HTML5 UP. Check out https://codebushi.com/nextjs-website-starters/ for more Next.js starters and templates.
 
-## Preview
-
-http://nextjs-forty.surge.sh/
-
 ## Getting Started
 
 To get started, simply clone the repository and run `npm install`
