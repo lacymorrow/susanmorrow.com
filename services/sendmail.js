@@ -3,7 +3,7 @@ import axios from "axios";
 const handler = async(params) => {
     params = new URLSearchParams(params)
 	console.log(`Sending email from ${params?.email}`)
-    return await axios.post('https://phpstack-1011481-3573429.cloudwaysapps.com/io.php', params, function (req, res) {
+    return await axios.post('https://phpstack-1011481-3573429.cloudwaysapps.com/susan-io.php', params, function (req, res) {
 
         })
         .then(function(response) {
