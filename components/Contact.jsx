@@ -34,6 +34,20 @@ class Contact extends React.Component {
 		});
 	}
 
+	handleReset = (e) => {
+		this.setState({
+			values: {
+				name: "",
+				email: "",
+				message: "",
+				phone: false,
+				address: false,
+			},
+			isSubmitting: false,
+			isError: false,
+		});
+	}
+
 
 	postForm = async (e) => {
 		e.preventDefault();
@@ -130,7 +144,7 @@ class Contact extends React.Component {
 									</button>
 								</li>
 								<li>
-									<input type="reset" defaultValue="Clear" />
+									<input type="reset" defaultValue="Clear" onClick={this.handleReset} />
 								</li>
 							</ul>
 							<h4 className="form-message">{this.state.isError && `Error: `}{this.state.status}</h4>
