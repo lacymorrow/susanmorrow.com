@@ -21,6 +21,7 @@ const handler = async (req, res) => {
 
 		if(data.statusText !== "Accepted"){
 			console.log("sendgrid error")
+			console.dir(await data.json())
 			return res.status(404).json(ERROR)
 		}
 
