@@ -47,7 +47,7 @@ class Testimonials extends Component {
   }
 
   render() {
-    return null; // !!! Todo: remove
+
     const settings = {
       autoplay: true,
       autoplaySpeed: 6000,
