@@ -12,20 +12,16 @@ const handler = async (req, res) => {
   if (req.method === 'POST') {
     const { name, email, message } = req.body;
 
-    const data = await sendEmail({ name, email, message })
-			.catch(error =>{
-				console.log(error)
-			  return res.status(404).json(ERROR)
-			}
-		);
+    const result = await sendEmail({ name, email, message }).catch(error => {
+			console.error('[sendEmail] provider error:', error)
+			return null
+		});
 
-		if(data.statusText !== "Accepted"){
-			console.log("sendgrid error")
-			console.dir(await data.json())
-			return res.status(404).json(ERROR)
+		if (!result || result.ok !== true) {
+			return res.status(500).json(ERROR)
 		}
 
-		console.log('Message sent.')
+		console.log('Message sent via', result.provider)
 		return res
 				.status(200)
 				.json({ message: 'Your message was sent, thanks for reaching out  🚀' });
