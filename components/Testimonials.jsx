@@ -10,6 +10,11 @@ class Testimonials extends Component {
       testimonials: [
         {
           quote:
+            "Just can't thank you enough for all the listening, support and gentle yet honest truth that I needed to hear. I feel like I really truly connected and trusted you from the moment I sat down and started talking with you.  You have been a godsend to me and I will forever be grateful that our paths crossed at the perfect time when I needed someone as I was spiraling out of control.  You guided me back to a very good place to be in and I feel I am back participating in my life being fully present and my old HAPPY self.",
+          author: "Former Client",
+        },
+        {
+          quote:
             "Thank you for taking a journey with me, and helping me through it. I will always appreciate your rare combination of intelligence and deep compassion. Thank you!",
           author: "S.B. former client",
         },

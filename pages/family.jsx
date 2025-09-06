@@ -16,10 +16,11 @@ const Family = () => <Layout>
 					<blockquote>Support through family ruptures in challenging times. <br />Re-establish and strengthen family bonds. Develop support strategies for individual family members going through personal struggles. Become a family that suports the health and wellness of all members.</blockquote>
 				</header>
 				<span className="image main"><img src="/images/header-family-2.jpg" alt="" /></span>
-				<p>Build Stronger family bonds. Provide support for individual family members while going through personal struggles. Become a family that suports the health and wellness of all members.</p>
 				<p>With 30 years of experience as a licensed therapist, I have the training and a practical road map to lead you from stuck places of disconnection into a secure, loving bond. We will work together to build a sustainable bond, to help you to cope in this challenging world.</p>
-				<p>Most marital distress comes from disconnection, communication problems, physical intimacy issues, broken trust, old hurts, stem from fissures in basic attachment bonds. I have a road map to take you out of these stuck places and into a more responsive, attuned, engaged relationship.</p>
-				<p>We now know how to build and protect a close, healthy, loving relationships.</p>
+				<p>Family therapy is about helping everyone in the family feel heard, understood, and supported. Instead of focusing on just one person, it looks at how the whole family works together. It gives you a safe space to talk through challenges, clear up misunderstandings, and strengthen your connections with one another.</p>
+				<p>Along the way, families learn helpful skills—like how to communicate better, solve problems together, and handle stress or big life changes as a team. These tools don’t just help right now; they prepare your family to face the future with more confidence and unity.</p>
+				<p>In the end, family therapy is about building a stronger, healthier home where everyone can thrive.</p>
+				<p>We now know how to build and protect close, healthy, loving relationships.</p>
 			</div>
 		</section>
 	</div>
