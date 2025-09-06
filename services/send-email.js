@@ -40,7 +40,7 @@ const sendWithSendgrid = async ({ name, email, message }) => {
 		body: JSON.stringify(body),
 	});
 
-	if (!response.ok && response.status !== 202) {
+	if (!(response.ok || response.status === 202)) {
 		throw new Error('SendGrid request failed');
 	}
 
@@ -57,15 +57,23 @@ const sendWithResend = async ({ name, email, message }) => {
 	const subject = `👻 SusanMorrow.us Inquiry: ${name}`;
 	const html = `<p><b>${name}</b> just said:</p><p>${message}</p><p>${email}</p>`;
 
+	const from = process.env.RESEND_FROM || 'onboarding@resend.dev';
+	const to = process.env.RECEIVING_EMAIL || 'morrowsus@gmail.com';
+
 	const { data, error } = await resend.emails.send({
-		from: 'me@lacymorrow.com',
-		to: 'morrowsus@gmail.com',
+		from,
+		to: [to],
 		subject,
 		html,
-		reply_to: `${name} <${email}>`,
+		reply_to: email ? `${name} <${email}>` : undefined,
 	});
 
 	if (error) {
+		console.error('[Resend] send error:', {
+			name: error?.name,
+			message: error?.message,
+			statusCode: error?.statusCode,
+		});
 		throw new Error(error.message || 'Resend request failed');
 	}
 

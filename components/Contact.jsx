@@ -57,7 +57,7 @@ class Contact extends React.Component {
 		const params = [...new FormData(e.target).entries()]
 
 		// AJAX request
-		const result = await fetch('/api/send-email-sendgrid', {
+		const result = await fetch('/api/send-email', {
 			body: JSON.stringify(this.state.values),
 			headers: {
 				'Content-Type': 'application/json',
