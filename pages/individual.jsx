@@ -4,8 +4,8 @@ import Layout from '../components/Layout'
 
 const Individual = () => <Layout>
 	<Head>
-		<title>Individual Therapy Charlotte NC</title>
-		<meta name="description" content="Counseling for adults and young adults" />
+		<title>Individual Therapy Charlotte NC | Susan Morrow, MSW, LCSW</title>
+		<meta name="description" content="Individual therapy in Charlotte, NC for anxiety, depression, trauma, addiction, and relationship issues. Evidence-based counseling for adults and young adults with over 30 years of experience." />
 	</Head>
 
 	<div id="main" className="alt">
@@ -15,7 +15,7 @@ const Individual = () => <Layout>
 					<h1>Individual Therapy</h1>
 					<blockquote>Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</blockquote>
 				</header>
-				<span className="image main"><img src="/images/header-individual-2.jpg" alt="" /></span>
+				<span className="image main"><img src="/images/header-individual-2.jpg" alt="Individual therapy session in Charlotte, North Carolina" /></span>
 
 				<p>Individual therapy provides a supportive platform for introspection and personal growth. It encourages the exploration and processing of life experiences, thereby aiding in the cultivation of a more integrated and secure sense of self. As this sense of identity solidifies, the path towards a life that is reflective of your inherent values becomes increasingly evident.</p>
 				<p>Our therapeutic approach is grounded in a variety of evidence-based methodologies, drawing from Emotionally Focused Therapy, Acceptance and Commitment Therapy (ACT), Cognitive Behavioral Therapy (CBT), Depth Psychology, Family Systems, Trauma-Informed, and Psychodynamic approaches. This eclectic approach ensures that our therapeutic strategies are tailored to best address your distinct needs and circumstances.</p>

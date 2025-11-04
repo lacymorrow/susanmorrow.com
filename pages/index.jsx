@@ -59,9 +59,9 @@ const Index = () => <Layout>
 						</div>
 						<div className="8u 12u$(small)">
 							<header className="major">
-								<h2>Susan Morrow, MSW, LCSW</h2>
+								<h1>Susan Morrow, MSW, LCSW</h1>
 							</header>
-							<h4>Professional therapy for you, and your most important relationships</h4>
+							<h2>Professional therapy for you, and your most important relationships</h2>
 							<p>Susan is a seasoned therapist who draws from an extensive background in evidence-based therapies and 30 years of clinical experience working with individuals and couples like you. Her model provides a strength-based, personalized approach to help you to:</p>
 							<div style={{ display: 'flex' }}>
 								<div>

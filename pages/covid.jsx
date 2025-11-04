@@ -15,7 +15,7 @@ const Covid = () => <Layout>
                     <h1>We&apos;re here during Covid-19</h1>
                     <blockquote>Online Individual, Couples, and Family Counseling from the comfort and safety of your home.</blockquote>
                 </header>
-                <span className="image main"><img src="/images/header-covid.jpg" alt="" /></span>
+                <span className="image main"><img src="/images/header-covid.jpg" alt="COVID-19 safety information and telehealth options" /></span>
                 <p>Online therapy services are offered as a convenient way to meet. I have 30 years experience helping clients solve problems, develop life strategies, overcome limiting beliefs, and form deeper relationship bonds. in the comfort of your personal space, you receive private, professional, confidential, secure services . I use a HIPPA-compliant platform to insure your privacy.</p>
                 <p>During the Covid-19 crisis, I offer facilitator services to bring family groups together effectively. A silver lining to the coronavirus is we have become aware of how much we depend on each other for our survival, and well-being.</p>
                 <p>Get started today!</p>

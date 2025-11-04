@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+Disallow: /landing
+Disallow: /elements
+Disallow: /send
+Disallow: /documents
+
+Sitemap: https://susanmorrow.us/sitemap.xml
+
