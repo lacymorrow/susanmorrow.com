@@ -7,8 +7,8 @@ import BannerLanding from '../components/BannerLanding'
 
 const About = () => <Layout>
 	<Head>
-		<title>About Susan Morrow</title>
-		<meta name="description" content="With over 30 years in private practice, Susan Morrow has a solid base of experience and advanced professional education to provide well regarded psychotherapy, consultation, coaching, and training services to individuals, couples, families." />
+		<title>About Susan Morrow, MSW, LCSW | Charlotte Therapist</title>
+		<meta name="description" content="Meet Susan Morrow, a licensed clinical social worker with over 30 years of experience providing therapy in Charlotte, NC. Specialized in Emotionally Focused Therapy, Gottman Method, and evidence-based approaches for individuals, couples, and families." />
 	</Head>
 
 	<div>
@@ -18,11 +18,11 @@ const About = () => <Layout>
 			<section id="one">
 				<div className="inner">
 					<header className="major">
-						<h2>30 Years in Private Practice</h2>
+						<h1>30 Years in Private Practice</h1>
 					</header>
 
 					<p>Susan Morrow is a NC-licensed clinical social worker, with extensive experience and training in evidence-based models in individual, couples therapy, and marriage and family therapy. She has advanced level training with both the Gottman Institute and with the International Centre for Excellence in Emotionally Focused Therapy, and had supervision with Dr. Sue Johnson, the founder of Emotionally Focused Therapy. She has assisted at Hold Me Tight weekends for couples in San Francisco, including a couples weekend for 100 couples!</p>
-					<p>Susan is an active member in professional organizations devoted to continuing education for therapists. She currently serves as Co-President of the Carolinas Group Therapy Society. CGPS provides clinical training for therapists, supports and advocates for accessible and affordable mental health services for all. CGPS actively addresses inclusion and diversity issues, such as racism. Susan was a founding member of the Carolinas Center for Emotionally Focused Therapy, served many years on the board, and co-chaired their strategic planning committee.
+					<p>Susan is an active member in professional organizations devoted to continuing education for therapists. She currently serves as Co-President of the <a href="https://carolinasgps.org/" target="_blank" rel="noopener noreferrer">Carolinas Group Psychotherapy Society</a>. CGPS provides clinical training for therapists, supports and advocates for accessible and affordable mental health services for all. CGPS actively addresses inclusion and diversity issues, such as racism. Susan was a founding member of the Carolinas Center for Emotionally Focused Therapy, served many years on the board, and co-chaired their strategic planning committee.
 						<br />Susan is a certified supervisor for therapists pursuing clinical social work licensure in NC.</p>
 					<p>Susan has worked in in-patient and out-patient agency clinical settings, has delivered parenting programs for families of at-risk teenagers, and has provided counseling integrating psychotherapy with spirituality, from a Jungian perspective She has spoken at local and national conferences on mental health and wellness topics, and published papers on the connection between biology and psychology.</p>
 					<p>Susan is a former competitive runner, mindfulness meditation practitioner, visual artist, and nature lover.  She brings compassion, insight and humor into the therapy journey.</p>
@@ -52,7 +52,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<a className="image"><img src="/images/block-about-4.png" alt="" /></a>
+					<a className="image"><img src="/images/block-about-4.png" alt="Professional affiliations and certifications" /></a>
 
 					<div className="content">
 						<div className="inner">
@@ -60,10 +60,12 @@ const About = () => <Layout>
 								<h3>Professional Affiliations</h3>
 							</header>
 							<ul>
-								<li>Lifetime member, International Centre for Excellence in Emotion Focused Couples Therapy</li>
+								<li>Lifetime member, <a href="https://iceeft.com/" target="_blank" rel="noopener noreferrer">International Centre for Excellence in Emotion Focused Couples Therapy</a></li>
 								<li>Founding board member, Carolinas Center for Emotionally Focused Therapy</li>
 								<li>Past President, South Central Piedmont Chapter of Marriage and Family Therapists</li>
-								<li>National Association of Social Workers</li>
+								<li><a href="https://www.socialworkers.org/" target="_blank" rel="noopener noreferrer">National Association of Social Workers</a></li>
+								<li><a href="https://www.agpa.org/" target="_blank" rel="noopener noreferrer">American Group Psychotherapy Association</a></li>
+								<li>Co-President, <a href="https://carolinasgps.org/" target="_blank" rel="noopener noreferrer">Carolinas Group Psychotherapy Society</a></li>
 								<li>Professional Member, Mental Health America</li>
 								<li>Member of the Academy of Certified Social Workers</li>
 								<li>NC Training Supervisor for Clinical Social Work Licensure</li>
@@ -74,7 +76,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<a className="image"><img src="/images/block-about-1.jpg" alt="" /></a>
+					<a className="image"><img src="/images/block-about-1.jpg" alt="Publications and research contributions" /></a>
 
 					<div className="content">
 						<div className="inner">

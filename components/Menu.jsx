@@ -22,7 +22,7 @@ const Menu = (props) => (
                 </li> */}
 			</ul>
 		</div>
-		<a className="close" onClick={props.onToggleMenu} href="#">Close</a>
+		<a className="close" onClick={props.onToggleMenu} href="#" aria-label="Close menu">Close</a>
 	</nav>
 )
 
