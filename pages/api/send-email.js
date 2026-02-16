@@ -1,4 +1,5 @@
 import sendEmail from '../../services/send-email';
+import verifyTurnstile from '../../services/verify-turnstile';
 
 const ERROR = {
 	error: {
@@ -10,7 +11,25 @@ const ERROR = {
 
 const handler = async (req, res) => {
 	if (req.method === 'POST') {
-		const { name, email, message } = req.body;
+		const { name, email, message, phone, address, turnstileToken } = req.body;
+
+		// Honeypot check — return fake 200 to not tip off bots
+		if (phone || address) {
+			return res
+				.status(200)
+				.json({ message: 'Your message was sent, thanks for reaching out  🚀' });
+		}
+
+		// Verify Turnstile token
+		if (!turnstileToken) {
+			return res.status(400).json({ error: { message: 'CAPTCHA verification required' } });
+		}
+
+		const turnstileResult = await verifyTurnstile(turnstileToken);
+		if (!turnstileResult.success) {
+			console.warn('[sendEmail] Turnstile verification failed:', turnstileResult.error);
+			return res.status(400).json({ error: { message: 'CAPTCHA verification failed' } });
+		}
 
 		const result = await sendEmail({ name, email, message }).catch((error) => {
 			console.error('[sendEmail] provider error:', error);
@@ -31,5 +50,3 @@ const handler = async (req, res) => {
 };
 
 export default handler;
-
-

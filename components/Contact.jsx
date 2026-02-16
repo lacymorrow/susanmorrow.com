@@ -4,6 +4,7 @@ const SUCCESS_MESSAGE = '✔ Your message was sent successfully. I will get back
 const TRY_AGAIN_MESSAGE = 'Please try again or email me at or email me at susan@susanmorrow.us'
 
 const ERROR_STATUS = 'Something went wrong, please try again or email me at susan@susanmorrow.us'
+const CAPTCHA_ERROR = 'Please complete the CAPTCHA challenge before submitting.'
 
 class Contact extends React.Component {
 	constructor(props) {
@@ -16,9 +17,45 @@ class Contact extends React.Component {
 				phone: false, // Honeypot
 				address: false, // Honeypot
 			},
+			turnstileToken: null,
 			isSubmitting: false,
 			isError: false,
 		};
+		this.turnstileRef = React.createRef();
+		this.turnstileWidgetId = null;
+	}
+
+	componentDidMount() {
+		this.renderTurnstile();
+	}
+
+	renderTurnstile = () => {
+		const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
+		if (!siteKey) {
+			console.warn('[Contact] Missing NEXT_PUBLIC_TURNSTILE_SITE_KEY');
+			return;
+		}
+
+		const tryRender = () => {
+			if (window.turnstile && this.turnstileRef.current) {
+				this.turnstileWidgetId = window.turnstile.render(this.turnstileRef.current, {
+					sitekey: siteKey,
+					callback: (token) => {
+						this.setState({ turnstileToken: token });
+					},
+					'expired-callback': () => {
+						this.setState({ turnstileToken: null });
+					},
+					'error-callback': () => {
+						this.setState({ turnstileToken: null });
+					},
+				});
+			} else {
+				setTimeout(tryRender, 250);
+			}
+		};
+
+		tryRender();
 	}
 
 	// Basic spam prevention; honeypot field
@@ -43,22 +80,33 @@ class Contact extends React.Component {
 				phone: false,
 				address: false,
 			},
+			turnstileToken: null,
 			isSubmitting: false,
 			isError: false,
+			status: undefined,
 		});
+
+		if (window.turnstile && this.turnstileWidgetId !== null) {
+			window.turnstile.reset(this.turnstileWidgetId);
+		}
 	}
 
 
 	postForm = async (e) => {
 		e.preventDefault();
+
+		if (!this.state.turnstileToken) {
+			this.setState({ isError: true, status: CAPTCHA_ERROR });
+			return;
+		}
+
 		this.setState({ isSubmitting: true, status: 'Sending your message...' });
 
-		// Returns an array
-		const params = [...new FormData(e.target).entries()]
-
-		// AJAX request
 		const result = await fetch('/api/send-email', {
-			body: JSON.stringify(this.state.values),
+			body: JSON.stringify({
+				...this.state.values,
+				turnstileToken: this.state.turnstileToken,
+			}),
 			headers: {
 				'Content-Type': 'application/json',
 			},
@@ -79,10 +127,15 @@ class Contact extends React.Component {
 
 		if (result?.message) {
 			// Success
-			return this.setState({ isSubmitting: false, isError: false, status: '✔ Your message was sent successfully' });
+			this.setState({ isSubmitting: false, isError: false, status: '✔ Your message was sent successfully' });
 
-		} else {
-			// Likely a validation error
+			// Reset Turnstile for potential next submission
+			if (window.turnstile && this.turnstileWidgetId !== null) {
+				window.turnstile.reset(this.turnstileWidgetId);
+			}
+			this.setState({ turnstileToken: null });
+		} else if (!this.state.isError) {
+			// Likely a validation error (only set if not already set by catch)
 			this.setState({ isSubmitting: false, isError: true, status: ERROR_STATUS });
 		}
 	};
@@ -131,6 +184,9 @@ class Contact extends React.Component {
 									value={this.state.values.message}
 									onChange={this.handleInputChange}
 								/>
+							</div>
+							<div className="field" style={{ marginBottom: '1em' }}>
+								<div ref={this.turnstileRef} />
 							</div>
 							<ul className="actions">
 								<li>
