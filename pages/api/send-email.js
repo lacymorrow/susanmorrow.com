@@ -20,15 +20,15 @@ const handler = async (req, res) => {
 				.json({ message: 'Your message was sent, thanks for reaching out  🚀' });
 		}
 
-		// Verify Turnstile token
-		if (!turnstileToken) {
-			return res.status(400).json({ error: { message: 'CAPTCHA verification required' } });
-		}
-
-		const turnstileResult = await verifyTurnstile(turnstileToken);
-		if (!turnstileResult.success) {
-			console.warn('[sendEmail] Turnstile verification failed:', turnstileResult.error);
-			return res.status(400).json({ error: { message: 'CAPTCHA verification failed' } });
+		// Verify Turnstile token (skip gracefully if not configured or token missing)
+		if (turnstileToken && process.env.TURNSTILE_SECRET_KEY) {
+			const turnstileResult = await verifyTurnstile(turnstileToken);
+			if (!turnstileResult.success) {
+				console.warn('[sendEmail] Turnstile verification failed:', turnstileResult.error);
+				return res.status(400).json({ error: { message: 'CAPTCHA verification failed' } });
+			}
+		} else if (!process.env.TURNSTILE_SECRET_KEY) {
+			console.warn('[sendEmail] TURNSTILE_SECRET_KEY not configured, skipping verification');
 		}
 
 		const result = await sendEmail({ name, email, message }).catch((error) => {

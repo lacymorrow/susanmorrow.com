@@ -18,6 +18,7 @@ class Contact extends React.Component {
 				address: false, // Honeypot
 			},
 			turnstileToken: null,
+			turnstileReady: false,
 			isSubmitting: false,
 			isError: false,
 		};
@@ -29,33 +30,37 @@ class Contact extends React.Component {
 		this.renderTurnstile();
 	}
 
-	renderTurnstile = () => {
+	renderTurnstile = (retries = 0) => {
 		const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 		if (!siteKey) {
-			console.warn('[Contact] Missing NEXT_PUBLIC_TURNSTILE_SITE_KEY');
+			console.warn('[Contact] Missing NEXT_PUBLIC_TURNSTILE_SITE_KEY, form will work without CAPTCHA');
 			return;
 		}
 
-		const tryRender = () => {
-			if (window.turnstile && this.turnstileRef.current) {
+		if (window.turnstile && this.turnstileRef.current) {
+			try {
 				this.turnstileWidgetId = window.turnstile.render(this.turnstileRef.current, {
 					sitekey: siteKey,
 					callback: (token) => {
-						this.setState({ turnstileToken: token });
+						this.setState({ turnstileToken: token, turnstileReady: true });
 					},
 					'expired-callback': () => {
 						this.setState({ turnstileToken: null });
 					},
 					'error-callback': () => {
-						this.setState({ turnstileToken: null });
+						console.warn('[Contact] Turnstile widget error, form will work without CAPTCHA');
+						this.setState({ turnstileToken: null, turnstileReady: false });
 					},
 				});
-			} else {
-				setTimeout(tryRender, 250);
+				this.setState({ turnstileReady: true });
+			} catch (err) {
+				console.warn('[Contact] Turnstile render failed, form will work without CAPTCHA:', err.message);
 			}
-		};
-
-		tryRender();
+		} else if (retries < 20) {
+			setTimeout(() => this.renderTurnstile(retries + 1), 250);
+		} else {
+			console.warn('[Contact] Turnstile script failed to load, form will work without CAPTCHA');
+		}
 	}
 
 	// Basic spam prevention; honeypot field
@@ -86,8 +91,12 @@ class Contact extends React.Component {
 			status: undefined,
 		});
 
-		if (window.turnstile && this.turnstileWidgetId !== null) {
-			window.turnstile.reset(this.turnstileWidgetId);
+		try {
+			if (window.turnstile && this.turnstileWidgetId !== null) {
+				window.turnstile.reset(this.turnstileWidgetId);
+			}
+		} catch (err) {
+			console.warn('[Contact] Turnstile reset failed:', err.message);
 		}
 	}
 
@@ -95,7 +104,8 @@ class Contact extends React.Component {
 	postForm = async (e) => {
 		e.preventDefault();
 
-		if (!this.state.turnstileToken) {
+		// Only block submission if Turnstile loaded successfully but wasn't completed
+		if (this.state.turnstileReady && !this.state.turnstileToken) {
 			this.setState({ isError: true, status: CAPTCHA_ERROR });
 			return;
 		}
@@ -130,8 +140,12 @@ class Contact extends React.Component {
 			this.setState({ isSubmitting: false, isError: false, status: '✔ Your message was sent successfully' });
 
 			// Reset Turnstile for potential next submission
-			if (window.turnstile && this.turnstileWidgetId !== null) {
-				window.turnstile.reset(this.turnstileWidgetId);
+			try {
+				if (window.turnstile && this.turnstileWidgetId !== null) {
+					window.turnstile.reset(this.turnstileWidgetId);
+				}
+			} catch (err) {
+				console.warn('[Contact] Turnstile reset failed:', err.message);
 			}
 			this.setState({ turnstileToken: null });
 		} else if (!this.state.isError) {
