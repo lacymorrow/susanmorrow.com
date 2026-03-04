@@ -1,259 +1,437 @@
-import React from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 
-const SUCCESS_MESSAGE = '✔ Your message was sent successfully. I will get back to you as soon as possible.'
-const TRY_AGAIN_MESSAGE = 'Please try again or email me at or email me at susan@susanmorrow.us'
+const ERROR_STATUS =
+	"Something went wrong, please try again or email me at susan@susanmorrow.us";
+const CAPTCHA_ERROR =
+	"Please complete the CAPTCHA challenge before submitting.";
 
-const ERROR_STATUS = 'Something went wrong, please try again or email me at susan@susanmorrow.us'
-const CAPTCHA_ERROR = 'Please complete the CAPTCHA challenge before submitting.'
+const Contact = () => {
+	const [values, setValues] = useState({
+		name: "",
+		email: "",
+		message: "",
+		phone: false,
+		address: false,
+	});
+	const [turnstileToken, setTurnstileToken] = useState(null);
+	const [turnstileReady, setTurnstileReady] = useState(false);
+	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [isError, setIsError] = useState(false);
+	const [status, setStatus] = useState("");
+	const turnstileContainerRef = useRef(null);
+	const turnstileWidgetIdRef = useRef(null);
 
-class Contact extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			values: {
-				name: "",
-				email: "",
-				message: "",
-				phone: false, // Honeypot
-				address: false, // Honeypot
-			},
-			turnstileToken: null,
-			turnstileReady: false,
-			isSubmitting: false,
-			isError: false,
-		};
-		this.turnstileRef = React.createRef();
-		this.turnstileWidgetId = null;
-	}
-
-	componentDidMount() {
-		this.renderTurnstile();
-	}
-
-	renderTurnstile = (retries = 0) => {
+	const renderTurnstile = useCallback((retries = 0) => {
 		const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY;
 		if (!siteKey) {
-			console.warn('[Contact] Missing NEXT_PUBLIC_TURNSTILE_SITE_KEY, form will work without CAPTCHA');
+			console.warn(
+				"[Contact] Missing NEXT_PUBLIC_TURNSTILE_SITE_KEY, form will work without CAPTCHA"
+			);
 			return;
 		}
 
-		if (window.turnstile && this.turnstileRef.current) {
+		if (
+			typeof window !== "undefined" &&
+			window.turnstile &&
+			turnstileContainerRef.current
+		) {
 			try {
-				this.turnstileWidgetId = window.turnstile.render(this.turnstileRef.current, {
-					sitekey: siteKey,
-					callback: (token) => {
-						this.setState({ turnstileToken: token, turnstileReady: true });
-					},
-					'expired-callback': () => {
-						this.setState({ turnstileToken: null });
-					},
-					'error-callback': () => {
-						console.warn('[Contact] Turnstile widget error, form will work without CAPTCHA');
-						this.setState({ turnstileToken: null, turnstileReady: false });
-					},
-				});
-				this.setState({ turnstileReady: true });
+				turnstileWidgetIdRef.current = window.turnstile.render(
+					turnstileContainerRef.current,
+					{
+						sitekey: siteKey,
+						callback: (token) => {
+							setTurnstileToken(token);
+							setTurnstileReady(true);
+						},
+						"expired-callback": () => {
+							setTurnstileToken(null);
+						},
+						"error-callback": () => {
+							console.warn(
+								"[Contact] Turnstile widget error, form will work without CAPTCHA"
+							);
+							setTurnstileToken(null);
+							setTurnstileReady(false);
+						},
+					}
+				);
+				setTurnstileReady(true);
 			} catch (err) {
-				console.warn('[Contact] Turnstile render failed, form will work without CAPTCHA:', err.message);
+				console.warn(
+					"[Contact] Turnstile render failed, form will work without CAPTCHA:",
+					err.message
+				);
 			}
 		} else if (retries < 20) {
-			setTimeout(() => this.renderTurnstile(retries + 1), 250);
+			setTimeout(() => renderTurnstile(retries + 1), 250);
 		} else {
-			console.warn('[Contact] Turnstile script failed to load, form will work without CAPTCHA');
+			console.warn(
+				"[Contact] Turnstile script failed to load, form will work without CAPTCHA"
+			);
 		}
-	}
+	}, []);
 
-	// Basic spam prevention; honeypot field
-	handleCheck = (e) => {
-		this.setState({
-			values: { ...this.state.values, [e.target.name]: e.target.checked },
-		});
-	}
+	useEffect(() => {
+		renderTurnstile();
+	}, [renderTurnstile]);
 
-	handleInputChange = (e) => {
-		this.setState({
-			values: { ...this.state.values, [e.target.name]: e.target.value },
-		});
-	}
+	const handleInputChange = (e) => {
+		setValues((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+	};
 
-	handleReset = (e) => {
-		this.setState({
-			values: {
-				name: "",
-				email: "",
-				message: "",
-				phone: false,
-				address: false,
-			},
-			turnstileToken: null,
-			isSubmitting: false,
-			isError: false,
-			status: undefined,
+	const handleCheck = (e) => {
+		setValues((prev) => ({ ...prev, [e.target.name]: e.target.checked }));
+	};
+
+	const handleReset = () => {
+		setValues({
+			name: "",
+			email: "",
+			message: "",
+			phone: false,
+			address: false,
 		});
+		setTurnstileToken(null);
+		setIsSubmitting(false);
+		setIsError(false);
+		setStatus("");
 
 		try {
-			if (window.turnstile && this.turnstileWidgetId !== null) {
-				window.turnstile.reset(this.turnstileWidgetId);
+			if (window.turnstile && turnstileWidgetIdRef.current !== null) {
+				window.turnstile.reset(turnstileWidgetIdRef.current);
 			}
 		} catch (err) {
-			console.warn('[Contact] Turnstile reset failed:', err.message);
-		}
-	}
-
-
-	postForm = async (e) => {
-		e.preventDefault();
-
-		// Only block submission if Turnstile loaded successfully but wasn't completed
-		if (this.state.turnstileReady && !this.state.turnstileToken) {
-			this.setState({ isError: true, status: CAPTCHA_ERROR });
-			return;
-		}
-
-		this.setState({ isSubmitting: true, status: 'Sending your message...' });
-
-		const result = await fetch('/api/send-email', {
-			body: JSON.stringify({
-				...this.state.values,
-				turnstileToken: this.state.turnstileToken,
-			}),
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			method: 'POST',
-		})
-			.then((response) => {
-				// If success or validation error
-				if (response.status >= 200 && response.status < 300) {
-					return response.json();
-				}
-				throw Error(response.statusText);
-			})
-			.catch((error) => {
-				// Server error
-				console.error('[sendmail] Error sending mail: ', error);
-				this.setState({ isSubmitting: false, isError: true, status: ERROR_STATUS });
-			});
-
-		if (result?.message) {
-			// Success
-			this.setState({ isSubmitting: false, isError: false, status: '✔ Your message was sent successfully' });
-
-			// Reset Turnstile for potential next submission
-			try {
-				if (window.turnstile && this.turnstileWidgetId !== null) {
-					window.turnstile.reset(this.turnstileWidgetId);
-				}
-			} catch (err) {
-				console.warn('[Contact] Turnstile reset failed:', err.message);
-			}
-			this.setState({ turnstileToken: null });
-		} else if (!this.state.isError) {
-			// Likely a validation error (only set if not already set by catch)
-			this.setState({ isSubmitting: false, isError: true, status: ERROR_STATUS });
+			console.warn("[Contact] Turnstile reset failed:", err.message);
 		}
 	};
 
-	render() {
-		return (
-			<section id="contact">
-				<div className="inner">
-					<section>
-						<h2>Schedule an Appointment Today</h2>
-						<form
-							method="post"
-							action="https://phpstack-1011481-3573429.cloudwaysapps.com/io.php"
-							onSubmit={this.postForm}
-						>
-							<div className="field half first">
-								<label htmlFor="name">Name</label>
-								<input type="text" name="name" id="name"
-									value={this.state.values.name}
-									onChange={this.handleInputChange} />
+	const postForm = async (e) => {
+		e.preventDefault();
+
+		if (turnstileReady && !turnstileToken) {
+			setIsError(true);
+			setStatus(CAPTCHA_ERROR);
+			return;
+		}
+
+		setIsSubmitting(true);
+		setStatus("Sending your message...");
+		setIsError(false);
+
+		try {
+			const response = await fetch("/api/send-email", {
+				body: JSON.stringify({
+					...values,
+					turnstileToken,
+				}),
+				headers: { "Content-Type": "application/json" },
+				method: "POST",
+			});
+
+			if (response.status >= 200 && response.status < 300) {
+				const result = await response.json();
+				if (result?.message) {
+					setIsSubmitting(false);
+					setIsError(false);
+					setStatus("Your message was sent successfully");
+					setTurnstileToken(null);
+
+					try {
+						if (
+							window.turnstile &&
+							turnstileWidgetIdRef.current !== null
+						) {
+							window.turnstile.reset(
+								turnstileWidgetIdRef.current
+							);
+						}
+					} catch (err) {
+						console.warn(
+							"[Contact] Turnstile reset failed:",
+							err.message
+						);
+					}
+				} else {
+					throw new Error("Unexpected response");
+				}
+			} else {
+				throw new Error(response.statusText);
+			}
+		} catch (error) {
+			console.error("[sendmail] Error sending mail:", error);
+			setIsSubmitting(false);
+			setIsError(true);
+			setStatus(ERROR_STATUS);
+		}
+	};
+
+	return (
+		<section id="contact" className="bg-sand py-20 md:py-28">
+			<div className="max-w-6xl mx-auto px-6">
+				<div className="text-center mb-12">
+					<h2 className="font-serif text-3xl md:text-4xl text-charcoal mb-3">
+						Schedule an Appointment
+					</h2>
+					<p className="text-warm-gray max-w-xl mx-auto">
+						Take the first step toward a more fulfilling life. Reach
+						out today for a confidential consultation.
+					</p>
+				</div>
+
+				<div className="grid grid-cols-1 lg:grid-cols-5 gap-12 lg:gap-16">
+					{/* Form */}
+					<div className="lg:col-span-3">
+						<form onSubmit={postForm} className="space-y-5">
+							<div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+								<div>
+									<label
+										htmlFor="name"
+										className="block text-sm font-medium text-charcoal mb-1.5"
+									>
+										Name
+									</label>
+									<input
+										type="text"
+										name="name"
+										id="name"
+										value={values.name}
+										onChange={handleInputChange}
+										required
+										className="w-full px-4 py-3 rounded-xl border border-warm-gray-300/50 bg-white text-charcoal placeholder:text-warm-gray-300 focus:outline-none focus:ring-2 focus:ring-sage/30 focus:border-sage transition-colors"
+										placeholder="Your name"
+									/>
+								</div>
+								<div>
+									<label
+										htmlFor="email"
+										className="block text-sm font-medium text-charcoal mb-1.5"
+									>
+										Email
+									</label>
+									<input
+										type="email"
+										name="email"
+										id="email"
+										value={values.email}
+										onChange={handleInputChange}
+										required
+										className="w-full px-4 py-3 rounded-xl border border-warm-gray-300/50 bg-white text-charcoal placeholder:text-warm-gray-300 focus:outline-none focus:ring-2 focus:ring-sage/30 focus:border-sage transition-colors"
+										placeholder="your@email.com"
+									/>
+								</div>
 							</div>
-							<div className="field half">
-								<label htmlFor="email">Email</label>
-								<input type="email" name="email" id="email"
-									value={this.state.values.email}
-									onChange={this.handleInputChange} />
+
+							{/* Honeypot fields */}
+							<div
+								className="hidden"
+								aria-hidden="true"
+								tabIndex={-1}
+							>
+								<label htmlFor="phone">Phone</label>
+								<input
+									type="text"
+									name="phone"
+									id="phone"
+									value={values.phone || ""}
+									onChange={handleInputChange}
+									tabIndex={-1}
+									autoComplete="off"
+								/>
 							</div>
-							<div className="hidden">
-								<label htmlFor="phone">Email</label>
-								<input type="phone" name="phone" id="phone"
-									value={this.state.values.phone}
-									onChange={this.handleInputChange} />
-							</div>
-							<div className="hidden" aria-hidden>
-								<label htmlFor="address">Email</label>
-								<input type="checkbox" name="address" id="address"
+							<div
+								className="hidden"
+								aria-hidden="true"
+								tabIndex={-1}
+							>
+								<label htmlFor="address">Address</label>
+								<input
+									type="checkbox"
+									name="address"
+									id="address"
 									value="address"
-									onChange={this.handleCheck} />
+									onChange={handleCheck}
+									tabIndex={-1}
+								/>
 							</div>
-							<div className="field">
-								<label htmlFor="message">Message</label>
+
+							<div>
+								<label
+									htmlFor="message"
+									className="block text-sm font-medium text-charcoal mb-1.5"
+								>
+									Message
+								</label>
 								<textarea
 									name="message"
 									id="message"
-									rows="6"
-									value={this.state.values.message}
-									onChange={this.handleInputChange}
+									rows="5"
+									value={values.message}
+									onChange={handleInputChange}
+									required
+									className="w-full px-4 py-3 rounded-xl border border-warm-gray-300/50 bg-white text-charcoal placeholder:text-warm-gray-300 focus:outline-none focus:ring-2 focus:ring-sage/30 focus:border-sage transition-colors resize-none"
+									placeholder="How can I help you?"
 								/>
 							</div>
-							<div className="field" style={{ marginBottom: '1em' }}>
-								<div ref={this.turnstileRef} />
+
+							<div ref={turnstileContainerRef} />
+
+							<div className="flex items-center gap-4">
+								<button
+									type="submit"
+									disabled={isSubmitting}
+									className="px-8 py-3 bg-sage text-white font-medium rounded-full hover:bg-sage-600 disabled:opacity-60 disabled:cursor-not-allowed transition-colors inline-flex items-center"
+								>
+									{isSubmitting ? (
+										<>
+											Sending
+											<span className="spinner" />
+										</>
+									) : (
+										"Send Message"
+									)}
+								</button>
+								<button
+									type="button"
+									onClick={handleReset}
+									className="px-6 py-3 text-warm-gray font-medium rounded-full border border-warm-gray-300/50 hover:border-warm-gray-300 hover:text-charcoal transition-colors"
+								>
+									Clear
+								</button>
 							</div>
-							<ul className="actions">
-								<li>
-									<button
-										type="submit"
-										className={`special ld- ext - left ${this.state.isSubmitting && 'running'}`}
-										disabled={this.state.isSubmitting}
-									>
-										Send Message
-										{this.state.isSubmitting && (<div className="ld ld-ring ld-spin" />)}
-									</button>
-								</li>
-								<li>
-									<input type="reset" defaultValue="Clear" onClick={this.handleReset} />
-								</li>
-							</ul>
-							<h4 className="form-message">{this.state.isError && `Error: `}{this.state.status}</h4>
+
+							{status && (
+								<p
+									className={`text-sm font-medium ${
+										isError
+											? "text-red-600"
+											: "text-sage-600"
+									}`}
+								>
+									{isError && "Error: "}
+									{status}
+								</p>
+							)}
 						</form>
-					</section>
-					<section className="split">
-						<section>
-							<div className="contact-method">
-								<a href="mailto:susan@susanmorrow.us">
-									<span className="icon alt fa-envelope" />
-									<h3>Email</h3>
-									susan@susanmorrow.us
-								</a>
+					</div>
+
+					{/* Contact Info */}
+					<div className="lg:col-span-2 space-y-8">
+						<a
+							href="mailto:susan@susanmorrow.us"
+							className="block group"
+						>
+							<div className="flex items-start gap-4">
+								<div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sage/20 transition-colors">
+									<svg
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										className="text-sage"
+									>
+										<rect
+											x="2"
+											y="4"
+											width="20"
+											height="16"
+											rx="2"
+										/>
+										<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+									</svg>
+								</div>
+								<div>
+									<h3 className="text-sm font-semibold text-charcoal mb-0.5">
+										Email
+									</h3>
+									<span className="text-warm-gray text-sm group-hover:text-sage-600 transition-colors">
+										susan@susanmorrow.us
+									</span>
+								</div>
 							</div>
-						</section>
-						<section>
-							<div className="contact-method">
-								<a href="tel:+17043325153">
-									<span className="icon alt fa-phone" />
-									<h3>Phone</h3>
-									<span>(704) 332-5153</span>
-								</a>
+						</a>
+
+						<a href="tel:+17043325153" className="block group">
+							<div className="flex items-start gap-4">
+								<div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sage/20 transition-colors">
+									<svg
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										className="text-sage"
+									>
+										<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+									</svg>
+								</div>
+								<div>
+									<h3 className="text-sm font-semibold text-charcoal mb-0.5">
+										Phone
+									</h3>
+									<span className="text-warm-gray text-sm group-hover:text-sage-600 transition-colors">
+										(704) 332-5153
+									</span>
+								</div>
 							</div>
-						</section>
-						<section>
-							<div className="contact-method">
-								<a href="https://www.google.com/maps/place/429+E+Worthington+Ave,+Charlotte,+NC+28203/@35.2084558,-80.8575031,17z/data=!3m1!4b1!4m5!3m4!1s0x88569f77f1408bf1:0x1cee1c068e13ac63!8m2!3d35.2084558!4d-80.8553144">
-									<span className="icon alt fa-home" />
-									<h3>Address</h3>
-									429 E. Worthington Ave. Suite 2<br />
-									Charlotte, NC 28203
-								</a>
+						</a>
+
+						<a
+							href="https://www.google.com/maps/place/429+E+Worthington+Ave,+Charlotte,+NC+28203/@35.2084558,-80.8575031,17z/"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="block group"
+						>
+							<div className="flex items-start gap-4">
+								<div className="w-10 h-10 rounded-full bg-sage/10 flex items-center justify-center flex-shrink-0 group-hover:bg-sage/20 transition-colors">
+									<svg
+										width="18"
+										height="18"
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										strokeWidth="2"
+										strokeLinecap="round"
+										strokeLinejoin="round"
+										className="text-sage"
+									>
+										<path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+										<circle cx="12" cy="10" r="3" />
+									</svg>
+								</div>
+								<div>
+									<h3 className="text-sm font-semibold text-charcoal mb-0.5">
+										Office
+									</h3>
+									<span className="text-warm-gray text-sm group-hover:text-sage-600 transition-colors">
+										429 E. Worthington Ave. Suite 2
+										<br />
+										Charlotte, NC 28203
+									</span>
+								</div>
 							</div>
-						</section>
-					</section>
+						</a>
+
+						<div className="pt-4 border-t border-warm-gray-300/30">
+							<p className="text-sm text-warm-gray leading-relaxed">
+								Office hours: Monday &ndash; Friday, 9am &ndash; 5pm
+							</p>
+							<p className="text-sm text-warm-gray leading-relaxed mt-2">
+								Evening appointments available upon request.
+							</p>
+						</div>
+					</div>
 				</div>
-			</section>
-		);
-	}
-}
+			</div>
+		</section>
+	);
+};
 
 export default Contact;

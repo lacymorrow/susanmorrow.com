@@ -1,44 +1,32 @@
 {
   "name": "susanmorrow.com",
-  "description": "Susan Morrow's personal website",
-  "version": "0.1.0",
+  "description": "Susan Morrow, MSW, LCSW - Therapy Charlotte, NC",
+  "version": "1.0.0",
   "engines": {
-    "node": ">=22.x"
+    "node": ">=18.x"
   },
   "license": "UNLICENSED",
   "scripts": {
     "dev": "next dev",
-    "export": "next export",
     "build": "next build",
     "start": "next start",
-    "deploy": "now",
     "lint": "next lint"
   },
   "dependencies": {
-    "@uppy/core": "^3.2.0",
-    "@uppy/react": "^3.1.2",
-    "@uppy/tus": "^3.1.0",
-    "@uppy/xhr-upload": "^3.2.0",
-    "@vercel/analytics": "^1.0.1",
-    "axios": "^1.4.0",
-    "next": "13.4.4",
-    "node-fetch": "^3.3.1",
-    "openai": "^3.2.1",
-    "postmark": "^3.0.18",
+    "@vercel/analytics": "^1.4.0",
+    "next": "^14.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-ga": "^3.3.1",
-    "react-responsive-carousel": "^3.2.23",
-    "react-slick": "^0.29.0",
-    "resend": "^3.5.0",
-    "sass": "^1.62.1",
-    "slick-carousel": "^1.8.1"
+    "resend": "^3.5.0"
   },
   "devDependencies": {
     "@types/node": "^20.2.5",
     "@types/react": "^18.2.8",
+    "autoprefixer": "^10.4.19",
     "eslint": "^8.42.0",
-    "eslint-config-next": "13.4.4",
+    "eslint-config-next": "^14.2.0",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
     "typescript": "^5.1.3"
   }
 }
