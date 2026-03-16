@@ -206,4 +206,3 @@ function handleVerification(req, res, token) {
   // Redirect to admin area
   res.redirect(302, '/admin/receipts');
 }
-}
