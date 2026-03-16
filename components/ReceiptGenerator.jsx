@@ -71,7 +71,12 @@ const ReceiptGenerator = () => {
     });
     
     if (formData.nextAppointmentTime) {
-      return `${dateStr} at ${formData.nextAppointmentTime}`;
+      // Convert 24-hour time to 12-hour with AM/PM
+      const [hours, minutes] = formData.nextAppointmentTime.split(':');
+      const hour12 = ((parseInt(hours) + 11) % 12 + 1);
+      const ampm = parseInt(hours) >= 12 ? 'PM' : 'AM';
+      const timeStr = `${hour12}:${minutes} ${ampm}`;
+      return `${dateStr} at ${timeStr}`;
     }
     return dateStr;
   };
@@ -272,34 +277,40 @@ const ReceiptGenerator = () => {
           `).join('')}
         </div>
 
-        <div style="display: flex; justify-content: space-between; margin: 20px 0;">
-          <div>
-            <span class="field-label">Place of Service:</span>
+        <div style="margin: 20px 0;">
+          <div style="display: flex; align-items: center; flex-wrap: wrap;">
+            <span class="field-label" style="margin-right: 15px;">Place of Service:</span>
             ${placeOptions.map(option => {
               let displayText = option;
               if (option === 'Other' && formData.placeOfService === 'Other' && formData.placeOfServiceOther) {
                 displayText = formData.placeOfServiceOther;
               }
               return `
-                <span class="checkbox" style="margin: 0 5px;">${formData.placeOfService === option ? '✓' : ''}</span>
-                <span style="margin-right: 15px;">${displayText}</span>
+                <div style="display: flex; align-items: center; margin-right: 20px;">
+                  <span class="checkbox" style="margin-right: 8px;">${formData.placeOfService === option ? '✓' : ''}</span>
+                  <span>${displayText}</span>
+                </div>
               `;
             }).join('')}
           </div>
         </div>
 
         <div style="margin-bottom: 20px;">
-          <span class="field-label">Length of Session:</span>
-          ${sessionLengthOptions.map(option => {
-            let displayText = option;
-            if (option === 'Other' && formData.sessionLength === 'Other' && formData.sessionLengthOther) {
-              displayText = formData.sessionLengthOther;
-            }
-            return `
-              <span class="checkbox" style="margin: 0 5px;">${formData.sessionLength === option ? '✓' : ''}</span>
-              <span style="margin-right: 15px;">${displayText}</span>
-            `;
-          }).join('')}
+          <div style="display: flex; align-items: center; flex-wrap: wrap;">
+            <span class="field-label" style="margin-right: 15px;">Length of Session:</span>
+            ${sessionLengthOptions.map(option => {
+              let displayText = option;
+              if (option === 'Other' && formData.sessionLength === 'Other' && formData.sessionLengthOther) {
+                displayText = formData.sessionLengthOther;
+              }
+              return `
+                <div style="display: flex; align-items: center; margin-right: 20px;">
+                  <span class="checkbox" style="margin-right: 8px;">${formData.sessionLength === option ? '✓' : ''}</span>
+                  <span>${displayText}</span>
+                </div>
+              `;
+            }).join('')}
+          </div>
         </div>
 
         <div class="provider-box">
@@ -324,7 +335,7 @@ const ReceiptGenerator = () => {
           
           <div class="next-appointment">
             <span class="field-label">Next Appointment:</span>
-            <div class="underline" style="min-width: 250px; margin-top: 10px;">${formatNextAppointment()}</div>
+            <div class="underline" style="min-width: 250px; margin-top: 10px; height: 40px; display: flex; align-items: center; padding-left: 10px;">${formatNextAppointment()}</div>
           </div>
         </div>
 
