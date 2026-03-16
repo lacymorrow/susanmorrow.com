@@ -8,7 +8,9 @@ const ReceiptGenerator = () => {
     charge: '',
     payment: '',
     balanceDue: '',
-    nextAppointment: '',
+    nextAppointmentDate: '',
+    nextAppointmentTime: '',
+    providerSignature: 'Susan Morrow, MSW, LCSW',
     // Service codes
     services: {
       '90791': false,
@@ -44,7 +46,40 @@ const ReceiptGenerator = () => {
   const placeOptions = ['Office', 'Hospital', 'Other'];
   const sessionLengthOptions = ['30', '50', '90', '90+', 'Other'];
 
+  // Helper function to format currency
+  const formatCurrency = (value) => {
+    if (!value) return '';
+    // Remove any existing $ and non-numeric characters except decimal point
+    const numValue = value.replace(/[^0-9.]/g, '');
+    if (!numValue) return '';
+    // Add dollar sign
+    return `$${numValue}`;
+  };
+
+  // Helper function to format date and time for display
+  const formatNextAppointment = () => {
+    if (!formData.nextAppointmentDate) return '';
+    
+    const date = new Date(formData.nextAppointmentDate);
+    const dateStr = date.toLocaleDateString('en-US', { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    
+    if (formData.nextAppointmentTime) {
+      return `${dateStr} at ${formData.nextAppointmentTime}`;
+    }
+    return dateStr;
+  };
+
   const handleInputChange = (field, value) => {
+    // Format currency fields automatically
+    if (['charge', 'payment', 'balanceDue'].includes(field)) {
+      value = formatCurrency(value);
+    }
+    
     setFormData(prev => ({
       ...prev,
       [field]: value
@@ -261,12 +296,12 @@ const ReceiptGenerator = () => {
         <div class="bottom-section">
           <div class="signature-section">
             <span class="field-label">Provider's Signature</span>
-            <div class="underline" style="min-width: 300px; margin-top: 10px; height: 40px;"></div>
+            <div class="underline" style="min-width: 300px; margin-top: 10px; height: 40px; display: flex; align-items: center; padding-left: 10px;">${formData.providerSignature}</div>
           </div>
           
           <div class="next-appointment">
             <span class="field-label">Next Appointment:</span>
-            <div class="underline" style="min-width: 250px; margin-top: 10px;">${formData.nextAppointment}</div>
+            <div class="underline" style="min-width: 250px; margin-top: 10px;">${formatNextAppointment()}</div>
           </div>
         </div>
 
@@ -346,7 +381,7 @@ const ReceiptGenerator = () => {
               value={formData.charge}
               onChange={(e) => handleInputChange('charge', e.target.value)}
               style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-              placeholder="$150.00"
+              placeholder="150.00"
               required
             />
           </div>
@@ -360,7 +395,7 @@ const ReceiptGenerator = () => {
               value={formData.payment}
               onChange={(e) => handleInputChange('payment', e.target.value)}
               style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-              placeholder="$150.00"
+              placeholder="150.00"
               required
             />
           </div>
@@ -374,7 +409,7 @@ const ReceiptGenerator = () => {
               value={formData.balanceDue}
               onChange={(e) => handleInputChange('balanceDue', e.target.value)}
               style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-              placeholder="$0.00"
+              placeholder="0.00"
             />
           </div>
         </div>
@@ -386,17 +421,33 @@ const ReceiptGenerator = () => {
           </label>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '0.5rem' }}>
             {Object.entries(serviceOptions).map(([code, service]) => (
-              <label key={code} style={{ display: 'flex', alignItems: 'flex-start', cursor: 'pointer' }}>
+              <label key={code} style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                cursor: 'pointer',
+                padding: '0.25rem 0',
+                minHeight: '32px'
+              }}>
                 <input
                   type="checkbox"
                   checked={formData.services[code]}
                   onChange={() => handleServiceChange(code)}
-                  style={{ marginRight: '10px', marginTop: '2px' }}
+                  style={{ 
+                    marginRight: '10px', 
+                    width: '16px',
+                    height: '16px',
+                    flexShrink: 0
+                  }}
                 />
-                <span style={{ fontWeight: 'bold', marginRight: '10px', minWidth: '60px' }}>
+                <span style={{ 
+                  fontWeight: 'bold', 
+                  marginRight: '10px', 
+                  minWidth: '60px',
+                  flexShrink: 0
+                }}>
                   {code.replace('_group', '').replace('_crisis', '')}
                 </span>
-                <span>{service}</span>
+                <span style={{ lineHeight: '1.3' }}>{service}</span>
               </label>
             ))}
           </div>
@@ -409,14 +460,23 @@ const ReceiptGenerator = () => {
           </label>
           <div style={{ display: 'flex', gap: '1rem' }}>
             {placeOptions.map(option => (
-              <label key={option} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+              <label key={option} style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                cursor: 'pointer',
+                minHeight: '32px'
+              }}>
                 <input
                   type="radio"
                   name="placeOfService"
                   value={option}
                   checked={formData.placeOfService === option}
                   onChange={(e) => handleInputChange('placeOfService', e.target.value)}
-                  style={{ marginRight: '5px' }}
+                  style={{ 
+                    marginRight: '8px',
+                    width: '16px',
+                    height: '16px'
+                  }}
                 />
                 {option}
               </label>
@@ -431,14 +491,23 @@ const ReceiptGenerator = () => {
           </label>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             {sessionLengthOptions.map(option => (
-              <label key={option} style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+              <label key={option} style={{ 
+                display: 'flex', 
+                alignItems: 'center', 
+                cursor: 'pointer',
+                minHeight: '32px'
+              }}>
                 <input
                   type="radio"
                   name="sessionLength"
                   value={option}
                   checked={formData.sessionLength === option}
                   onChange={(e) => handleInputChange('sessionLength', e.target.value)}
-                  style={{ marginRight: '5px' }}
+                  style={{ 
+                    marginRight: '8px',
+                    width: '16px',
+                    height: '16px'
+                  }}
                 />
                 {option}
               </label>
@@ -447,16 +516,47 @@ const ReceiptGenerator = () => {
         </div>
 
         {/* Next Appointment */}
+        <div style={{ marginBottom: '1.5rem' }}>
+          <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '1rem' }}>
+            Next Appointment (optional):
+          </label>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+            <div>
+              <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                Date:
+              </label>
+              <input
+                type="date"
+                value={formData.nextAppointmentDate}
+                onChange={(e) => handleInputChange('nextAppointmentDate', e.target.value)}
+                style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
+              />
+            </div>
+            <div>
+              <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                Time:
+              </label>
+              <input
+                type="time"
+                value={formData.nextAppointmentTime}
+                onChange={(e) => handleInputChange('nextAppointmentTime', e.target.value)}
+                style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Provider Signature */}
         <div style={{ marginBottom: '2rem' }}>
           <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-            Next Appointment (optional):
+            Provider Signature:
           </label>
           <input
             type="text"
-            value={formData.nextAppointment}
-            onChange={(e) => handleInputChange('nextAppointment', e.target.value)}
+            value={formData.providerSignature}
+            onChange={(e) => handleInputChange('providerSignature', e.target.value)}
             style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-            placeholder="e.g., Monday, March 13, 2026 at 2:00 PM"
+            required
           />
         </div>
 
@@ -472,7 +572,11 @@ const ReceiptGenerator = () => {
               borderRadius: '4px',
               fontSize: '1.1rem',
               cursor: 'pointer',
-              fontWeight: 'bold'
+              fontWeight: 'bold',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minHeight: '48px'
             }}
           >
             Generate Receipt
