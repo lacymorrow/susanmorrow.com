@@ -26,8 +26,10 @@ const ReceiptGenerator = () => {
     },
     // Place of service
     placeOfService: '',
+    placeOfServiceOther: '',
     // Length of session
-    sessionLength: ''
+    sessionLength: '',
+    sessionLengthOther: ''
   });
 
   const serviceOptions = {
@@ -273,19 +275,31 @@ const ReceiptGenerator = () => {
         <div style="display: flex; justify-content: space-between; margin: 20px 0;">
           <div>
             <span class="field-label">Place of Service:</span>
-            ${placeOptions.map(option => `
-              <span class="checkbox" style="margin: 0 5px;">${formData.placeOfService === option ? '✓' : ''}</span>
-              <span style="margin-right: 15px;">${option}</span>
-            `).join('')}
+            ${placeOptions.map(option => {
+              let displayText = option;
+              if (option === 'Other' && formData.placeOfService === 'Other' && formData.placeOfServiceOther) {
+                displayText = formData.placeOfServiceOther;
+              }
+              return `
+                <span class="checkbox" style="margin: 0 5px;">${formData.placeOfService === option ? '✓' : ''}</span>
+                <span style="margin-right: 15px;">${displayText}</span>
+              `;
+            }).join('')}
           </div>
         </div>
 
         <div style="margin-bottom: 20px;">
           <span class="field-label">Length of Session:</span>
-          ${sessionLengthOptions.map(option => `
-            <span class="checkbox" style="margin: 0 5px;">${formData.sessionLength === option ? '✓' : ''}</span>
-            <span style="margin-right: 15px;">${option}</span>
-          `).join('')}
+          ${sessionLengthOptions.map(option => {
+            let displayText = option;
+            if (option === 'Other' && formData.sessionLength === 'Other' && formData.sessionLengthOther) {
+              displayText = formData.sessionLengthOther;
+            }
+            return `
+              <span class="checkbox" style="margin: 0 5px;">${formData.sessionLength === option ? '✓' : ''}</span>
+              <span style="margin-right: 15px;">${displayText}</span>
+            `;
+          }).join('')}
         </div>
 
         <div class="provider-box">
@@ -340,7 +354,7 @@ const ReceiptGenerator = () => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
           <div>
             <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-              Patient Name:
+              Patient Name *
             </label>
             <input
               type="text"
@@ -353,7 +367,7 @@ const ReceiptGenerator = () => {
           
           <div>
             <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-              Date of Service:
+              Date of Service *
             </label>
             <input
               type="date"
@@ -367,7 +381,7 @@ const ReceiptGenerator = () => {
 
         <div style={{ marginBottom: '1.5rem' }}>
           <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-            Diagnosis Code (DSM-IV):
+            Diagnosis Code (DSM-IV) (optional):
           </label>
           <input
             type="text"
@@ -375,7 +389,6 @@ const ReceiptGenerator = () => {
             onChange={(e) => handleInputChange('diagnosisCode', e.target.value)}
             style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
             placeholder="e.g., 309.0"
-            required
           />
         </div>
 
@@ -383,7 +396,7 @@ const ReceiptGenerator = () => {
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
           <div>
             <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-              Charge:
+              Session Fee *
             </label>
             <input
               type="text"
@@ -397,7 +410,7 @@ const ReceiptGenerator = () => {
           
           <div>
             <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-              Payment:
+              Amount Paid *
             </label>
             <input
               type="text"
@@ -411,7 +424,7 @@ const ReceiptGenerator = () => {
           
           <div>
             <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-              Balance Due:
+              Outstanding Balance
             </label>
             <input
               type="text"
@@ -475,7 +488,7 @@ const ReceiptGenerator = () => {
           <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
             Place of Service:
           </label>
-          <div style={{ display: 'flex', gap: '1rem' }}>
+          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
             {placeOptions.map(option => (
               <label key={option} style={{ 
                 display: 'flex', 
@@ -507,6 +520,23 @@ const ReceiptGenerator = () => {
               </label>
             ))}
           </div>
+          {formData.placeOfService === 'Other' && (
+            <div style={{ marginTop: '0.5rem' }}>
+              <input
+                type="text"
+                value={formData.placeOfServiceOther}
+                onChange={(e) => handleInputChange('placeOfServiceOther', e.target.value)}
+                style={{ 
+                  width: '100%', 
+                  padding: '0.5rem', 
+                  border: '1px solid #4caf50', 
+                  borderRadius: '4px',
+                  backgroundColor: '#f0f9f0'
+                }}
+                placeholder="Specify other place of service..."
+              />
+            </div>
+          )}
         </div>
 
         {/* Length of Session */}
@@ -546,6 +576,23 @@ const ReceiptGenerator = () => {
               </label>
             ))}
           </div>
+          {formData.sessionLength === 'Other' && (
+            <div style={{ marginTop: '0.5rem' }}>
+              <input
+                type="text"
+                value={formData.sessionLengthOther}
+                onChange={(e) => handleInputChange('sessionLengthOther', e.target.value)}
+                style={{ 
+                  width: '100%', 
+                  padding: '0.5rem', 
+                  border: '1px solid #ff9800', 
+                  borderRadius: '4px',
+                  backgroundColor: '#fff9f0'
+                }}
+                placeholder="Specify session length (e.g., '75 minutes')..."
+              />
+            </div>
+          )}
         </div>
 
         {/* Next Appointment */}
@@ -579,26 +626,7 @@ const ReceiptGenerator = () => {
           </div>
         </div>
 
-        {/* Provider Signature */}
-        <div style={{ marginBottom: '2rem' }}>
-          <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-            Provider Signature:
-          </label>
-          <input
-            type="text"
-            value={formData.providerSignature}
-            onChange={(e) => handleInputChange('providerSignature', e.target.value)}
-            style={{ 
-              width: '100%', 
-              padding: '0.5rem', 
-              border: '1px solid #ccc', 
-              borderRadius: '4px',
-              fontFamily: '"Dawning of a New Day", cursive',
-              fontSize: '18px'
-            }}
-            required
-          />
-        </div>
+
 
         {/* Generate Button */}
         <div style={{ textAlign: 'center' }}>
