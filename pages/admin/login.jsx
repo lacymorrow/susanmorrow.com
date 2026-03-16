@@ -106,7 +106,7 @@ const AdminLogin = () => {
                   borderRadius: '4px',
                   fontSize: '1rem'
                 }}
-                placeholder="morrowsus@gmail.com"
+                placeholder="Enter your email address"
                 required
                 disabled={isLoading}
               />

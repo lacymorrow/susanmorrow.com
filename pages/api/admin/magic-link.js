@@ -89,7 +89,8 @@ export default async function handler(req, res) {
 
   if (action === 'send') {
     // Send magic link
-    if (!email || email.toLowerCase() !== 'morrowsus@gmail.com') {
+    const allowedEmail = (process.env.ADMIN_EMAIL || 'morrowsus@gmail.com').toLowerCase();
+    if (!email || email.toLowerCase() !== allowedEmail) {
       return res.status(400).json({ error: 'Invalid email address' });
     }
 
