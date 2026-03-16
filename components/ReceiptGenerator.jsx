@@ -1,5 +1,33 @@
 import React, { useState } from 'react';
 
+// Constants moved outside component to prevent recreation on every render
+const serviceOptions = {
+  '90791': 'Diagnostic Evaluation',
+  '90832': 'Brief Individual Therapy/30 minutes with patient and/or family member',
+  '90834': 'Intermediate Individual Therapy - 45 minutes',
+  '90837': 'Extended Individual Therapy - 50 minutes',
+  '90846': 'Family Therapy - patient not present',
+  '90847': 'Family Therapy - patient present',
+  '90853': 'Group Therapy',
+  '90849_group': 'Multiple Family Group Therapy',
+  '90849_crisis': 'Psychotherapy for Crisis - first 50 minutes',
+  '90840': 'Crisis Psychotherapy - 30 minute add on'
+};
+
+const placeOptions = ['Office', 'Hospital', 'Other'];
+const sessionLengthOptions = ['30', '50', '90', '90+', 'Other'];
+
+// HTML sanitization function to prevent XSS
+const sanitize = (str) => {
+  if (!str) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+};
+
 const ReceiptGenerator = () => {
   const [formData, setFormData] = useState({
     patientName: '',
@@ -32,21 +60,7 @@ const ReceiptGenerator = () => {
     sessionLengthOther: ''
   });
 
-  const serviceOptions = {
-    '90791': 'Diagnostic Evaluation',
-    '90832': 'Brief Individual Therapy/30 minutes with patient and/or family member',
-    '90834': 'Intermediate Individual Therapy - 45 minutes',
-    '90837': 'Extended Individual Therapy - 50 minutes',
-    '90846': 'Family Therapy - patient not present',
-    '90847': 'Family Therapy - patient present',
-    '90853': 'Group Therapy',
-    '90849_group': 'Multiple Family Group Therapy',
-    '90849_crisis': 'Psychotherapy for Crisis - first 50 minutes',
-    '90840': 'Crisis Psychotherapy - 30 minute add on'
-  };
 
-  const placeOptions = ['Office', 'Hospital', 'Other'];
-  const sessionLengthOptions = ['30', '50', '90', '90+', 'Other'];
 
   // Helper function to format currency
   const formatCurrency = (value) => {
@@ -103,7 +117,7 @@ const ReceiptGenerator = () => {
     }));
   };
 
-  const generatePDF = () => {
+  const printReceipt = () => {
     // Create receipt content for printing
     const receiptContent = generateReceiptHTML();
     
@@ -120,15 +134,11 @@ const ReceiptGenerator = () => {
   };
 
   const generateReceiptHTML = () => {
-    const selectedServices = Object.entries(formData.services)
-      .filter(([code, selected]) => selected)
-      .map(([code, _]) => ({ code, service: serviceOptions[code] }));
-
     return `
       <!DOCTYPE html>
       <html>
       <head>
-        <title>Receipt - ${formData.patientName}</title>
+        <title>Receipt - ${sanitize(formData.patientName)}</title>
         <style>
           @import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap');
           
@@ -233,17 +243,17 @@ const ReceiptGenerator = () => {
         <div class="header-row">
           <div class="field-group">
             <span class="field-label">Patient Name:</span>
-            <span class="underline">${formData.patientName}</span>
+            <span class="underline">${sanitize(formData.patientName)}</span>
           </div>
           <div class="field-group">
             <span class="field-label">Date Of Service:</span>
-            <span class="underline">${formData.dateOfService}</span>
+            <span class="underline">${sanitize(formData.dateOfService)}</span>
           </div>
         </div>
         
         <div class="field-group">
           <span class="field-label">Diagnosis Code: (DSM-IV)</span>
-          <span class="underline">${formData.diagnosisCode}</span>
+          <span class="underline">${sanitize(formData.diagnosisCode)}</span>
         </div>
 
         <table class="table">
@@ -256,9 +266,9 @@ const ReceiptGenerator = () => {
           </thead>
           <tbody>
             <tr>
-              <td>${formData.charge}</td>
-              <td>${formData.payment}</td>
-              <td>${formData.balanceDue}</td>
+              <td>${sanitize(formData.charge)}</td>
+              <td>${sanitize(formData.payment)}</td>
+              <td>${sanitize(formData.balanceDue)}</td>
             </tr>
           </tbody>
         </table>
@@ -359,7 +369,7 @@ const ReceiptGenerator = () => {
 
   return (
     <div style={{ background: '#f9f9f9', padding: '2rem', borderRadius: '8px' }}>
-      <form onSubmit={(e) => { e.preventDefault(); generatePDF(); }}>
+      <form onSubmit={(e) => { e.preventDefault(); printReceipt(); }}>
         
         {/* Patient Info */}
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>

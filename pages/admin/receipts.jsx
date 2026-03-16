@@ -5,14 +5,30 @@ import ReceiptGenerator from '../../components/ReceiptGenerator';
 const AdminReceipts = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    // Simple password protection - in production, use environment variable
-    if (password === 'susantherapy2026') {
-      setIsAuthenticated(true);
-    } else {
-      alert('Incorrect password');
+    setIsLoading(true);
+    
+    try {
+      const response = await fetch('/api/admin/auth', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ password }),
+      });
+      
+      if (response.ok) {
+        setIsAuthenticated(true);
+      } else {
+        alert('Incorrect password');
+      }
+    } catch (error) {
+      alert('Authentication error. Please try again.');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -59,18 +75,19 @@ const AdminReceipts = () => {
               </div>
               <button
                 type="submit"
+                disabled={isLoading}
                 style={{
                   width: '100%',
                   padding: '0.75rem',
-                  background: '#007cba',
+                  background: isLoading ? '#ccc' : '#007cba',
                   color: 'white',
                   border: 'none',
                   borderRadius: '4px',
                   fontSize: '1rem',
-                  cursor: 'pointer'
+                  cursor: isLoading ? 'not-allowed' : 'pointer'
                 }}
               >
-                Login
+                {isLoading ? 'Authenticating...' : 'Login'}
               </button>
             </form>
           </div>
