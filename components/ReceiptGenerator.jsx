@@ -123,6 +123,8 @@ const ReceiptGenerator = () => {
       <head>
         <title>Receipt - ${formData.patientName}</title>
         <style>
+          @import url('https://fonts.googleapis.com/css2?family=Dawning+of+a+New+Day&display=swap');
+          
           @media print {
             body { margin: 0; }
             .no-print { display: none; }
@@ -202,6 +204,11 @@ const ReceiptGenerator = () => {
           .signature-section {
             flex: 1;
             margin-right: 20px;
+          }
+          .signature-text {
+            font-family: 'Dawning of a New Day', cursive;
+            font-size: 24px;
+            color: #333;
           }
           .next-appointment {
             flex: 1;
@@ -296,7 +303,9 @@ const ReceiptGenerator = () => {
         <div class="bottom-section">
           <div class="signature-section">
             <span class="field-label">Provider's Signature</span>
-            <div class="underline" style="min-width: 300px; margin-top: 10px; height: 40px; display: flex; align-items: center; padding-left: 10px;">${formData.providerSignature}</div>
+            <div class="underline" style="min-width: 300px; margin-top: 10px; height: 40px; display: flex; align-items: center; padding-left: 10px;">
+              <span class="signature-text">${formData.providerSignature}</span>
+            </div>
           </div>
           
           <div class="next-appointment">
@@ -381,7 +390,7 @@ const ReceiptGenerator = () => {
               value={formData.charge}
               onChange={(e) => handleInputChange('charge', e.target.value)}
               style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-              placeholder="150.00"
+              placeholder="$150.00"
               required
             />
           </div>
@@ -395,7 +404,7 @@ const ReceiptGenerator = () => {
               value={formData.payment}
               onChange={(e) => handleInputChange('payment', e.target.value)}
               style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-              placeholder="150.00"
+              placeholder="$150.00"
               required
             />
           </div>
@@ -409,7 +418,7 @@ const ReceiptGenerator = () => {
               value={formData.balanceDue}
               onChange={(e) => handleInputChange('balanceDue', e.target.value)}
               style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
-              placeholder="0.00"
+              placeholder="$0.00"
             />
           </div>
         </div>
@@ -425,29 +434,37 @@ const ReceiptGenerator = () => {
                 display: 'flex', 
                 alignItems: 'center', 
                 cursor: 'pointer',
-                padding: '0.25rem 0',
-                minHeight: '32px'
+                padding: '0.5rem',
+                borderRadius: '4px',
+                backgroundColor: formData.services[code] ? '#e3f2fd' : 'transparent',
+                border: `2px solid ${formData.services[code] ? '#2196f3' : 'transparent'}`,
+                minHeight: '48px',
+                transition: 'all 0.2s ease'
               }}>
                 <input
                   type="checkbox"
                   checked={formData.services[code]}
                   onChange={() => handleServiceChange(code)}
                   style={{ 
-                    marginRight: '10px', 
-                    width: '16px',
-                    height: '16px',
+                    marginRight: '12px', 
+                    width: '18px',
+                    height: '18px',
                     flexShrink: 0
                   }}
                 />
                 <span style={{ 
                   fontWeight: 'bold', 
-                  marginRight: '10px', 
-                  minWidth: '60px',
-                  flexShrink: 0
+                  marginRight: '12px', 
+                  minWidth: '70px',
+                  flexShrink: 0,
+                  color: formData.services[code] ? '#1976d2' : '#333'
                 }}>
                   {code.replace('_group', '').replace('_crisis', '')}
                 </span>
-                <span style={{ lineHeight: '1.3' }}>{service}</span>
+                <span style={{ 
+                  lineHeight: '1.3',
+                  color: formData.services[code] ? '#1976d2' : '#666'
+                }}>{service}</span>
               </label>
             ))}
           </div>
@@ -464,7 +481,12 @@ const ReceiptGenerator = () => {
                 display: 'flex', 
                 alignItems: 'center', 
                 cursor: 'pointer',
-                minHeight: '32px'
+                padding: '0.5rem',
+                borderRadius: '4px',
+                backgroundColor: formData.placeOfService === option ? '#e8f5e8' : 'transparent',
+                border: `2px solid ${formData.placeOfService === option ? '#4caf50' : '#ddd'}`,
+                minHeight: '48px',
+                transition: 'all 0.2s ease'
               }}>
                 <input
                   type="radio"
@@ -473,12 +495,15 @@ const ReceiptGenerator = () => {
                   checked={formData.placeOfService === option}
                   onChange={(e) => handleInputChange('placeOfService', e.target.value)}
                   style={{ 
-                    marginRight: '8px',
-                    width: '16px',
-                    height: '16px'
+                    marginRight: '10px',
+                    width: '18px',
+                    height: '18px'
                   }}
                 />
-                {option}
+                <span style={{ 
+                  color: formData.placeOfService === option ? '#2e7d2e' : '#333',
+                  fontWeight: formData.placeOfService === option ? 'bold' : 'normal'
+                }}>{option}</span>
               </label>
             ))}
           </div>
@@ -495,7 +520,12 @@ const ReceiptGenerator = () => {
                 display: 'flex', 
                 alignItems: 'center', 
                 cursor: 'pointer',
-                minHeight: '32px'
+                padding: '0.5rem',
+                borderRadius: '4px',
+                backgroundColor: formData.sessionLength === option ? '#fff3e0' : 'transparent',
+                border: `2px solid ${formData.sessionLength === option ? '#ff9800' : '#ddd'}`,
+                minHeight: '48px',
+                transition: 'all 0.2s ease'
               }}>
                 <input
                   type="radio"
@@ -504,12 +534,15 @@ const ReceiptGenerator = () => {
                   checked={formData.sessionLength === option}
                   onChange={(e) => handleInputChange('sessionLength', e.target.value)}
                   style={{ 
-                    marginRight: '8px',
-                    width: '16px',
-                    height: '16px'
+                    marginRight: '10px',
+                    width: '18px',
+                    height: '18px'
                   }}
                 />
-                {option}
+                <span style={{ 
+                  color: formData.sessionLength === option ? '#e65100' : '#333',
+                  fontWeight: formData.sessionLength === option ? 'bold' : 'normal'
+                }}>{option}</span>
               </label>
             ))}
           </div>
@@ -555,7 +588,14 @@ const ReceiptGenerator = () => {
             type="text"
             value={formData.providerSignature}
             onChange={(e) => handleInputChange('providerSignature', e.target.value)}
-            style={{ width: '100%', padding: '0.5rem', border: '1px solid #ccc', borderRadius: '4px' }}
+            style={{ 
+              width: '100%', 
+              padding: '0.5rem', 
+              border: '1px solid #ccc', 
+              borderRadius: '4px',
+              fontFamily: '"Dawning of a New Day", cursive',
+              fontSize: '18px'
+            }}
             required
           />
         </div>
