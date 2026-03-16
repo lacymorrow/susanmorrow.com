@@ -244,7 +244,7 @@ class Contact extends React.Component {
 								<a href="https://www.google.com/maps/place/429+E+Worthington+Ave,+Charlotte,+NC+28203/@35.2084558,-80.8575031,17z/data=!3m1!4b1!4m5!3m4!1s0x88569f77f1408bf1:0x1cee1c068e13ac63!8m2!3d35.2084558!4d-80.8553144">
 									<span className="icon alt fa-home" />
 									<h3>Address</h3>
-									429 E. Worthington Ave. Suite 2<br />
+									429 E. Worthington Ave.<br />
 									Charlotte, NC 28203
 								</a>
 							</div>

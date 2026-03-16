@@ -71,7 +71,7 @@ class Layout extends React.Component {
             "image": "https://susanmorrow.us/images/headshot-2023-2.jpg",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "429 E. Worthington Ave. Suite 2",
+                "streetAddress": "429 E. Worthington Ave.",
                 "addressLocality": "Charlotte",
                 "addressRegion": "NC",
                 "postalCode": "28203",
@@ -151,7 +151,7 @@ class Layout extends React.Component {
             "image": "https://susanmorrow.us/images/headshot-2023-2.jpg",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "429 E. Worthington Ave. Suite 2",
+                "streetAddress": "429 E. Worthington Ave.",
                 "addressLocality": "Charlotte",
                 "addressRegion": "NC",
                 "postalCode": "28203",
@@ -185,7 +185,7 @@ class Layout extends React.Component {
             "url": "https://susanmorrow.us",
             "address": {
                 "@type": "PostalAddress",
-                "streetAddress": "429 E. Worthington Ave. Suite 2",
+                "streetAddress": "429 E. Worthington Ave.",
                 "addressLocality": "Charlotte",
                 "addressRegion": "NC",
                 "postalCode": "28203",
