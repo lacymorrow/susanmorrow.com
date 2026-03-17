@@ -1,48 +1,52 @@
 import crypto from 'crypto';
-import fs from 'fs';
-import path from 'path';
-
-// Simple file-based token storage for this solo practice
-const TOKEN_FILE = path.join(process.cwd(), '.magic-tokens.json');
 
 // Rate limiting - simple in-memory store
 const rateLimits = new Map();
 const RATE_LIMIT_WINDOW = 15 * 60 * 1000; // 15 minutes
 const MAX_ATTEMPTS = 3;
 
-function getTokens() {
-  try {
-    if (fs.existsSync(TOKEN_FILE)) {
-      const data = fs.readFileSync(TOKEN_FILE, 'utf8');
-      return JSON.parse(data);
-    }
-  } catch (error) {
-    console.error('Error reading tokens:', error);
-  }
-  return {};
+// JWT-like token creation and verification (stateless)
+function createMagicToken(email) {
+  const payload = {
+    email: email.toLowerCase(),
+    exp: Math.floor(Date.now() / 1000) + (15 * 60), // 15 minutes from now
+    iat: Math.floor(Date.now() / 1000)
+  };
+  
+  const secret = process.env.NEXTAUTH_SECRET || 'fallback-secret-change-in-production';
+  const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
+  const payloadB64 = Buffer.from(JSON.stringify(payload)).toString('base64url');
+  
+  const signature = crypto
+    .createHmac('sha256', secret)
+    .update(`${header}.${payloadB64}`)
+    .digest('base64url');
+    
+  return `${header}.${payloadB64}.${signature}`;
 }
 
-function saveTokens(tokens) {
+function verifyMagicToken(token) {
   try {
-    fs.writeFileSync(TOKEN_FILE, JSON.stringify(tokens, null, 2));
+    const [header, payload, signature] = token.split('.');
+    if (!header || !payload || !signature) return null;
+    
+    const secret = process.env.NEXTAUTH_SECRET || 'fallback-secret-change-in-production';
+    const expectedSignature = crypto
+      .createHmac('sha256', secret)
+      .update(`${header}.${payload}`)
+      .digest('base64url');
+      
+    if (signature !== expectedSignature) return null;
+    
+    const data = JSON.parse(Buffer.from(payload, 'base64url').toString());
+    
+    // Check expiration
+    if (data.exp < Math.floor(Date.now() / 1000)) return null;
+    
+    return data;
   } catch (error) {
-    console.error('Error saving tokens:', error);
+    return null;
   }
-}
-
-function cleanExpiredTokens() {
-  const tokens = getTokens();
-  const now = Date.now();
-  const cleaned = {};
-  
-  for (const [token, data] of Object.entries(tokens)) {
-    if (data.expires > now) {
-      cleaned[token] = data;
-    }
-  }
-  
-  saveTokens(cleaned);
-  return cleaned;
 }
 
 function checkRateLimit(email) {
@@ -98,18 +102,8 @@ export default async function handler(req, res) {
       return res.status(429).json({ error: 'Too many requests. Please try again later.' });
     }
 
-    // Generate secure token
-    const magicToken = crypto.randomBytes(32).toString('hex');
-    const expires = Date.now() + (15 * 60 * 1000); // 15 minutes
-
-    // Clean expired tokens and save new one
-    const tokens = cleanExpiredTokens();
-    tokens[magicToken] = {
-      email: email.toLowerCase(),
-      expires,
-      used: false
-    };
-    saveTokens(tokens);
+    // Generate secure token (stateless JWT)
+    const magicToken = createMagicToken(email);
 
     // Create magic link - use current request domain
     const host = req.headers.host;
@@ -182,16 +176,11 @@ function handleVerification(req, res, token) {
     return res.redirect(302, '/admin/login?error=missing-token');
   }
 
-  const tokens = cleanExpiredTokens();
-  const tokenData = tokens[token];
+  const tokenData = verifyMagicToken(token);
 
-  if (!tokenData || tokenData.used || tokenData.expires < Date.now()) {
+  if (!tokenData) {
     return res.redirect(302, '/admin/login?error=invalid-token');
   }
-
-  // Mark token as used
-  tokenData.used = true;
-  saveTokens(tokens);
 
   // Create session
   const sessionToken = crypto.randomBytes(32).toString('hex');
