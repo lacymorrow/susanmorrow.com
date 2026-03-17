@@ -111,9 +111,10 @@ export default async function handler(req, res) {
     };
     saveTokens(tokens);
 
-    // Create magic link - prioritize custom domain
-    const baseUrl = process.env.NEXTAUTH_URL || 
-      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+    // Create magic link - use current request domain
+    const host = req.headers.host;
+    const protocol = req.headers['x-forwarded-proto'] || 'https';
+    const baseUrl = process.env.NEXTAUTH_URL || `${protocol}://${host}`;
     const magicLink = `${baseUrl}/api/admin/magic-link?token=${magicToken}&action=verify`;
 
     // Send email using existing email service
