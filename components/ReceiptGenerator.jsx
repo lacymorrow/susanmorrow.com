@@ -665,7 +665,8 @@ const ReceiptGenerator = () => {
               display: 'inline-flex',
               alignItems: 'center',
               justifyContent: 'center',
-              minHeight: '48px'
+              minHeight: '48px',
+              lineHeight: '1'
             }}
           >
             Generate Receipt

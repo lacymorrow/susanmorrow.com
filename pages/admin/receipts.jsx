@@ -69,9 +69,14 @@ const AdminReceipts = () => {
           alignItems: 'center', 
           marginBottom: '2rem' 
         }}>
-          <div style={{ textAlign: 'left' }}>
-            <h1 style={{ margin: 0, color: '#007cba' }}>Receipt Generator</h1>
-            <p style={{ color: '#666', margin: '0.5rem 0 0 0' }}>
+          <div style={{ 
+            textAlign: 'left',
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center'
+          }}>
+            <h1 style={{ margin: 0, color: '#007cba', lineHeight: '1.2' }}>Receipt Generator</h1>
+            <p style={{ color: '#666', margin: '0.25rem 0 0 0', lineHeight: '1.2' }}>
               Generate professional receipts for clients
             </p>
           </div>
@@ -84,7 +89,13 @@ const AdminReceipts = () => {
               border: 'none',
               borderRadius: '4px',
               cursor: 'pointer',
-              fontSize: '0.9rem'
+              fontSize: '0.9rem',
+              height: 'fit-content',
+              flexShrink: 0,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              lineHeight: '1'
             }}
           >
             Logout
