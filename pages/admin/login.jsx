@@ -134,7 +134,11 @@ const AdminLogin = () => {
                 border: 'none',
                 borderRadius: '4px',
                 fontSize: '1rem',
-                cursor: isLoading ? 'not-allowed' : 'pointer'
+                cursor: isLoading ? 'not-allowed' : 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                lineHeight: '1'
               }}
             >
               {isLoading ? 'Sending...' : 'Send Magic Link'}
