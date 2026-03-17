@@ -117,20 +117,28 @@ const ReceiptGenerator = () => {
     }));
   };
 
-  const printReceipt = () => {
-    // Create receipt content for printing
+  const viewReceipt = () => {
+    // Create receipt content for viewing
     const receiptContent = generateReceiptHTML();
     
-    // Open new window for printing
+    // Open new window for viewing (no auto-print)
     const printWindow = window.open('', '_blank');
     printWindow.document.write(receiptContent);
     printWindow.document.close();
-    
-    // Auto-trigger print dialog
-    printWindow.onload = function() {
-      printWindow.focus();
-      printWindow.print();
-    };
+    printWindow.focus();
+  };
+
+  const downloadReceipt = () => {
+    const receiptContent = generateReceiptHTML();
+    const blob = new Blob([receiptContent], { type: 'text/html' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `receipt-${formData.patientName || 'patient'}-${formData.dateOfService || 'date'}.html`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    window.URL.revokeObjectURL(url);
   };
 
   const generateReceiptHTML = () => {
@@ -150,8 +158,9 @@ const ReceiptGenerator = () => {
             font-family: Arial, sans-serif;
             max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
-            line-height: 1.4;
+            padding: 15px;
+            line-height: 1.2;
+            font-size: 13px;
           }
           .header-row {
             display: flex;
@@ -159,7 +168,7 @@ const ReceiptGenerator = () => {
             margin-bottom: 20px;
           }
           .field-group {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
           }
           .field-label {
             font-weight: bold;
@@ -183,12 +192,12 @@ const ReceiptGenerator = () => {
             font-weight: bold;
           }
           .services-section {
-            margin: 20px 0;
+            margin: 15px 0;
           }
           .service-item {
             display: flex;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
           }
           .checkbox {
             width: 15px;
@@ -202,9 +211,9 @@ const ReceiptGenerator = () => {
           }
           .provider-box {
             border: 3px solid #000;
-            padding: 15px;
+            padding: 10px;
             text-align: center;
-            margin: 20px 0;
+            margin: 15px 0;
             border-radius: 10px;
           }
           .provider-name {
@@ -216,7 +225,7 @@ const ReceiptGenerator = () => {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-top: 30px;
+            margin-top: 20px;
           }
           .signature-section {
             flex: 1;
@@ -296,7 +305,7 @@ const ReceiptGenerator = () => {
                 displayText = formData.placeOfServiceOther;
               }
               return `
-                <div style="display: flex; align-items: center; margin-right: 20px;">
+                <div style="display: flex; align-items: center; margin-right: 20px; margin-bottom: 3px;">
                   <span class="checkbox" style="margin-right: 8px;">${formData.placeOfService === option ? '✓' : ''}</span>
                   <span>${displayText}</span>
                 </div>
@@ -314,7 +323,7 @@ const ReceiptGenerator = () => {
                 displayText = formData.sessionLengthOther;
               }
               return `
-                <div style="display: flex; align-items: center; margin-right: 20px;">
+                <div style="display: flex; align-items: center; margin-right: 20px; margin-bottom: 3px;">
                   <span class="checkbox" style="margin-right: 8px;">${formData.sessionLength === option ? '✓' : ''}</span>
                   <span>${displayText}</span>
                 </div>
@@ -339,7 +348,7 @@ const ReceiptGenerator = () => {
           <div class="signature-section">
             <span class="field-label">Provider's Signature</span>
             <div class="underline" style="min-width: 300px; margin-top: 10px; height: 40px; display: flex; align-items: center; padding-left: 10px;">
-              <span class="signature-text">${formData.providerSignature}</span>
+              <span class="signature-text">Susan Morrow, MSW, LCSW</span>
             </div>
           </div>
           
@@ -402,7 +411,7 @@ const ReceiptGenerator = () => {
 
         <div style={{ marginBottom: '1.5rem' }}>
           <label style={{ display: 'block', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-            Diagnosis Code (DSM-IV) (optional):
+            Diagnosis Code (DSM-IV):
           </label>
           <input
             type="text"
@@ -649,10 +658,11 @@ const ReceiptGenerator = () => {
 
 
 
-        {/* Generate Button */}
-        <div style={{ textAlign: 'center' }}>
+        {/* Generate Buttons */}
+        <div style={{ textAlign: 'center', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
           <button
-            type="submit"
+            type="button"
+            onClick={viewReceipt}
             style={{
               background: '#007cba',
               color: 'white',
@@ -669,7 +679,28 @@ const ReceiptGenerator = () => {
               lineHeight: '1'
             }}
           >
-            Generate Receipt
+            View Receipt
+          </button>
+          <button
+            type="button"
+            onClick={downloadReceipt}
+            style={{
+              background: '#28a745',
+              color: 'white',
+              padding: '1rem 2rem',
+              border: 'none',
+              borderRadius: '4px',
+              fontSize: '1.1rem',
+              cursor: 'pointer',
+              fontWeight: 'bold',
+              display: 'inline-flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              minHeight: '48px',
+              lineHeight: '1'
+            }}
+          >
+            Download Receipt
           </button>
         </div>
       </form>
