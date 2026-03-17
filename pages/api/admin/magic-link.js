@@ -111,10 +111,9 @@ export default async function handler(req, res) {
     };
     saveTokens(tokens);
 
-    // Create magic link
-    const baseUrl = process.env.VERCEL_URL 
-      ? `https://${process.env.VERCEL_URL}` 
-      : process.env.NEXTAUTH_URL || 'http://localhost:3000';
+    // Create magic link - prioritize custom domain
+    const baseUrl = process.env.NEXTAUTH_URL || 
+      (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
     const magicLink = `${baseUrl}/api/admin/magic-link?token=${magicToken}&action=verify`;
 
     // Send email using existing email service
@@ -179,14 +178,14 @@ export default async function handler(req, res) {
 
 function handleVerification(req, res, token) {
   if (!token) {
-    return res.status(400).json({ error: 'Token required' });
+    return res.redirect(302, '/admin/login?error=missing-token');
   }
 
   const tokens = cleanExpiredTokens();
   const tokenData = tokens[token];
 
   if (!tokenData || tokenData.used || tokenData.expires < Date.now()) {
-    return res.status(400).json({ error: 'Invalid or expired token' });
+    return res.redirect(302, '/admin/login?error=invalid-token');
   }
 
   // Mark token as used

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 import Layout from '../../components/Layout';
 
 const AdminLogin = () => {
@@ -6,6 +7,17 @@ const AdminLogin = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [message, setMessage] = useState('');
   const [error, setError] = useState('');
+  const router = useRouter();
+
+  useEffect(() => {
+    // Handle error messages from URL parameters
+    const { error: urlError } = router.query;
+    if (urlError === 'invalid-token') {
+      setError('The login link has expired or is invalid. Please request a new one.');
+    } else if (urlError === 'missing-token') {
+      setError('Invalid login link. Please request a new one.');
+    }
+  }, [router.query]);
 
   const handleSendLink = async (e) => {
     e.preventDefault();
