@@ -14,6 +14,7 @@ export default function Document() {
 				<a href="#main" className="skip-link" style={{ position: 'absolute', left: '-9999px', zIndex: 999 }} onFocus={(e) => { e.target.style.left = '0'; e.target.style.position = 'absolute'; e.target.style.backgroundColor = '#000'; e.target.style.color = '#fff'; e.target.style.padding = '10px'; }} onBlur={(e) => { e.target.style.left = '-9999px'; }}>Skip to main content</a>
 				<Main />
 				<NextScript />
+				<script defer src="https://analytics.lacy.sh/script.js" data-website-id="732beb09-5f60-458e-b050-755b4c0a2439" />
 			</body>
 		</Html>
 	)
