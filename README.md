@@ -6,6 +6,20 @@ You can find her at 704-332-5153.
 
 The dev site is hosted on Vercel at [susanmorrow-com.vercel.app](https://susanmorrow-com.vercel.app). Built by [Lacy Morrow](https://lacymorrow.com).
 
+## Screenshots
+
+### Home
+
+![Home page](public/images/screenshot-home.png)
+
+### About
+
+![About page](public/images/screenshot-about.png)
+
+### Services (Couples Therapy)
+
+![Couples Therapy page](public/images/screenshot-services.png)
+
 ---
 
 > Based on [nextjs-starter-forty](https://github.com/codebushi/nextjs-starter-forty) and updated to conform to Next/Vercel in 2020.
