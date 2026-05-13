@@ -3,6 +3,8 @@
 //<li><a href="#" className="icon alt fa-linkedin"><span className="label">LinkedIn</span></a></li>
 //<li><a href="#" className="icon alt fa-twitter"><span className="label">Twitter</span></a></li>
 
+import Link from 'next/link'
+
 const Footer = (props) => (
 	<footer id="footer">
 		<div className="inner">
@@ -14,7 +16,7 @@ const Footer = (props) => (
 			</ul>
 
 			<ul className="copyright">
-				<li>&copy; Susan Morrow, MSW, LCSW 2023 | Therapy in Charlotte, NC</li>
+				<li>&copy; Susan Morrow, MSW, LCSW {new Date().getFullYear()} | Therapy in Charlotte, NC | <Link href="/privacy">Privacy Policy</Link></li>
 			</ul>
 		</div>
 	</footer>

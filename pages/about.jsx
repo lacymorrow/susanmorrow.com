@@ -8,7 +8,7 @@ import BannerLanding from '../components/BannerLanding'
 const About = () => <Layout>
 	<Head>
 		<title>About Susan Morrow, MSW, LCSW | Charlotte Therapist</title>
-		<meta name="description" content="Meet Susan Morrow, a licensed clinical social worker with over 30 years of experience providing therapy in Charlotte, NC. Specialized in Emotionally Focused Therapy, Gottman Method, and evidence-based approaches for individuals, couples, and families." />
+		<meta name="description" content="Meet Susan Morrow, LCSW with 30+ years experience in Charlotte, NC. Specializing in Emotionally Focused Therapy and Gottman Method." />
 	</Head>
 
 	<div>
@@ -18,7 +18,7 @@ const About = () => <Layout>
 			<section id="one">
 				<div className="inner">
 					<header className="major">
-						<h1>30 Years in Private Practice</h1>
+						<h2>30 Years in Private Practice</h2>
 					</header>
 
 					<p>Susan Morrow is a NC-licensed clinical social worker, with extensive experience and training in evidence-based models in individual, couples therapy, and marriage and family therapy. She has advanced level training with both the Gottman Institute and with the International Centre for Excellence in Emotionally Focused Therapy, and had supervision with Dr. Sue Johnson, the founder of Emotionally Focused Therapy. She has assisted at Hold Me Tight weekends for couples in San Francisco, including a couples weekend for 100 couples!</p>
@@ -31,7 +31,7 @@ const About = () => <Layout>
 			</section>
 			<section id="two" className="spotlights">
 				<section>
-					<div className="image"><img src="/images/headshot-2023-2.jpg" alt="Susan Morrow Smiling" /></div>
+					<div className="image"><img src="/images/headshot-2023-2.jpg" alt="Susan Morrow, Charlotte therapist" width="800" height="1200" /></div>
 					<div className="content">
 						<div className="inner">
 							<header className="major">
@@ -52,7 +52,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<a className="image"><img src="/images/block-about-4.png" alt="Professional affiliations and certifications" /></a>
+					<span className="image"><img src="/images/block-about-4.jpg" alt="Professional affiliations and certifications" width="476" height="453" /></span>
 
 					<div className="content">
 						<div className="inner">
@@ -76,7 +76,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<a className="image"><img src="/images/block-about-1.jpg" alt="Publications and research contributions" /></a>
+					<span className="image"><img src="/images/block-about-1.jpg" alt="Publications and research contributions" width="800" height="1200" /></span>
 
 					<div className="content">
 						<div className="inner">

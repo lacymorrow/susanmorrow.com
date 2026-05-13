@@ -4,8 +4,12 @@ export default function Document() {
 	return (
 		<Html lang="en">
 			<Head>
+				<meta charSet="utf-8" />
 				<link rel="icon" href="/favicon.ico" />
 				<link rel="icon" type="image/png" sizes="32x32" href="/favicon.png" />
+				<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
+				<link rel="preconnect" href="https://fonts.googleapis.com" />
+				<link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
 				<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet" />
 				<link href="https://fonts.googleapis.com/css2?family=Quattrocento+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Quattrocento:wght@400;700&display=swap" rel="stylesheet" />
 				<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit" async defer />

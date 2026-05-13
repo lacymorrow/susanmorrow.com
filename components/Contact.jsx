@@ -183,10 +183,11 @@ class Contact extends React.Component {
 									value={this.state.values.phone}
 									onChange={this.handleInputChange} />
 							</div>
-							<div className="hidden" aria-hidden>
+							<div className="hidden" aria-hidden="true">
 								<label htmlFor="address">Email</label>
 								<input type="checkbox" name="address" id="address"
 									value="address"
+									tabIndex={-1}
 									onChange={this.handleCheck} />
 							</div>
 							<div className="field">
@@ -217,7 +218,7 @@ class Contact extends React.Component {
 									<input type="reset" defaultValue="Clear" onClick={this.handleReset} />
 								</li>
 							</ul>
-							<h4 className="form-message">{this.state.isError && `Error: `}{this.state.status}</h4>
+							{this.state.status && <p className="form-message" role="status">{this.state.isError && `Error: `}{this.state.status}</p>}
 						</form>
 					</section>
 					<section className="split">
@@ -241,7 +242,7 @@ class Contact extends React.Component {
 						</section>
 						<section>
 							<div className="contact-method">
-								<a href="https://www.google.com/maps/place/429+E+Worthington+Ave,+Charlotte,+NC+28203/@35.2084558,-80.8575031,17z/data=!3m1!4b1!4m5!3m4!1s0x88569f77f1408bf1:0x1cee1c068e13ac63!8m2!3d35.2084558!4d-80.8553144">
+								<a href="https://www.google.com/maps/place/429+E+Worthington+Ave,+Charlotte,+NC+28203/@35.2084558,-80.8575031,17z/data=!3m1!4b1!4m5!3m4!1s0x88569f77f1408bf1:0x1cee1c068e13ac63!8m2!3d35.2084558!4d-80.8553144" target="_blank" rel="noopener noreferrer">
 									<span className="icon alt fa-home" />
 									<h3>Address</h3>
 									429 E. Worthington Ave.<br />

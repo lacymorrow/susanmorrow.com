@@ -11,7 +11,7 @@ const Menu = (props) => (
 				<li><Link href="/individual"><span onClick={props.onToggleMenu}>Individual Therapy</span></Link></li>
 				<li><Link href="/couples"><span onClick={props.onToggleMenu}>Couples Therapy</span></Link></li>
 				<li><Link href="/family"><span onClick={props.onToggleMenu}>Family Counseling</span></Link></li>
-				{/* <li><Link href="/intensives"><a><span onClick={props.onToggleMenu}>Couples Intensives</span></a></Link></li> */}
+				<li><Link href="/online"><span onClick={props.onToggleMenu}>Online Therapy</span></Link></li>
 			</ul>
 			<ul className="actions vertical">
 				<li><a href="#contact" onClick={props.onToggleMenu} className="button special fit">Contact</a></li>

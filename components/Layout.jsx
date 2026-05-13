@@ -2,9 +2,6 @@ import React from "react";
 import Head from 'next/head'
 import { withRouter } from 'next/router'
 
-
-import ReactGA from 'react-ga';
-
 import Header from './Header'
 import Menu from './Menu'
 import Contact from './Contact'
@@ -16,7 +13,6 @@ class Layout extends React.Component {
         this.state = {
             isMenuVisible: false,
             loading: 'is-loading',
-            gaInit: false
         }
         this.handleToggleMenu = this.handleToggleMenu.bind(this)
     }
@@ -25,19 +21,6 @@ class Layout extends React.Component {
         this.timeoutId = setTimeout(() => {
             this.setState({ loading: '' });
         }, 100);
-
-        const trackingId = "UA-247410-12";
-
-        if (!this.state.gaInit) {
-            ReactGA.initialize(trackingId, {
-                debug: true,
-                gaOptions: { cookieDomain: 'auto' }
-            });
-            this.setState({ gaInit: true })
-        }
-
-        ReactGA.pageview(window.location.pathname + window.location.search);
-
     }
 
     componentWillUnmount() {
@@ -56,7 +39,7 @@ class Layout extends React.Component {
         const router = this.props.router;
         const currentUrl = `https://susanmorrow.us${router.asPath}`;
         const siteTitle = "Susan Morrow MSW, LCSW - Therapy Charlotte, NC";
-        const siteDescription = "Online sessions available! Over 30 years in private practice, Susan Morrow has a solid base of experience providing therapy, consultation, coaching, and training services to individuals, couples, and families.";
+        const siteDescription = "Charlotte therapist with 30+ years experience providing individual, couples, and family therapy. In-person and online sessions available.";
         const siteImage = "https://susanmorrow.us/images/headshot-2023-2.jpg";
 
         const personSchema = {
@@ -257,7 +240,7 @@ class Layout extends React.Component {
             <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
                 <Head>
                     <title>Susan Morrow MSW, LCSW - Therapy Charlotte, NC</title>
-                    <meta name="description" content="Online sessions available! Over 30 years in private practice, Susan Morrow has a solid base of experience providing therapy, consultation, coaching, and training services to individuals, couples, and families." />
+                    <meta name="description" content="Charlotte therapist with 30+ years experience providing individual, couples, and family therapy. In-person and online sessions available." />
                     <link rel="canonical" href={currentUrl} />
                     
                     {/* Open Graph / Facebook */}
@@ -298,8 +281,10 @@ class Layout extends React.Component {
 
                 <div id="wrapper">
                     <Header onToggleMenu={this.handleToggleMenu} />
-                    {this.props.children}
-                    <Contact />
+                    <main>
+                        {this.props.children}
+                        <Contact />
+                    </main>
                     <Footer />
                 </div>
                 <Menu onToggleMenu={this.handleToggleMenu} />
