@@ -10,15 +10,15 @@ The dev site is hosted on Vercel at [susanmorrow-com.vercel.app](https://susanmo
 
 ### Home
 
-![Home page](public/images/screenshot-home.png)
+![Home page](.github/screenshots/screenshot-home.png)
 
 ### About
 
-![About page](public/images/screenshot-about.png)
+![About page](.github/screenshots/screenshot-about.png)
 
 ### Services (Couples Therapy)
 
-![Couples Therapy page](public/images/screenshot-services.png)
+![Couples Therapy page](.github/screenshots/screenshot-services.png)
 
 ---
 
