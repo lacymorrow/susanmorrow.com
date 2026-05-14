@@ -5,5 +5,5 @@ Disallow: /elements
 Disallow: /send
 Disallow: /documents
 
-Sitemap: https://susanmorrow.us/sitemap.xml
+Sitemap: https://www.susanmorrow.us/sitemap.xml
 
