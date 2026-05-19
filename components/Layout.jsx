@@ -37,10 +37,10 @@ class Layout extends React.Component {
 
     render() {
         const router = this.props.router;
-        const currentUrl = `https://susanmorrow.us${router.asPath}`;
-        const siteTitle = "Susan Morrow MSW, LCSW - Therapy Charlotte, NC";
-        const siteDescription = "Charlotte therapist with 30+ years experience providing individual, couples, and family therapy. In-person and online sessions available.";
-        const siteImage = "https://susanmorrow.us/images/headshot-2023-2.jpg";
+        const currentUrl = `https://www.susanmorrow.us${router.asPath}`;
+        const siteTitle = "Marriage Counseling & Therapy Charlotte NC | Susan Morrow, LCSW";
+        const siteDescription = "Marriage counseling and therapy in Charlotte, NC. 30+ years experience in couples, individual, and family counseling. In-person and telehealth available.";
+        const siteImage = "https://www.susanmorrow.us/images/headshot-2023-2.jpg";
 
         const personSchema = {
             "@context": "https://schema.org",
@@ -50,8 +50,8 @@ class Layout extends React.Component {
             "honorificSuffix": "MSW, LCSW",
             "email": "susan@susanmorrow.us",
             "telephone": "(704) 332-5153",
-            "url": "https://susanmorrow.us",
-            "image": "https://susanmorrow.us/images/headshot-2023-2.jpg",
+            "url": "https://www.susanmorrow.us",
+            "image": "https://www.susanmorrow.us/images/headshot-2023-2.jpg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "429 E. Worthington Ave.",
@@ -123,15 +123,15 @@ class Layout extends React.Component {
         const healthProfessionalSchema = {
             "@context": "https://schema.org",
             "@type": "Person",
-            "@id": "https://susanmorrow.us/#person",
+            "@id": "https://www.susanmorrow.us/#person",
             "name": "Susan Morrow",
             "additionalType": "https://schema.org/HealthProfessional",
             "jobTitle": "Licensed Clinical Social Worker",
             "honorificSuffix": "MSW, LCSW",
             "email": "susan@susanmorrow.us",
             "telephone": "(704) 332-5153",
-            "url": "https://susanmorrow.us",
-            "image": "https://susanmorrow.us/images/headshot-2023-2.jpg",
+            "url": "https://www.susanmorrow.us",
+            "image": "https://www.susanmorrow.us/images/headshot-2023-2.jpg",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "429 E. Worthington Ave.",
@@ -160,12 +160,12 @@ class Layout extends React.Component {
         const localBusinessSchema = {
             "@context": "https://schema.org",
             "@type": "LocalBusiness",
-            "@id": "https://susanmorrow.us/#business",
+            "@id": "https://www.susanmorrow.us/#business",
             "name": "Susan Morrow, MSW, LCSW",
-            "image": "https://susanmorrow.us/images/headshot-2023-2.jpg",
+            "image": "https://www.susanmorrow.us/images/headshot-2023-2.jpg",
             "telephone": "(704) 332-5153",
             "email": "susan@susanmorrow.us",
-            "url": "https://susanmorrow.us",
+            "url": "https://www.susanmorrow.us",
             "address": {
                 "@type": "PostalAddress",
                 "streetAddress": "429 E. Worthington Ave.",
@@ -239,8 +239,8 @@ class Layout extends React.Component {
         return (
             <div className={`body ${this.state.loading} ${this.state.isMenuVisible ? 'is-menu-visible' : ''}`}>
                 <Head>
-                    <title>Susan Morrow MSW, LCSW - Therapy Charlotte, NC</title>
-                    <meta name="description" content="Charlotte therapist with 30+ years experience providing individual, couples, and family therapy. In-person and online sessions available." />
+                    <title>Marriage Counseling &amp; Therapy Charlotte NC | Susan Morrow, LCSW</title>
+                    <meta name="description" content="Marriage counseling and therapy in Charlotte, NC. 30+ years experience in couples, individual, and family counseling. In-person and telehealth available." />
                     <link rel="canonical" href={currentUrl} />
                     
                     {/* Open Graph / Facebook */}
@@ -262,7 +262,7 @@ class Layout extends React.Component {
                     {/* Additional SEO */}
                     <meta name="viewport" content="width=device-width, initial-scale=1" />
                     <meta name="author" content="Susan Morrow" />
-                    <meta name="keywords" content="therapy Charlotte NC, couples therapy, individual therapy, family therapy, online therapy, LCSW, licensed clinical social worker, Emotionally Focused Therapy, Gottman Method, Charlotte therapist" />
+                    <meta name="keywords" content="marriage counseling charlotte nc, couples therapy charlotte nc, family counseling charlotte nc, individual therapy, online therapy, LCSW, licensed clinical social worker, Emotionally Focused Therapy, Gottman Method, Charlotte therapist, affordable couples counseling" />
                     
                     {/* Structured Data */}
                     <script
