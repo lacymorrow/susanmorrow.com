@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 const Family = () => <Layout>
 	<Head>
 		<title>Family Therapy Charlotte NC | Susan Morrow, MSW, LCSW</title>
-		<meta name="description" content="Family therapy in Charlotte, NC. Strengthen bonds, improve communication, and navigate challenges together with 30+ years experience." />
+		<meta name="description" content="Family counseling and therapy in Charlotte, NC. Strengthen bonds, improve communication, and navigate challenges together. 30+ years clinical experience." />
 	</Head>
 
 	<div id="main" className="alt">

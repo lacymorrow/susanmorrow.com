@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 const Couples = () => <Layout>
 	<Head>
 		<title>Couples Therapy Charlotte NC | Susan Morrow, MSW, LCSW</title>
-		<meta name="description" content="Couples therapy in Charlotte, NC using Emotionally Focused Therapy and Gottman Method. Restore intimacy and improve communication." />
+		<meta name="description" content="Couples therapy and marriage counseling in Charlotte, NC. Emotionally Focused Therapy and Gottman Method to restore intimacy, rebuild trust, and improve communication." />
 	</Head>
 
 	<div id="main" className="alt">
