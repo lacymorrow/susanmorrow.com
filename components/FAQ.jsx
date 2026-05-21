@@ -17,13 +17,13 @@ const FAQ = ({ heading = 'Frequently Asked Questions', items = [] }) => {
     }
 
     return (
-        <section className="faq-section">
+        <div className="faq-section">
             <header className="major">
                 <h2>{heading}</h2>
             </header>
             <div className="faq-list">
-                {items.map(({ question, answer }, index) => (
-                    <details key={index} className="faq-item">
+                {items.map(({ question, answer }) => (
+                    <details key={question} className="faq-item">
                         <summary className="faq-question">
                             <span>{question}</span>
                             <span className="faq-icon" aria-hidden="true">+</span>
@@ -36,9 +36,9 @@ const FAQ = ({ heading = 'Frequently Asked Questions', items = [] }) => {
             </div>
             <script
                 type="application/ld+json"
-                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema).replace(/</g, '\\u003c') }}
             />
-        </section>
+        </div>
     )
 }
 
