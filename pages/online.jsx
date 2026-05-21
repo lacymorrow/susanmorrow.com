@@ -12,7 +12,7 @@ const Online = () => <Layout>
         <section id="one">
             <div className="inner">
                 <header className="major">
-                    <h1>Online Therapy</h1>
+                    <h1>Online Therapy for NC Residents</h1>
                     <blockquote>Remote counseling for the digital age</blockquote>
                 </header>
                 <span className="image main"><img src="/images/header-video.jpg" alt="Online therapy session via secure video conferencing" width="1200" height="600" /></span>

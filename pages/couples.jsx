@@ -12,7 +12,7 @@ const Couples = () => <Layout>
 		<section id="one">
 			<div className="inner">
 				<header className="major">
-					<h1>Couples Therapy</h1>
+					<h1>Couples Therapy in Charlotte, NC</h1>
 					<blockquote>Develop a lasting, secure bond that provides joy through life&apos;s triumphs, and shelter through tough times. Help for deeper communication, intimacy, marital crisis, and marital enrichment. My 30 years experience working with couples, advanced training in both attachment-based couple therapy - Emotionally Focused Therapy (EFT) with the Gottman Institute, puts your relationships in safe hands.</blockquote>
 				</header>
 				<span className="image main"><img src="/images/header-couples-2.jpg" alt="Couples therapy session helping partners reconnect and improve communication" width="1200" height="600" /></span>

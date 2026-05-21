@@ -12,7 +12,7 @@ const Individual = () => <Layout>
 		<section id="one">
 			<div className="inner">
 				<header className="major">
-					<h1>Individual Therapy</h1>
+					<h1>Individual Therapy in Charlotte, NC</h1>
 					<blockquote>Help with Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</blockquote>
 				</header>
 				<span className="image main"><img src="/images/header-individual-2.jpg" alt="Individual therapy session in Charlotte, North Carolina" width="1200" height="600" /></span>
