@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Image from 'next/image'
 
 import Layout from '../components/Layout'
 
@@ -15,7 +16,7 @@ const Online = () => <Layout>
                     <h1>Online Therapy</h1>
                     <blockquote>Remote counseling for the digital age</blockquote>
                 </header>
-                <span className="image main"><img src="/images/header-video.jpg" alt="Online therapy session via secure video conferencing" width="1200" height="600" /></span>
+                <span className="image main"><Image src="/images/header-video.jpg" alt="Online therapy session via secure video conferencing" width={1200} height={600} priority sizes="(max-width: 736px) 100vw, 75vw" style={{ width: '100%', height: 'auto' }} /></span>
                 <p>We live our lives in a digital age. While in person time is comforting and desirable, it’s at times not practical.</p>
                 <p>I am available to work with you through online or telephone services to optimize our therapy progress. Online therapy uses the same process you might expect at in-person meetings. If for some reason we are unable to meet in-person, I provide these services to help you get the support you need.</p>
                 <p>I am licensed in NC, and am available to NC residents for online individual, couples, and family therapy.</p>

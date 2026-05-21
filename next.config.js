@@ -2,6 +2,15 @@ module.exports = {
   sassOptions: {
     silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin'],
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'gottmanreferralnetwork.com',
+        pathname: '/**',
+      },
+    ],
+  },
   async redirects() {
 		if (process.env.NODE_ENV === 'development') {
 			return [
