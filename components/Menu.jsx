@@ -12,6 +12,8 @@ const Menu = (props) => (
 				<li><Link href="/couples"><span onClick={props.onToggleMenu}>Couples Therapy</span></Link></li>
 				<li><Link href="/family"><span onClick={props.onToggleMenu}>Family Counseling</span></Link></li>
 				<li><Link href="/online"><span onClick={props.onToggleMenu}>Online Therapy</span></Link></li>
+				<li><Link href="/coaching"><span onClick={props.onToggleMenu}>Life Coaching</span></Link></li>
+				<li><Link href="/intensives"><span onClick={props.onToggleMenu}>Couples Intensives</span></Link></li>
 			</ul>
 			<ul className="actions vertical">
 				<li><a href="#contact" onClick={props.onToggleMenu} className="button special fit">Contact</a></li>

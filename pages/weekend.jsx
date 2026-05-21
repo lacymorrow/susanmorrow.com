@@ -17,7 +17,7 @@ const Weekend = () => <Layout>
                 </header>
                 <span className="image main"><img src="/images/pic11.jpg" alt="" /></span>
                 <p>If your relationship needs focused attention, you are experiencing strained communication, or even signs of distress, don’t leave your relationship untended. I offer a two-day, 8- hour, weekend intensive for couples. This in- person experience includes instruction, support, and guidance through progressive series of conversations. Each conversation takes couples a step forward, to rebuild intimacy for a lifetime of love.</p>
-                <p>During covid-19 quarantine, in person couple intensives are on temporary hold. Contact me by email susan@susanmorrow.us to get on the waiting list for future dates. I appreciate your patience.</p>
+                <p>Weekend intensives are scheduled by appointment. Contact me at <a href="mailto:susan@susanmorrow.us">susan@susanmorrow.us</a> to discuss availability and book your session.</p>
             </div>
         </section>
     </div>

@@ -12,8 +12,8 @@ const Family = () => <Layout>
 		<section id="one">
 			<div className="inner">
 				<header className="major">
-					<h1>Family Therapy</h1>
-					<blockquote>Support through family ruptures in challenging times. <br />Re-establish and strengthen family bonds. Develop support strategies for individual family members going through personal struggles. Become a family that suports the health and wellness of all members.</blockquote>
+					<h1>Family Therapy in Charlotte, NC</h1>
+					<blockquote>Support through family ruptures in challenging times. <br />Re-establish and strengthen family bonds. Develop support strategies for individual family members going through personal struggles. Become a family that supports the health and wellness of all members.</blockquote>
 				</header>
 				<span className="image main"><img src="/images/header-family-2.jpg" alt="Family therapy session helping families reconnect and build stronger relationships" width="1200" height="600" /></span>
 				<p>With 30 years of experience as a licensed therapist, I have the training and a practical road map to lead you from stuck places of disconnection into a secure, loving bond. We will work together to build a sustainable bond, to help you to cope in this challenging world.</p>
