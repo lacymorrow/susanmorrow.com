@@ -1,27 +1,21 @@
 import PropTypes from 'prop-types'
 import Link from 'next/link'
 
-// <li><Link href="/documents"><a><span onClick={props.onToggleMenu}>Documents</span></a></Link></li>
 const Menu = (props) => (
 	<nav id="menu">
 		<div className="inner">
 			<ul className="links">
-				<li><Link href="/"><span onClick={props.onToggleMenu}>Home</span></Link></li>
-				<li><Link href="/about"><span onClick={props.onToggleMenu}>About</span></Link></li>
-				<li><Link href="/individual"><span onClick={props.onToggleMenu}>Individual Therapy</span></Link></li>
-				<li><Link href="/couples"><span onClick={props.onToggleMenu}>Couples Therapy</span></Link></li>
-				<li><Link href="/family"><span onClick={props.onToggleMenu}>Family Counseling</span></Link></li>
-				<li><Link href="/online"><span onClick={props.onToggleMenu}>Online Therapy</span></Link></li>
-				<li><Link href="/coaching"><span onClick={props.onToggleMenu}>Life Coaching</span></Link></li>
-				<li><Link href="/intensives"><span onClick={props.onToggleMenu}>Couples Intensives</span></Link></li>
+				<li><Link href="/" onClick={props.onToggleMenu}>Home</Link></li>
+				<li><Link href="/about" onClick={props.onToggleMenu}>About</Link></li>
+				<li><Link href="/individual" onClick={props.onToggleMenu}>Individual Therapy</Link></li>
+				<li><Link href="/couples" onClick={props.onToggleMenu}>Couples Therapy</Link></li>
+				<li><Link href="/family" onClick={props.onToggleMenu}>Family Counseling</Link></li>
+				<li><Link href="/online" onClick={props.onToggleMenu}>Online Therapy</Link></li>
+				<li><Link href="/coaching" onClick={props.onToggleMenu}>Life Coaching</Link></li>
+				<li><Link href="/intensives" onClick={props.onToggleMenu}>Couples Intensives</Link></li>
 			</ul>
 			<ul className="actions vertical">
 				<li><a href="#contact" onClick={props.onToggleMenu} className="button special fit">Contact</a></li>
-				{/* <li>
-                    <Link href="/covid">
-                        <a onClick={props.onToggleMenu} className="button fit">COVID-19 Care</a>
-                    </Link>
-                </li> */}
 			</ul>
 		</div>
 		<a className="close" onClick={props.onToggleMenu} href="#" aria-label="Close menu">Close</a>
