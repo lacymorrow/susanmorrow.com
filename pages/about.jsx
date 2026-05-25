@@ -31,7 +31,7 @@ const About = () => <Layout>
 			</section>
 			<section id="two" className="spotlights">
 				<section>
-					<div className="image"><Image src="/images/headshot-2023-2.jpg" alt="Susan Morrow, Charlotte therapist" width={800} height={1200} sizes="(max-width: 736px) 100vw, 40vw" /></div>
+					<div className="image"><img src="/images/headshot-2023-2.jpg" alt="Susan Morrow, Charlotte therapist" width="800" height="1200" /></div>
 					<div className="content">
 						<div className="inner">
 							<header className="major">
@@ -52,7 +52,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<span className="image"><Image src="/images/block-about-4.jpg" alt="Professional affiliations and certifications" width={476} height={453} sizes="(max-width: 736px) 100vw, 40vw" /></span>
+					<span className="image"><img src="/images/block-about-4.jpg" alt="Professional affiliations and certifications" width="476" height="453" /></span>
 
 					<div className="content">
 						<div className="inner">
@@ -76,7 +76,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<span className="image"><Image src="/images/block-about-1.jpg" alt="Publications and research contributions" width={800} height={1200} sizes="(max-width: 736px) 100vw, 40vw" /></span>
+					<span className="image"><img src="/images/block-about-1.jpg" alt="Publications and research contributions" width="800" height="1200" /></span>
 
 					<div className="content">
 						<div className="inner">

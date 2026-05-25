@@ -1,5 +1,4 @@
 import Head from "next/head"
-import Image from 'next/image'
 
 import Layout from '../components/Layout'
 
@@ -16,7 +15,7 @@ const Intensives = () => <Layout>
                     <h1>Couples Intensives</h1>
                     <blockquote>Structured 4 Hours of Couples Therapy</blockquote>
                 </header>
-                <span className="image main"><Image src="/images/header-couples-2.jpg" alt="Couples intensive therapy session for relationship repair and enrichment" width={1440} height={433} priority sizes="(max-width: 736px) 100vw, 75vw" style={{ width: '100%', height: 'auto' }} /></span>
+                <span className="image main"><img src="/images/header-couples-2.jpg" alt="Couples intensive therapy session for relationship repair and enrichment" /></span>
                 <p>This is a helpful format for couples who have had a marital crisis and need focused attention on repair to their relationship, Pre-marital Couples, and Couples seeking Relationship Enrichment.</p>
             </div>
         </section>
