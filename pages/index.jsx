@@ -110,9 +110,9 @@ const Index = () => <Layout>
 								</div>
 								<span className="image right" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '2rem' }}>
 
-									<a href="https://www.gottman.com/" target="_blank" rel="noopener noreferrer" style={{ border: 'none' }}><Image alt="Gottman Institute approved therapist badge" src="https://gottmanreferralnetwork.com/grn-badge-approved.png" style={{ width: '150px', height: 'auto' }} width={628} height={398} loading="lazy" /></a>
+									<a href="https://www.gottman.com/" target="_blank" rel="noopener noreferrer" style={{ border: 'none' }}><Image alt="Gottman Institute approved therapist badge" src="https://gottmanreferralnetwork.com/grn-badge-approved.png" style={{ width: '150px', height: 'auto' }} width={150} height={150} loading="lazy" /></a>
 									<a href="https://iceeft.com/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: 'column', alignItems: 'center', border: 'none' }}>
-										<Image src="/images/iceeft.png" alt="ICEEFT certified therapist" style={{ width: '150px', height: 'auto' }} width={200} height={90} loading="lazy" />
+										<Image src="/images/iceeft.png" alt="ICEEFT certified therapist" style={{ width: '150px', height: 'auto' }} width={150} height={150} loading="lazy" />
 										<sub><i>International Centre for Emotionally Focused Therapy</i></sub>
 									</a>
 								</span>
