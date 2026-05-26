@@ -4,8 +4,8 @@ Life Strategies, Successful Transitions, Navigating Relationships, Help with Anx
 Goal-focused Coping Tools. Individual Therapy. Life Coaching.
 */
 
+/* eslint-disable @next/next/no-img-element */
 import Link from 'next/link'
-import Image from 'next/image'
 
 import Layout from '../components/Layout'
 import Banner from '../components/Banner'
@@ -82,7 +82,7 @@ const Index = () => <Layout>
 					<div className="row">
 						<div className="4u 12u$(small)">
 							<span className="image fit">
-								<Image src="/images/headshot-2023-chair.jpg" alt="Susan Morrow, licensed clinical social worker in Charlotte NC" width={800} height={968} sizes="(max-width: 736px) 100vw, 33vw" />
+								<img src="/images/headshot-2023-chair.jpg" alt="Susan Morrow, licensed clinical social worker in Charlotte NC" width="800" height="968" />
 							</span>
 						</div>
 						<div className="8u 12u$(small)">
@@ -103,16 +103,16 @@ const Index = () => <Layout>
 										<li><Link href="/about" className="button next">About Susan</Link></li>
 										<li>
 											<a target="_blank" rel="noopener noreferrer" href="https://www.psychologytoday.com/profile/51938" className="sx-verified-seal button special flex align-center">
-												<Image style={{ width: 'auto', maxWidth: '155px', height: 'auto' }} src="/images/logo-psychology-today.svg" alt="Susan Morrow on Psychology Today" width={155} height={50} unoptimized />
+												<img style={{ width: 'auto', maxWidth: '155px' }} src="/images/logo-psychology-today.svg" alt="Susan Morrow on Psychology Today" width="155" height="50" />
 											</a>
 										</li>
 									</ul>
 								</div>
 								<span className="image right" style={{ textAlign: 'center', display: 'flex', alignItems: 'center', flexDirection: 'column', gap: '2rem' }}>
 
-									<a href="https://www.gottman.com/" target="_blank" rel="noopener noreferrer" style={{ border: 'none' }}><Image alt="Gottman Institute approved therapist badge" src="https://gottmanreferralnetwork.com/grn-badge-approved.png" style={{ width: '150px', height: 'auto' }} width={628} height={398} loading="lazy" /></a>
+									<a href="https://www.gottman.com/" target="_blank" rel="noopener noreferrer" style={{ border: 'none' }}><img alt="Gottman Institute approved therapist badge" src="https://gottmanreferralnetwork.com/grn-badge-approved.png" style={{ width: '150px', height: 'auto' }} width="628" height="398" /></a>
 									<a href="https://iceeft.com/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", flexDirection: 'column', alignItems: 'center', border: 'none' }}>
-										<Image src="/images/iceeft.png" alt="ICEEFT certified therapist" style={{ width: '150px', height: 'auto' }} width={200} height={90} loading="lazy" />
+										<img src="/images/iceeft.png" alt="ICEEFT certified therapist" style={{ width: '150px', height: 'auto' }} width="200" height="90" loading="lazy" />
 										<sub><i>International Centre for Emotionally Focused Therapy</i></sub>
 									</a>
 								</span>
