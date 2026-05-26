@@ -103,7 +103,7 @@ const Index = () => <Layout>
 										<li><Link href="/about" className="button next">About Susan</Link></li>
 										<li>
 											<a target="_blank" rel="noopener noreferrer" href="https://www.psychologytoday.com/profile/51938" className="sx-verified-seal button special flex align-center">
-												<img style={{ width: 'auto', maxWidth: '155px' }} src="/images/logo-psychology-today.svg" alt="Susan Morrow on Psychology Today" width="155" height="50" />
+												<img style={{ width: 'auto', maxWidth: '155px', height: 'auto' }} src="/images/logo-psychology-today.svg" alt="Susan Morrow on Psychology Today" width="832" height="184" />
 											</a>
 										</li>
 									</ul>
