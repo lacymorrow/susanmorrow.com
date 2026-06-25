@@ -3,17 +3,36 @@ module.exports = {
     silenceDeprecations: ['legacy-js-api', 'import', 'global-builtin'],
   },
   async redirects() {
+		const redirects = [
+			// Old WordPress-era pages → current equivalents
+			{ source: '/contact', destination: '/', permanent: true },
+			{ source: '/services', destination: '/', permanent: true },
+			{ source: '/online-therapy', destination: '/online', permanent: true },
+			{ source: '/individuals', destination: '/individual', permanent: true },
+			{ source: '/life-coaching', destination: '/coaching', permanent: true },
+			{ source: '/seminars', destination: '/intensives', permanent: true },
+			{ source: '/crew', destination: '/about', permanent: true },
+			// Old static HTML pages
+			{ source: '/Contact.html', destination: '/', permanent: true },
+			{ source: '/Contact.php', destination: '/', permanent: true },
+			{ source: '/Bio.html', destination: '/about', permanent: true },
+			{ source: '/about.html', destination: '/about', permanent: true },
+			{ source: '/Couples.html', destination: '/couples', permanent: true },
+			{ source: '/Services.html', destination: '/', permanent: true },
+			{ source: '/Location.html', destination: '/about', permanent: true },
+			{ source: '/Welcome.html', destination: '/', permanent: true },
+			{ source: '/Bookstore.html', destination: '/', permanent: true },
+		]
+
 		if (process.env.NODE_ENV === 'development') {
-			return [
-				{
-					source: '/elements',
-					destination: '/',
-					permanent: false,
-				},
-			]
+			redirects.push({
+				source: '/elements',
+				destination: '/',
+				permanent: false,
+			})
 		}
 
-		return []
+		return redirects
   },
   async headers() {
     return [
