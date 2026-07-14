@@ -13,6 +13,7 @@ const Menu = (props) => (
 				<li><Link href="/online" onClick={props.onToggleMenu}>Online Therapy</Link></li>
 				<li><Link href="/coaching" onClick={props.onToggleMenu}>Life Coaching</Link></li>
 				<li><Link href="/intensives" onClick={props.onToggleMenu}>Couples Intensives</Link></li>
+				<li><Link href="/weekend" onClick={props.onToggleMenu}>Weekend Intensives</Link></li>
 			</ul>
 			<ul className="actions vertical">
 				<li><a href="#contact" onClick={props.onToggleMenu} className="button special fit">Contact</a></li>

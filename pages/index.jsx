@@ -45,7 +45,7 @@ const Index = () => <Layout>
 
 		<div id="main">
 			<section id="one" className="tiles">
-				<article style={{ backgroundImage: `url('/images/block-individual-3.jpg')` }}>
+				<article style={{ backgroundImage: `url('/images/block-individual-2.jpg')` }}>
 					<header className="major">
 						<h3>Individual Therapy</h3>
 						<p>Help for Anxiety, Depression, Family Issues, Addictions, Trauma, and Loss.</p>
