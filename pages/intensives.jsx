@@ -1,4 +1,5 @@
 import Head from "next/head"
+import Link from 'next/link'
 
 import Layout from '../components/Layout'
 
@@ -17,6 +18,7 @@ const Intensives = () => <Layout>
                 </header>
                 <span className="image main"><img src="/images/header-couples-2.jpg" alt="Couples intensive therapy session for relationship repair and enrichment" width="1440" height="433" /></span>
                 <p>This is a helpful format for couples who have had a marital crisis and need focused attention on repair to their relationship, Pre-marital Couples, and Couples seeking Relationship Enrichment.</p>
+                <p>Prefer a longer format? <Link href="/weekend">Weekend intensives</Link> offer two days of focused, in-person work for couples who want deeper progress in a single stretch.</p>
             </div>
         </section>
     </div>
