@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 const Intensives = () => <Layout>
     <Head>
         <title>Couples Intensives Charlotte NC | Susan Morrow, MSW, LCSW</title>
-        <meta name="description" content="Intensive 4-hour couples therapy sessions in Charlotte, NC for marital crisis, pre-marital counseling, and relationship enrichment. Focused, evidence-based approach." />
+        <meta name="description" content="Intensive 4-hour couples therapy sessions in Charlotte, NC for marital crisis, pre-marital counseling, and relationship enrichment." />
     </Head>
 
     <div id="main" className="alt">
