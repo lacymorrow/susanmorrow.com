@@ -52,7 +52,7 @@ const About = () => <Layout>
 				</section>
 				<section>
 
-					<span className="image"><img src="/images/block-about-4.jpg" alt="Professional affiliations and certifications" width="476" height="453" /></span>
+					<span className="image"><img src="/images/block-about-4.jpg" alt="Couple relaxing together on the grass" width="952" height="933" /></span>
 
 					<div className="content">
 						<div className="inner">

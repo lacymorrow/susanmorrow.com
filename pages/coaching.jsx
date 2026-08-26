@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 const Coaching = () => <Layout>
     <Head>
         <title>Life Coaching Charlotte NC | Susan Morrow, MSW, LCSW</title>
-        <meta name="description" content="Goal-focused life coaching in Charlotte, NC for relationships, business, and personal growth. Action-oriented strategies to overcome obstacles and achieve success." />
+        <meta name="description" content="Goal-focused life coaching in Charlotte, NC for relationships, business, and personal growth. Practical strategies to overcome obstacles." />
     </Head>
 
     <div id="main" className="alt">

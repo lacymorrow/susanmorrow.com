@@ -45,6 +45,7 @@ class Layout extends React.Component {
         const personSchema = {
             "@context": "https://schema.org",
             "@type": "Person",
+            "@id": "https://www.susanmorrow.us/#person",
             "name": "Susan Morrow",
             "jobTitle": "Licensed Clinical Social Worker",
             "honorificSuffix": "MSW, LCSW",
@@ -62,15 +63,21 @@ class Layout extends React.Component {
             },
             "alumniOf": {
                 "@type": "EducationalOrganization",
-                "name": "University of Georgia",
-                "department": "School of Social Work"
+                "name": "University of Georgia School of Social Work"
+            },
+            "hasCredential": {
+                "@type": "EducationalOccupationalCredential",
+                "credentialCategory": "Professional License",
+                "recognizedBy": {
+                    "@type": "Organization",
+                    "name": "North Carolina Board of Social Work"
+                }
             },
             "hasOccupation": {
                 "@type": "Occupation",
                 "occupationLocation": {
                     "@type": "City",
-                    "name": "Charlotte",
-                    "addressRegion": "NC"
+                    "name": "Charlotte"
                 },
                 "skills": [
                     "Psychotherapy",
@@ -118,43 +125,6 @@ class Layout extends React.Component {
                     "url": "https://www.agpa.org/"
                 }
             ]
-        };
-
-        const healthProfessionalSchema = {
-            "@context": "https://schema.org",
-            "@type": "Person",
-            "@id": "https://www.susanmorrow.us/#person",
-            "name": "Susan Morrow",
-            "additionalType": "https://schema.org/HealthProfessional",
-            "jobTitle": "Licensed Clinical Social Worker",
-            "honorificSuffix": "MSW, LCSW",
-            "email": "susan@susanmorrow.us",
-            "telephone": "(704) 332-5153",
-            "url": "https://www.susanmorrow.us",
-            "image": "https://www.susanmorrow.us/images/headshot-2023-2.jpg",
-            "address": {
-                "@type": "PostalAddress",
-                "streetAddress": "429 E. Worthington Ave.",
-                "addressLocality": "Charlotte",
-                "addressRegion": "NC",
-                "postalCode": "28203",
-                "addressCountry": "US"
-            },
-            "medicalSpecialty": [
-                "Psychotherapy",
-                "Couples Therapy",
-                "Family Therapy",
-                "Individual Therapy",
-                "Clinical Social Work"
-            ],
-            "hasCredential": {
-                "@type": "EducationalOccupationalCredential",
-                "credentialCategory": "Professional License",
-                "recognizedBy": {
-                    "@type": "Organization",
-                    "name": "North Carolina Board of Social Work"
-                }
-            }
         };
 
         const localBusinessSchema = {
@@ -268,10 +238,6 @@ class Layout extends React.Component {
                     <script
                         type="application/ld+json"
                         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
-                    />
-                    <script
-                        type="application/ld+json"
-                        dangerouslySetInnerHTML={{ __html: JSON.stringify(healthProfessionalSchema) }}
                     />
                     <script
                         type="application/ld+json"

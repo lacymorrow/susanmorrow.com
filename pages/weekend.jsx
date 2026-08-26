@@ -5,7 +5,7 @@ import Layout from '../components/Layout'
 const Weekend = () => <Layout>
     <Head>
         <title>Couples Intensive Therapy</title>
-        <meta name="description" content="Weekend intensive sessions are available for faster progress, scheduling convenience." />
+        <meta name="description" content="Two-day weekend couples therapy intensives in Charlotte, NC. Eight hours of focused, guided conversations to rebuild intimacy and connection." />
     </Head>
 
     <div id="main" className="alt">
@@ -15,7 +15,7 @@ const Weekend = () => <Layout>
                     <h1>Couples Intensive Therapy</h1>
                     <blockquote>Weekend intensive session are available for faster progress, scheduling convenience.</blockquote>
                 </header>
-                <span className="image main"><img src="/images/pic11.jpg" alt="" width="864" height="259" /></span>
+                <span className="image main"><img src="/images/pic11.jpg" alt="Couple holding hands during a weekend therapy intensive" width="864" height="259" /></span>
                 <p>If your relationship needs focused attention, you are experiencing strained communication, or even signs of distress, don’t leave your relationship untended. I offer a two-day, 8- hour, weekend intensive for couples. This in- person experience includes instruction, support, and guidance through progressive series of conversations. Each conversation takes couples a step forward, to rebuild intimacy for a lifetime of love.</p>
                 <p>Weekend intensives are scheduled by appointment. Contact me at <a href="mailto:susan@susanmorrow.us">susan@susanmorrow.us</a> to discuss availability and book your session.</p>
             </div>
