@@ -9,7 +9,7 @@ const DEFAULT_RECIPIENT = 'morrowsus@gmail.com';
 // delivering to Susan. When the form is submitted with the sentinel sender
 // address, the message is rerouted to an inbox we control instead.
 const TEST_SENDER_EMAIL = (process.env.CONTACT_TEST_EMAIL || 'test@test.com').trim().toLowerCase();
-const TEST_RECIPIENT = process.env.CONTACT_TEST_RECIPIENT || 'admin@buildandsurf.com';
+const TEST_RECIPIENT = process.env.CONTACT_TEST_RECIPIENT || 'admin@buildandserve.com';
 
 // Decides who receives the message. Real inquiries go to Susan
 // (RECEIVING_EMAIL); submissions from the sentinel test address are diverted
