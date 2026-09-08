@@ -2,8 +2,9 @@ name: Contact form health check
 
 # LAC-3569: verify the contact form works every day so it can never silently
 # break again. Two layers:
-#   1. /api/health/contact — confirms the email provider is configured and its
-#      credentials are still valid (no email sent).
+#   1. /api/health/contact — confirms the email provider is configured, its
+#      credentials are still valid, and the recipient is not on Resend's
+#      suppression list (LAC-3798) (no email sent).
 #   2. POST /api/send-email with the honeypot tripped — confirms the serverless
 #      route is deployed and responding 200 (also sends no email).
 # If either fails the job fails, and GitHub emails the repo owner. Add a Slack
