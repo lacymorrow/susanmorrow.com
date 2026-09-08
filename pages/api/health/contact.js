@@ -2,8 +2,9 @@
  * Contact-form health check (LAC-3569).
  *
  * Verifies the configuration that historically takes the contact form down —
- * a missing/revoked email-provider key or a missing "from"/"to" address —
- * WITHOUT sending a real email. A daily CI job (see
+ * a missing/revoked email-provider key, a missing "from"/"to" address, or a
+ * recipient that Resend has put on its suppression list (LAC-3798) — WITHOUT
+ * sending a real email. A daily CI job (see
  * .github/workflows/contact-form-healthcheck.yml) hits this endpoint and pages
  * us the moment any check fails, so the form can't silently break again.
  *
@@ -13,6 +14,7 @@
  */
 
 const RESEND_DOMAINS_URL = 'https://api.resend.com/domains';
+const RESEND_SUPPRESSIONS_URL = 'https://api.resend.com/suppressions';
 
 const isAuthorized = (req) => {
 	const expected = process.env.HEALTHCHECK_TOKEN;
@@ -40,6 +42,46 @@ const checkResend = async () => {
 		return { name: 'resend_api_key', ok: true, detail: 'valid' };
 	} catch (err) {
 		return { name: 'resend_api_key', ok: false, detail: `Resend request failed: ${err.message}` };
+	}
+};
+
+// Confirms the recipient address is NOT on Resend's account suppression list.
+// This is the failure that caused LAC-3798: susan@susanmorrow.us hard-bounced
+// once, Resend added it to the account-wide suppression list, and every
+// subsequent contact-form inquiry was silently dropped (last_event=suppressed)
+// for weeks. Config looked healthy the whole time — key valid, from/to set — so
+// the other checks never fired. A suppressed recipient means legitimate email
+// is being blocked, so we treat it as a hard failure.
+const checkRecipientNotSuppressed = async () => {
+	const key = process.env.RESEND_API_KEY;
+	const recipient = (process.env.RECEIVING_EMAIL || '').trim().toLowerCase();
+	if (!key) return { name: 'recipient_not_suppressed', ok: false, detail: 'RESEND_API_KEY not set' };
+	if (!recipient) {
+		// No explicit recipient; send-email.js falls back to a default. Nothing to check.
+		return { name: 'recipient_not_suppressed', ok: true, detail: 'no RECEIVING_EMAIL set (using code fallback)' };
+	}
+
+	try {
+		const response = await fetch(RESEND_SUPPRESSIONS_URL, {
+			headers: { Authorization: `Bearer ${key}` },
+		});
+		if (!response.ok) {
+			// Don't fail the whole check on a suppressions-API hiccup; report it.
+			return { name: 'recipient_not_suppressed', ok: true, detail: `could not read suppressions (HTTP ${response.status})` };
+		}
+		const body = await response.json();
+		const list = Array.isArray(body?.data) ? body.data : [];
+		const hit = list.find((s) => (s?.email || '').trim().toLowerCase() === recipient);
+		if (hit) {
+			return {
+				name: 'recipient_not_suppressed',
+				ok: false,
+				detail: `${recipient} is SUPPRESSED by Resend (origin: ${hit.origin || 'unknown'}, since ${hit.created_at || 'unknown'}) — inquiries are being silently dropped`,
+			};
+		}
+		return { name: 'recipient_not_suppressed', ok: true, detail: `${recipient} not suppressed` };
+	} catch (err) {
+		return { name: 'recipient_not_suppressed', ok: true, detail: `suppressions check failed: ${err.message}` };
 	}
 };
 
@@ -78,6 +120,8 @@ const handler = async (req, res) => {
 			detail: process.env.RESEND_FROM ? 'set' : 'RESEND_FROM not set (using onboarding@resend.dev fallback)',
 		});
 		checks.push(await checkResend());
+		// LAC-3798: a suppressed recipient silently drops every inquiry.
+		checks.push(await checkRecipientNotSuppressed());
 	}
 
 	const ok = checks.every((c) => c.ok);
