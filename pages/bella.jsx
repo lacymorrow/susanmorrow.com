@@ -18,7 +18,7 @@ const bellaFAQs = [
 	}
 ];
 
-const Bella = () => <Layout>
+const Bella = () => <Layout image="https://www.susanmorrow.us/images/bella.jpg">
 	<Head>
 		<title>Meet Bella | Canine-Assisted Therapy in Charlotte, NC | Susan Morrow, LCSW</title>
 		<meta name="description" content="Bella is the dog who sits in on many of Susan Morrow's in-person therapy sessions in Charlotte, NC. She reads the room and settles in close when clients need comfort." />
@@ -31,6 +31,7 @@ const Bella = () => <Layout>
 					<h1>Meet Bella</h1>
 					<blockquote>The calmest member of my Charlotte practice.</blockquote>
 				</header>
+				<span className="image right stack-small"><img src="/images/bella.jpg" alt="Bella, a fluffy cream-colored dog, looking at the camera" width="900" height="1200" /></span>
 
 				<p>Bella sits in on many of my in-person sessions. She reads the emotional energy in a room better than most people do. When a client is anxious or grieving, she notices, gets up, and settles in close to them. Often that means lying at their feet. She doesn&apos;t ask for anything.</p>
 				<p>A warm, steady animal nearby helps a lot of people relax, especially in a first session or when a conversation turns hard. Therapy works best when you feel safe, and Bella is good at that part.</p>
