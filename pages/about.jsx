@@ -26,6 +26,7 @@ const About = () => <Layout>
 						<br />Susan is a certified supervisor for therapists pursuing clinical social work licensure in NC.</p>
 					<p>Susan has worked in in-patient and out-patient agency clinical settings, has delivered parenting programs for families of at-risk teenagers, and has provided counseling integrating psychotherapy with spirituality, from a Jungian perspective She has spoken at local and national conferences on mental health and wellness topics, and published papers on the connection between biology and psychology.</p>
 					<p>Susan is a former competitive runner, mindfulness meditation practitioner, visual artist, and nature lover.  She brings compassion, insight and humor into the therapy journey.</p>
+					<p>Many in-person sessions include Bella, Susan&apos;s dog, who has a knack for sensing when someone needs comfort. <Link href="/bella">Meet Bella</Link>.</p>
 
 				</div>
 			</section>
