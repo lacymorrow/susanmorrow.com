@@ -40,7 +40,7 @@ class Layout extends React.Component {
         const currentUrl = `https://www.susanmorrow.us${router.asPath}`;
         const siteTitle = "Marriage Counseling & Therapy Charlotte NC | Susan Morrow, LCSW";
         const siteDescription = "Marriage counseling and therapy in Charlotte, NC. 30+ years experience in couples, individual, and family counseling. In-person and telehealth available.";
-        const siteImage = "https://www.susanmorrow.us/images/headshot-2023-2.jpg";
+        const siteImage = this.props.image || "https://www.susanmorrow.us/images/headshot-2023-2.jpg";
 
         const personSchema = {
             "@context": "https://schema.org",

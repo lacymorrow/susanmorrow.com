@@ -44,6 +44,15 @@
 			top: 0.25em;
 		}
 
+		&.stack-small {
+			@include breakpoint(small) {
+				display: block;
+				float: none;
+				max-width: 70%;
+				margin: 0 auto _size(element-margin) auto;
+			}
+		}
+
 		&.fit {
 			display: block;
 			margin: 0 0 _size(element-margin) 0;
